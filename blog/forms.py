@@ -15,8 +15,10 @@ class PostBodyModelForm(forms.ModelForm):
 
 
 class PostBodyInlineFormSet(BaseInlineFormSet):
+
     def __init__(self, *args, **kwargs):
-        kwargs['initial'] = [
-            {'language': 'RU'}, {'language': 'UA'}, {'language': 'EN'}
-        ]
+        kwargs['initial'] = [{'language': x[0]} for x in PostBody.languages]
+        self.can_delete = False
         super(PostBodyInlineFormSet, self).__init__(*args, **kwargs)
+        for form in self.forms:
+            form.empty_permitted = False

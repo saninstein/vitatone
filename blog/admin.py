@@ -12,7 +12,8 @@ class PostBodyInline(admin.StackedInline):
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('id',)
+    list_display = ('id', 'name')
+    readonly_fields = ('image_tag',)
     inlines = [PostBodyInline]
 
 
