@@ -11,6 +11,7 @@ from uuslug import uuslug
 def get_image_path(inst, name):
     return f"post_{inst.pk}/{get_uniq_name(inst, name)}"
 
+
 class Post(models.Model):
 
     class Meta:
@@ -58,13 +59,11 @@ class PostBody(models.Model):
         verbose_name = "Текст статьи"
         verbose_name_plural = "Тексты статей"
 
-
     languages = (
-        ("RU", "RU"),
-        ("UA", "UA"),
-        ("EN", "EN"),
+        ("ru", "ru"),
+        ("uk", "uk"),
+        ("en", "en"),
     )
-
 
     _slug_length = 100
 

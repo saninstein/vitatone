@@ -1,0 +1,95 @@
+{
+	"category1": 
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4_3.png",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> МультиОмега – мультивітамінний сироп з високим вмістом Омега-3</span>",
+            "url": "multiomega.html"
+        },
+		{
+			"name": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники Мультивітамін",
+			"src": "img/products/product1.png?v=2",
+			"caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> льодяники Мультивітамін</span>",
+			"url": "multivitamine.html"
+		},
+		{
+			"name": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники з вітаміном С",
+			"src": "img/products/product2_2.png",
+			"caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> льодяники з вітаміном С</span>",
+			"url": "vitamine-c.html"
+		},
+		{
+			"name": "Vitamin E2",
+			"src": "img/products/product3_2.png",
+			"caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> льодяники при захитуванні та нудоті з імбиром та м'ятою</span>",
+			"url": "ukachivanie.html"
+		},
+        {
+            "name": "<span class='vitatone'>VITATONE<span> Kids</span></span> - подарочный набор для детей",
+            "src": "img/products/gift-slide.png",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITATONE<span> Kids</span></span> - подарочный набор для детей</span>",
+            "url": "nabor.html"
+        },
+        {
+            "name": "<span class='vitatone'>VITATONE<span> Kids</span></span> - витаминно-минеральный комплекс в виде желейных пастилок",
+            "src": "img/products/jeleyki-slide.png",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITATONE<span> Kids</span></span> - витаминно-минеральный комплекс в виде желейных пастилок</span>",
+            "url": "jeleyki.html"
+        },
+        {
+            "name": "<span class='vitatone'>VITATONE<span> Kids</span></span> - витаминно-минеральный комплекс в виде шипучих таблеток",
+            "src": "img/products/shipuchie-slide.png",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITATONE<span> Kids</span></span> - витаминно-минеральный комплекс в виде шипучих таблеток</span>",
+            "url": "shipuchie.html"
+        }
+	],
+	"category2": 
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4_3.png",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> МультиОмега – мультивітамінний сироп з високим вмістом Омега-3</span>",
+            "url": "multiomega.html"
+        }
+	],
+	"category6": 
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4_3.png",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> МультиОмега – мультивітамінний сироп з високим вмістом Омега-3</span>",
+            "url": "multiomega.html"
+        },
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники Мультивітамін",
+            "src": "img/products/product1.png?v=2",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> льодяники Мультивітамін</span>",
+            "url": "multivitamine.html"
+        },
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники з вітаміном С",
+            "src": "img/products/product2_2.png",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> льодяники з вітаміном С</span>",
+            "url": "vitamine-c.html"
+        }
+	],
+	"category7":
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4_3.png",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> МультиОмега – мультивітамінний сироп з високим вмістом Омега-3</span>",
+            "url": "multiomega.html"
+        }
+	],
+	"category8": 
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4_3.png",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> МультиОмега – мультивітамінний сироп з високим вмістом Омега-3</span>",
+            "url": "multiomega.html"
+        }
+	]
+}

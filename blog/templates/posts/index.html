@@ -1,3 +1,6 @@
 {% for post in posts %}
-    {{ post.name }}
+    <h3>{{ post.name }}:</h3>
+    {% for post_body in post.postbody_set.all %}
+        <a href="{% url 'blog:post' post_body.language post_body.slug %}">{{ post_body.title }}</a><br>
+    {% endfor %}
 {% endfor %}

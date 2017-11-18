@@ -1,0 +1,134 @@
+{
+	"category1": 
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4.png?v=2",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> MultiOmega – мультивітамінний сироп з великим вмістом Омега 3</span>",
+            "url": "/"
+        },
+		{
+			"name": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники Мультивітамін",
+			"src": "img/products/product1.png?v=2",
+			"caption": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники Мультивітамін – простий і смачний спосіб поповнити щоденний раціон дитини добовою нормою вітамінів. Кожен льодяник містить вітаміни А, В5, В6, В7, В9, В12 та вітамін С і випускається в чотирьох різних смаках: мультифрукт, кавун, малина й виноград.",
+			"url": "/"
+		},
+		{
+			"name": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники з вітаміном С",
+			"src": "img/products/product2.png?v=2",
+			"caption": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники з вітаміном С допомагають зміцнити імунітет дитини, забезпечивши її організм вітаміном С у необхідній кількості. Він бере участь в обмінних процесах, допомагає дитині бути фізично витривалою і захищає її від хвороб.",
+			"url": "/"
+		},
+		{
+			"name": "Vitamin E2",
+			"src": "img/products/product3.png?v=2",
+			"caption": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники при захитуванні та нудоті з імбиром та м’ятою дають змогу легко й швидко позбутися неприємного відчуття захитування у транспорті, у літаку чи в подорожі на воді. Імбир та м’ята добре знімають відчуття нудоти у дітей та дорослих.",
+			"url": "/"
+		}
+	],
+	"category2": 
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4.png?v=2",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> MultiOmega – мультивітамінний сироп з великим вмістом Омега 3</span>",
+            "url": "/"
+        }
+	],
+	"category3": 
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4.png?v=2",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> MultiOmega – мультивітамінний сироп з великим вмістом Омега 3</span>",
+            "url": "/"
+        }
+	],
+	"category4": 
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4.png?v=2",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> MultiOmega – мультивітамінний сироп з великим вмістом Омега 3</span>",
+            "url": "/"
+        },
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники Мультивітамін",
+            "src": "img/products/product1.png?v=2",
+            "caption": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники Мультивітамін – простий і смачний спосіб поповнити щоденний раціон дитини добовою нормою вітамінів. Кожен льодяник містить вітаміни А, В5, В6, В7, В9, В12 та вітамін С і випускається в чотирьох різних смаках: мультифрукт, кавун, малина й виноград.",
+            "url": "/"
+        },
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники з вітаміном С",
+            "src": "img/products/product2.png?v=2",
+            "caption": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники з вітаміном С допомагають зміцнити імунітет дитини, забезпечивши її організм вітаміном С у необхідній кількості. Він бере участь в обмінних процесах, допомагає дитині бути фізично витривалою і захищає її від хвороб.",
+            "url": "/"
+        },
+        {
+            "name": "Vitamin E2",
+            "src": "img/products/product3.png?v=2",
+            "caption": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники при захитуванні та нудоті з імбиром та м’ятою дають змогу легко й швидко позбутися неприємного відчуття захитування у транспорті, у літаку чи в подорожі на воді. Імбир та м’ята добре знімають відчуття нудоти у дітей та дорослих.",
+            "url": "/"
+        }
+	],
+	"category5": 
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4.png?v=2",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> MultiOmega – мультивітамінний сироп з великим вмістом Омега 3</span>",
+            "url": "/"
+        },
+        {
+            "name": "Vitamin E2",
+            "src": "img/products/product3.png?v=2",
+            "caption": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники при захитуванні та нудоті з імбиром та м’ятою дають змогу легко й швидко позбутися неприємного відчуття захитування у транспорті, у літаку чи в подорожі на воді. Імбир та м’ята добре знімають відчуття нудоти у дітей та дорослих.",
+            "url": "/"
+        }
+	],
+	"category6": 
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4.png?v=2",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> MultiOmega – мультивітамінний сироп з великим вмістом Омега 3</span>",
+            "url": "/"
+        },
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники Мультивітамін",
+            "src": "img/products/product1.png?v=2",
+            "caption": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники Мультивітамін – простий і смачний спосіб поповнити щоденний раціон дитини добовою нормою вітамінів. Кожен льодяник містить вітаміни А, В5, В6, В7, В9, В12 та вітамін С і випускається в чотирьох різних смаках: мультифрукт, кавун, малина й виноград.",
+            "url": "/"
+        },
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники з вітаміном С",
+            "src": "img/products/product2.png?v=2",
+            "caption": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники з вітаміном С допомагають зміцнити імунітет дитини, забезпечивши її організм вітаміном С у необхідній кількості. Він бере участь в обмінних процесах, допомагає дитині бути фізично витривалою і захищає її від хвороб.",
+            "url": "/"
+        },
+        {
+            "name": "Vitamin E2",
+            "src": "img/products/product3.png?v=2",
+            "caption": "<span class='vitatone'>VITA<span>TONE</span></span> льодяники при захитуванні та нудоті з імбиром та м’ятою дають змогу легко й швидко позбутися неприємного відчуття захитування у транспорті, у літаку чи в подорожі на воді. Імбир та м’ята добре знімають відчуття нудоти у дітей та дорослих.",
+            "url": "/"
+        }
+	],
+	"category7":
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4.png?v=2",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> MultiOmega – мультивітамінний сироп з великим вмістом Омега 3</span>",
+            "url": "/"
+        }
+	],
+	"category8": 
+	[
+        {
+            "name": "<span class='vitatone'>VITA<span>TONE</span></span> MultiOmega",
+            "src": "img/products/product4.png?v=2",
+            "caption": "<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> MultiOmega – мультивітамінний сироп з великим вмістом Омега 3</span>",
+            "url": "/"
+        }
+	]
+}

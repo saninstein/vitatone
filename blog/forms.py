@@ -1,9 +1,11 @@
 from django import forms
 from django.forms.models import BaseInlineFormSet
+from ckeditor.widgets import CKEditorWidget
 from .models import PostBody
 
 
 class PostBodyModelForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorWidget())
     class Meta:
         model = PostBody
         fields = ["language", "title", "text"]
