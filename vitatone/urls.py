@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from .settings import MEDIA_URL, MEDIA_ROOT#, STATIC_URL, STATIC_ROOT
 
 urlpatterns = [
+    path('', include('products.urls')),
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls')),
-    path('', include('products.urls'))
+    path('blog/', include('blog.urls'))
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT) #+ static(STATIC_URL, document_root=MEDIA_URL)

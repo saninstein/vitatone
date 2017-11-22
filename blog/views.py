@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.views.generic import ListView, DetailView
 from .models import Post, PostBody
 from products.models import ProductBody
@@ -21,7 +22,11 @@ class PostDetailView(DetailView):
 
     def get_template_names(self):
         lang = self.kwargs.get('lang', 'ru')
-        return [name[1] for name in self.template_names if name[0] == lang]
+        template = [name[1] for name in self.template_names if name[0] == lang]
+        if len(template):
+            return template
+        else:
+            raise Http404
 
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
@@ -31,6 +36,4 @@ class PostDetailView(DetailView):
         context['link'] = { x.language: x.get_absolute_url()  for x in foreign_posts}
         context['posts'] = PostBody.objects.filter(language=lang).exclude(post_id=exclude_id)[:3]
         context['products'] = ProductBody.objects.filter(language=lang)[:3]
-
-
         return context

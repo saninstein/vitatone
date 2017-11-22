@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.utils.html import mark_safe
 from .utils import get_image_path
 from uuslug import uuslug
+from products.models import Page
 
 
 class Post(models.Model):
@@ -34,7 +35,7 @@ class Post(models.Model):
         return self
 
     def __str__(self):
-        return self.postbody_set.first().title
+        return self.postbody_set.first().name
 
     def save(self, *args, **kwargs):
         if self.pk is None:
@@ -50,35 +51,18 @@ def on_delete_post(sender, instance, using, **kwargs):
     shutil.rmtree(path.dirname(instance.image.path))
 
 
-class PostBody(models.Model):
+class PostBody(Page):
 
     class Meta:
         verbose_name = "Текст статьи"
         verbose_name_plural = "Тексты статей"
 
-    languages = (
-        ("ru", "ru"),
-        ("uk", "uk"),
-        ("en", "en"),
-    )
-
-    _slug_length = 100
-
-    title = models.CharField(max_length=100, default="", verbose_name="Заголовок", help_text="Введите заголовк")
     text = models.TextField(max_length=5000, default="", verbose_name="Текст", help_text="Введите текст")
-    language = models.CharField(max_length=10, choices=languages, default=languages[0][0], verbose_name="Язык")
-    slug = models.SlugField(max_length=_slug_length, default="", unique=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.title
-
     def get_absolute_url(self):
-        if self.language == 'ru':
-            return reverse("blog:post_ru", args=[self.slug])
-        else:
-            return reverse("blog:post", args=[self.language, self.slug])
+        return super(PostBody, self).get_absolute_url(
+            "blog:post_ru", "blog:post"
+        )
 
-    def save(self, *args, **kwargs):
-        self.slug = uuslug(self.title, instance=self, max_length=self._slug_length)
-        super(PostBody, self).save(*args, **kwargs)
+

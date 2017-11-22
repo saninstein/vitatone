@@ -6,9 +6,10 @@ from .models import PostBody
 
 class PostBodyModelForm(forms.ModelForm):
     text = forms.CharField(widget=CKEditorWidget())
+
     class Meta:
         model = PostBody
-        fields = ["language", "title", "text"]
+        fields = ["language", "name", "text", "title", "description", "keywords"]
         widgets = {
             'language': forms.TextInput(
                 attrs={'readonly': 'readonly', 'style': 'border-color:white;'}

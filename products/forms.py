@@ -7,7 +7,7 @@ class ProductBodyModelForm(forms.ModelForm):
 
     class Meta:
         model = ProductBody
-        fields = ["language", "name"]
+        fields = ["language", "name", "title", "description", "keywords"]
         widgets = {
             'language': forms.TextInput(
                 attrs={'readonly': 'readonly', 'style': 'border-color:white;'}

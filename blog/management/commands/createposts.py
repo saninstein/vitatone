@@ -16,7 +16,7 @@ class Command(BaseCommand):
 
             for l, _ in PostBody.languages:
                 post_body = PostBody()
-                post_body.title = f"Test Заголовок {l} {i}"
+                post_body.name = f"Test Заголовок {l} {i}"
                 post_body.text = "Текст"
                 post_body.language = l
                 post_body.post = post

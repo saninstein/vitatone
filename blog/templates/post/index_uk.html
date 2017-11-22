@@ -2,7 +2,13 @@
 {% load static %}
 
 {% block lang %}ua{% endblock %}
-{% block title %}{{ post_body.title }}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    {% with item as post_body %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock %}
+{% block title %}{% if post_body.title %}{{ post_body.title }}{% else %}{{ post_body.name }}{% endif %}{% endblock %}
 {% block header %}
 <!-- Preloader -->
     <div id="preloader">
@@ -107,7 +113,7 @@
                       <div class="image"><img src="{{ post.post.image.url }}" alt="alt"></div>
                       <div class="hover">
                         <div class="title">
-                          <h4>{{ post.title }}</h4>
+                          <h4>{{ post.name }}</h4>
                         </div>
                         <div class="descr">
                           <p>{{ post.text | striptags | truncatechars:230 }}</p><a href="{{ post.get_absolute_url }}" class="button">Читати далі</a>
