@@ -1,3 +1,4 @@
 django==2.0rc1
 django-uuslug==1.1.8
 django-ckeditor==5.3.1
+

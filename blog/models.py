@@ -3,13 +3,10 @@ from os import path
 from django.db import models
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
+from django.urls import reverse
 from django.utils.html import mark_safe
-from .utils import get_uniq_name
+from .utils import get_image_path
 from uuslug import uuslug
-
-
-def get_image_path(inst, name):
-    return f"post_{inst.pk}/{get_uniq_name(inst, name)}"
 
 
 class Post(models.Model):
@@ -75,6 +72,12 @@ class PostBody(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        if self.language == 'ru':
+            return reverse("blog:post_ru", args=[self.slug])
+        else:
+            return reverse("blog:post", args=[self.language, self.slug])
 
     def save(self, *args, **kwargs):
         self.slug = uuslug(self.title, instance=self, max_length=self._slug_length)

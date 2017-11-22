@@ -1,0 +1,13 @@
+<div class="row">
+    {% for prod in products %}
+    <div class="col-md-4 col-sm-4 col-xs-12 mb-sm-20">
+        <div class="try-more-item">
+            <div class="image">
+                <a href="{{ prod.get_absolute_url }}"><img src="{{ prod.product.image.url }}" alt="alt"></a>
+            </div>
+            <h4><a href="{{ prod.get_absolute_url }}">{{ prod.name }}</a></h4>
+            <a href="{{ prod.get_absolute_url }}" class="button more-button">{% if prod.is_ru %}Подробнее{% elif prod.is_uk %}Детальніше{% else %}Read more{% endif %}</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>

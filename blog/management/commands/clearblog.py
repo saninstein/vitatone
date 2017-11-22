@@ -6,5 +6,5 @@ from blog.models import Post
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        Post.objects.all().delete()
+        Post.objects.filter(postbody__title__startswith="Test").delete()
         self.stdout.write(self.style.SUCCESS('Blog is clear'))

@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block lang %}ua{% endblock %}
+{% block title %}{{ post_body.title }}{% endblock %}
+{% block header %}
+<!-- Preloader -->
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap">
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li><a href="{{ link.en }}">ENG</a></li>
+                      <li class="active"><a href="{{ link.uk }}">УКР</a></li>
+                      <li><a href="{{ link.ru }}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
+                </div>
+              </div>
+                <div class="logo"><a href="/"><img src="{% static 'img/logo.png' %}" alt="logo"></a></div>
+              <nav class="main-menu">
+                <ul>
+                  <li><a href="/uk/">Головна</a></li>
+                  <li class="menu-item-has-children"><span>Продукти</span>
+                    <ul>
+                      <li><a href="multiomega.html">МультиОмега</a></li>
+                      <li><a href="multivitamine.html">Льодяники Мультивітамін</a></li>
+                      <li><a href="vitamine-c.html">Льодяники з вітаміном С</a></li>
+                      <li><a href="ukachivanie.html">Льодяники при захитуванні та нудоті</a></li>
+                      <li><a href="jeleyki.html">Желейні мультивітаміни</a></li>
+                      <li><a href="shipuchie.html">Шипучі мультивітаміни</a></li>
+                      <li><a href="nabor.html">Подарунковий набір</a></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children active"><span>Важливо знати</span>
+                    <ul>
+                      <li class="active"><a href="porady.html">Мультивітаміни і Омега</a></li>
+                      <li><a href="porady2.html">Шкіра не випромінює красу? Чому?</a></li>
+                      <li><a href="porady3.html">Дитина стала гірше навчатися? Чому?</a></li>
+                      <li><a href="porady4.html">Боїтеся за своє серце? Як його підтримати?</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="ditochkam.html">Діточкам</a></li>
+                  <li><a href="/uk/#our-contacts">Контакти</a></li>
+                </ul>
+              </nav>
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Children Photo -->
+    {% include "post/includes/image.html" %}
+    </div>
+{% endblock header %}
+{% block content %}
+<!-- Text Page -->
+    <section id="text-page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+              {% if user.is_authenticated %}
+                  <a href="{% url "admin:blog_post_change" post_body.post.id %}">Изменить</a>
+                  <a class="red-text" href="{% url "admin:blog_post_delete" post_body.post.id %}">Удалить</a>
+                  <br>
+              {% endif %}
+            {{ post_body.text | safe }}
+            <br>
+            <div class="social-likes">
+              <div title="Поділитися ссилкою у Фейсбуці" class="facebook">Facebook</div>
+              <div title="Поділитися ссилкою у Твіттері" class="twitter">Twitter</div>
+              <div title="Поділитися ссилкою у Вконтакті" class="vkontakte">Вконтакте</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- More Advices -->
+    <section id="more-advices">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-title">
+              <h2>Ще поради</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="advices-slider owl-carousel owl-theme">
+            <div class="item">
+                {% for post in posts %}
+                  <div class="col-md-4">
+                    <div class="advice-item">
+                      <div class="image"><img src="{{ post.post.image.url }}" alt="alt"></div>
+                      <div class="hover">
+                        <div class="title">
+                          <h4>{{ post.title }}</h4>
+                        </div>
+                        <div class="descr">
+                          <p>{{ post.text | striptags | truncatechars:230 }}</p><a href="{{ post.get_absolute_url }}" class="button">Читати далі</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="try-more">
+      <div class="container">
+        <div class="row">
+          <div class="section-title">
+            <h2>Спробуй ще:</h2>
+          </div>
+        </div>
+        {% include "post/includes/try_more.html" %}
+      </div>
+    </section>
+{% endblock content %}
+{% block footer %}
+    <footer id="footer">
+      <div class="white-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="footer-logo"><a href="#"><img src="{% static 'img/footer-logo.png' %}" alt="alt"></a></div>
+              <nav class="footer-menu">
+                <ul>
+                  <li><a href="/">Головна</a></li>
+                  <li><span>Продукти</span>
+                    <ul>
+                      <li><a href="multiomega.html">МультиОмега</a></li>
+                      <li><a href="multivitamine.html">Льодяники Мультивітамін</a></li>
+                      <li><a href="vitamine-c.html">Льодяники з вітаміном С</a></li>
+                      <li><a href="ukachivanie.html">Льодяники при захитуванні та нудоті</a></li>
+                      <li><a href="jeleyki.html">Желейні мультивітаміни</a></li>
+                      <li><a href="shipuchie.html">Шипучі мультивітаміни</a></li>
+                      <li><a href="nabor.html">Подарунковий набір</a></li>
+                    </ul>
+                  </li>
+                  <li class="active"><span>Важливо знати</span>
+                    <ul>
+                      <li class="active"><a href="porady.html">Мультивітаміни і Омега</a></li>
+                      <li><a href="porady2.html">Шкіра не випромінює красу? Чому?</a></li>
+                      <li><a href="porady3.html">Дитина стала гірше навчатися? Чому?</a></li>
+                      <li><a href="porady4.html">Боїтеся за своє серце? Як його підтримати?</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="ditochkam.html">Діточкам</a></li>
+                  <li><a href="/#our-contacts">Контакти</a></li>
+                </ul>
+              </nav>
+              <div class="copyright">
+                <p>Всі права захищені. При використанні матеріалів сайту <span>посилання на сайт vitatone.ua обов’язкове. VITATONE 2016</span><span>© 2016 International Vitamin Corporation</span></p>
+                <p class="made-in">Вироблено в Польщі на замовлення та під контролем «NEWTONE PHARMA LIMITED», Велика Британія</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% include "includes/attention/index.html" %}
+    </footer>
+{% endblock footer %}

@@ -17,9 +17,9 @@
                 <div class="right-side">
                   <div class="languages">
                     <ul>
-                      <li><a href="en/porady.html">ENG</a></li>
-                      <li><a href="uk/porady.html">УКР</a></li>
-                      <li class="active"><a href="porady.html">РУС</a></li>
+                      <li><a href="{{ link.en }}">ENG</a></li>
+                      <li><a href="{{ link.uk }}">УКР</a></li>
+                      <li class="active"><a href="{{ link.ru }}">РУС</a></li>
                     </ul>
                   </div>
                   <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
@@ -40,7 +40,7 @@
                       <li><a href="nabor.html">Подарочный набор</a></li>
                     </ul>
                   </li>
-                  <li class="menu-item-has-children active"><span>Важно знать</span>
+                  <li class="menu-item-has-children active"><a href="{% url "blog:posts" %}">Важно знать</a>
                     <ul>
                       <li class="active"><a href="porady.html">Мультивитамины и Омега</a></li>
                       <li><a href="porady2.html">Кожа не сияет красотой? Почему?</a></li>
@@ -62,19 +62,7 @@
         </div>
       </header>
     <!-- Children Photo -->
-      <section id="children">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="children-img">
-                  <img src="{{ post_body.post.image.url }}" alt="alt" class="hidden-xs">
-                  <img src="img/children-768.jpg" alt="alt" class="visible-xs hidden-xxs">
-                  <img src="img/children-480.jpg" alt="alt" class="visible-xxs">
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    {% include "post/includes/image.html" %}
     </div>
 {% endblock %}
 {% block content %}
@@ -86,8 +74,10 @@
               {% if user.is_authenticated %}
                   <a href="{% url "admin:blog_post_change" post_body.post.id %}">Изменить</a>
                   <a class="red-text" href="{% url "admin:blog_post_delete" post_body.post.id %}">Удалить</a>
+                  <br>
               {% endif %}
             {{ post_body.text | safe }}
+            <br>
             <div class="social-likes">
               <div title="Поделиться ссылкой на Фейсбуке" class="facebook">Facebook</div>
               <div title="Поделиться ссылкой в Твиттере" class="twitter">Twitter</div>
@@ -110,45 +100,21 @@
         <div class="row">
           <div class="advices-slider owl-carousel owl-theme">
             <div class="item">
-              <div class="col-md-4">
-                <div class="advice-item">
-                  <div class="image"><img src="{% static 'img/hair-min.jpg' %}" alt="alt"></div>
-                  <div class="hover">
-                    <div class="title">
-                      <h4>Кожа не сияет красотой? Почему?</h4>
-                    </div>
-                    <div class="descr">
-                      <p>Состояние волос, ногтей и кожи не обязательно зависит от средств по уходу. Не даром говорят, что красота идет изнутри. Иногда проблемы возникают вследствие дефицита кислот Омега-3, витаминов и микроэлементов, необходимых организму.</p><a href="porady2.html" class="button">Читать дальше</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="advice-item">
-                  <div class="image"><img src="{% static 'img/children-2-min.jpg' %}" alt="alt"></div>
-                  <div class="hover">
-                    <div class="title">
-                      <h4>Ребенок стал хуже учиться? Почему?</h4>
-                    </div>
-                    <div class="descr">
-                      <p>Если ребенок приносит из школы плохие оценки, ему трудно выучить новый материал, он не хочет играть в активные игры – это не обязательно означает капризы и вредность. Возможно, организму ребенка не хватает Омега-3.</p><a href="porady3.html" class="button">Читать дальше</a>
+                {% for post in posts %}
+                  <div class="col-md-4">
+                    <div class="advice-item">
+                      <div class="image"><img src="{{ post.post.image.url }}" alt="alt"></div>
+                      <div class="hover">
+                        <div class="title">
+                          <h4>{{ post.title }}</h4>
+                        </div>
+                        <div class="descr">
+                          <p>{{ post.text | striptags | truncatechars:230 }}</p><a href="{{ post.get_absolute_url }}" class="button">Читать дальше</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="advice-item">
-                  <div class="image"><img src="{% static 'img/hart-min.jp' %}g" alt="alt"></div>
-                  <div class="hover">
-                    <div class="title">
-                      <h4>Боитесь за свое сердце? Как его поддержать?</h4>
-                    </div>
-                    <div class="descr">
-                      <p>Сердечно-сосудистыми заболеваниями болеют во всем мире, но ученые знают о зависимости показателей распространенности этих патологий и пищевых привычек. Известно, что там, где употребляют много жирной рыбы, болезни сердца и сосудов распространены меньше всего.</p><a href="porady4.html" class="button">Читать дальше</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                {% endfor %}
             </div>
           </div>
         </div>
@@ -162,26 +128,7 @@
             <h2>ПОПРОБУЙ ЕЩЕ:</h2>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-4 col-sm-4 col-xs-12 mb-sm-20">
-            <div class="try-more-item">
-              <div class="image"><a href="ukachivanie.html"><img src="{% static 'img/img-1.png' %}" alt="alt"></a></div>
-              <h4><a href="ukachivanie.html">Леденцы VITATONE при укачивании и тошноте</a></h4><a href="ukachivanie.html" class="button more-button">Подробнее</a>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-12 mb-sm-20">
-            <div class="try-more-item">
-              <div class="image"><a href="multivitamine.html"><img src="{% static 'img/img-2.png' %}" alt="alt"></a></div>
-              <h4><a href="multivitamine.html">Леденцы VITATONE мультивитамин</a></h4><a href="multivitamine.html" class="button more-button">Подробнее</a>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-12 mb-sm-20">
-            <div class="try-more-item">
-              <div class="image"><a href="vitamine-c.html"><img src="{% static 'img/img-3.png' %}" alt="alt"></a></div>
-              <h4><a href="vitamine-c.html">Леденцы VITATONE витамин С</a></h4><a href="vitamine-c.html" class="button more-button">Подробнее</a>
-            </div>
-          </div>
-        </div>
+          {% include "post/includes/try_more.html" %}
       </div>
     </section>
     <!-- Footer -->
@@ -227,10 +174,6 @@
           </div>
         </div>
       </div>
-      <div class="grey-block">
-        <div class="information">
-          <p>ДІЄТИЧНА ДОБАВКА НЕ Є ЛІКАРСЬКИМ ЗАСОБОМ. ПЕРЕД ВЖИВАННЯМ ОЗНАЙОМИТИСЯ З ІНФОРМАЦІЄЮ ПРО ПРОДУКТ</p>
-        </div>
-      </div>
+      {% include "includes/attention/index.html" %}
     </footer>
 {% endblock footer %}
