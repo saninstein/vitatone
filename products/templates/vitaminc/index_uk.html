@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block lang %}ua{% endblock lang %}
+{% block title %}{% if item.product.title %}{{ item.product.title }}{% else %}{{ item.product.name }}{% endif %}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    {% with item=item.product %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock head %}
+
+{% block content %}
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap vitamin-c">
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li><a href="{% url "products:vitaminc" 'en' %}">ENG</a></li>
+                      <li class="active"><a href="{% url "products:vitaminc" 'uk' %}">УКР</a></li>
+                      <li><a href="{% url "products:vitaminc_ru" %}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
+                </div>
+              </div>
+              {% include "includes/menu_prods/index_uk.html" %}
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Vitamin C Header -->
+      <section class="vitamin-c-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="logo-vitamin-c"><img src="{% static "img/logo-vitamin-c.png" %}" alt="alt">
+                <h1 class="text-indent">Льодяники для дітей з вітаміном С</h1>
+              </div>
+              <div class="logo-descr">
+                <p class="white-text">В 4-х льодяниках – рекомендована</p>
+                <p class="orange-text">Добова норма вітаміну С для дітей з 3-х років</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        <!-- Vitamin C Content -->
+      <section class="vitamin-c-content">
+        <div class="container">
+          <div class="vitamin-menu clearfix">
+            <div class="row">
+              <div class="col-md-12">
+                <ul>
+                  <li>
+                    <div class="icon"><img src="{% static "img/menu-1.png" %}" alt="alt"></div>
+                    <h3>Зі смаком <span>Лимону</span></h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/menu-2.png" %}" alt="alt"></div>
+                    <h3>Зі смаком <span>Вишні</span></h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/menu-3.png" %}" alt="alt"></div>
+                    <h3>Зі смаком <span>Апельсина</span></h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/menu-4.png" %}" alt="alt"></div>
+                    <h3>Зі смаком <span>Яблука</span></h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/menu-5.png" %}" alt="alt"></div>
+                    <h3>Зі смаком <span>Екзотік</span></h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/menu-6.png" %}" alt="alt"></div>
+                    <h3>Зі смаком <span>Ананасу</span></h3>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="vitamin-c-text">
+            <div class="row">
+              <div class="col-md-5 col-md-push-7">
+                <div class="candy-block"><img src="{% static "img/candy-box.png" %}" alt="alt"><a href="#popup" class="button instruction call-popup">Информация о продукте</a></div>
+              </div>
+              <div class="col-md-7 col-md-pull-5">
+                <div class="text-block clearfix">
+                  <h1>Вітамін С у формі льодяників</h1>
+                  <p><strong>Чотири смачні льодяника </strong>і добова потреба у вітаміні С забезпечена, це допоможе дитині протистояти застудним  захворюванням та  вірусним інфекціям, переносити фізичні навантаження. Якщо вітаміну С недостатньо, виникають скарги на втомлюваність та млявість.</p>
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Склад</th>
+                        <th>В 4-х льодяниках</th>
+                        <th>% РДД*</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Вітамін С</td>
+                        <td>80 мг</td>
+                        <td>100%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="table-descr">
+                    <h4>Форма випуску: <span>Льодяники 0,8 г штука</span></h4>
+                    <h4>*% РДД <span>рекомендована денна доза</span></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="profit-block-wrap">
+                  <div class="profit-block">
+                    <p>Користь вітаміну С відчутна тоді, коли організм отримує його в достатній кількості. Добова норма вітаміну С для дітей становить близько 80 мг, а для дорослих – до 100 мг. Цей вітамін ми отримуємо з продуктами харчування, щоб задовольнити добову потребу. Зелена та ріпчаста цибуля, томати, гарбуз, петрушка, капуста, болгарський перець містять багато вітаміну С, але чи всім дітям смакують ці продукти? Готові запропонувати льодяники  Vitatone з вітаміном С.</p>
+                  </div>
+                  <div class="candy-box-2"><img src="{% static "img/candy-box-2-2.png" %}" alt="alt"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="candy-slider-section">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="try-more">
+                  <h2>Попробуй еще!</h2>
+                </div>
+                <div class="candy-slider owl-carousel owl-theme">
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:shipuchie" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-1-uk.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:nabor" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-2-uk.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:shipuchie" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-3-uk.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:jeleyki" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-4-uk.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:ukachivanie" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-5-uk.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:multivitamin" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-6-uk.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+            <!-- Footer -->
+            <footer id="footer">
+              <div class="white-block footer-transparent">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="footer-logo"><a href="#"><img src="{% static "img/footer-logo2.png" %}" alt="alt"></a></div>
+                      {% include "includes/footer_menu_prods/index_uk.html" %}
+                        <div class="nickelodeon-logo"><img src="{% static "img/nickelodeon.png" %}" alt="alt"></div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grey block -->
+      <div class="grey-block">
+        <div class="information">
+          <p>ДІЄТИЧНА ДОБАВКА НЕ Є ЛІКАРСЬКИМ ЗАСОБОМ. ПЕРЕД ВЖИВАННЯМ ОЗНАЙОМИТИСЯ З ІНФОРМАЦІЄЮ ПРО ПРОДУКТ</p>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    <!-- Hidden Popup -->
+    <div class="hidden">
+      <div id="popup">
+          {{ item.popup | safe }}
+      </div>
+    </div>
+{% endblock footer %}

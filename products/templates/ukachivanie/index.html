@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block lang %}ru{% endblock lang %}
+{% block title %}{% if item.product.title %}{{ item.product.title }}{% else %}{{ item.product.name }}{% endif %}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    {% with item=item.product %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock head %}
+
+{% block content %}
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap ukach">
+        <div class="sliding-header"></div>
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li><a href="{% url "products:ukachivanie" 'en' %}">ENG</a></li>
+                      <li><a href="{% url "products:ukachivanie" 'uk' %}">УКР</a></li>
+                      <li class="active"><a href="{% url "products:ukachivanie_ru" %}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
+                </div>
+              </div>
+              {% include "includes/menu_prods/index.html" %}
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Main content -->
+      <div class="container">
+        <!-- Multivitamin Header -->
+        <section class="ukach-header">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="logo-ukach"><img src="{% static "img/logo-ukach.png" %}" alt="alt">
+                <h1 class="text-indent">VITATONE Леденцы для детей при укачивании и тошноте</h1>
+                <p>С имбирем и мятой</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="content-wrap">
+          <!-- Main Content -->
+          <section class="ukach-content">
+            <div class="row">
+              <div class="col-md-7 pr-0">
+                <div class="ukach-text">
+                  <p>Всем знакомо чувство укачивания в транспорте. Особенно часто укачивает детей, но и взрослые не застрахованы от этой неприятности. Многие даже стараются избегать поездок в определенном виде транспорта, например, не ездят в автобусе, автомобиле или не пользуются самолетами, потому что страдают от укачивания. Если же говорить о «морской болезни», то есть, укачивании на водных видах транспорта, то оно свойственно вообще большинству людей. </p>
+                  <p>Как надежное средство против укачивания издавна известен имбирь, однако употреблять этот корень в чистом виде не очень приятно. Леденцы Vitatone от укачивания и тошноты с имбирем и мятой – удобная и вкусная альтернатива, которая понравится и детям, и взрослым. Они помогут не испортить впечатление во время поездки в любом виде транспорта, а также во время отдыха на воде.</p>
+                </div>
+              </div>
+              <div class="col-md-5 pl-0">
+                <div class="ukach-candy"><img src="{% static "img/candy-6-2.png" %}" alt="alt"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="ukach-candy-box"><img src="{% static "img/candy-5.png" %}" alt="alt"><a href="#popup" class="button instruction call-popup">Информация о продукте</a></div>
+              </div>
+              <div class="col-md-6">
+                <div class="table-title">
+                  <h3>ФОРМА ВЫПУСКА: <span>Леденцы 0,8 г штука</span></h3>
+                </div>
+                <table class="table table-bordered ukach-table">
+                  <thead>
+                    <tr>
+                      <th>Состав</th>
+                      <th>В 4-х леденцах</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Имбирь</td>
+                      <td>40 мг</td>
+                    </tr>
+                    <tr>
+                      <td>Мята</td>
+                      <td>20 мг</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="snail"><img src="{% static "img/snail.png" %}" alt="alt"></div>
+              </div>
+            </div>
+          </section>
+          <!-- Blue Section -->
+          <div class="blue-wrap">
+            <!-- Slider -->
+            <div class="blue-slider-section">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="try-more">
+                    <h2>Попробуй еще!</h2>
+                  </div>
+                  <div class="ukach-slider owl-carousel owl-theme">
+                    <div class="item">
+                      <div class="row">
+                        <div class="col-md-6"><a href="{% url "products:shipuchie_ru" %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-1-ru.png" %}" alt="alt"></div></a></div>
+                        <div class="col-md-6"><a href="{% url "products:nabor_ru" %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-2-ru.png" %}" alt="alt"></div></a></div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="row">
+                        <div class="col-md-6"><a href="{% url "products:shipuchie_ru" %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-3-ru.png" %}" alt="alt"></div></a></div>
+                        <div class="col-md-6"><a href="{% url "products:jeleyki_ru" %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-4-ru.png" %}" alt="alt"></div></a></div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="row">
+                        <div class="col-md-6"><a href="{% url "products:vitaminc_ru" %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-13-ru.png" %}" alt="alt"></div></a></div>
+                        <div class="col-md-6"><a href="{% url "products:multivitamin_ru" %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-6-ru.png" %}" alt="alt"></div></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <footer id="footer">
+              <div class="white-block footer-transparent">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="footer-logo"><a href="#"><img src="{% static "img/footer-logo2.png" %}" alt="alt"></a></div>
+                      {% include "includes/footer_menu_prods/index.html" %}
+                        <div class="nickelodeon-logo"><img src="{% static "img/nickelodeon.png" %}" alt="alt"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grey block -->
+      <div class="grey-block">
+        <div class="information">
+          <p>ДІЄТИЧНА ДОБАВКА НЕ Є ЛІКАРСЬКИМ ЗАСОБОМ. ПЕРЕД ВЖИВАННЯМ ОЗНАЙОМИТИСЯ З ІНФОРМАЦІЄЮ ПРО ПРОДУКТ</p>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    <!-- Hidden Popup -->
+    <div class="hidden">
+      <div id="popup">
+          {{ item.popup | safe }}
+      </div>
+    </div>
+{% endblock footer %}

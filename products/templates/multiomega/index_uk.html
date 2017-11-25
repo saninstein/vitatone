@@ -1,0 +1,340 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block lang %}en{% endblock lang %}
+
+{% block title %}{% if item.product.title %}{{ item.product.title }}{% else %}{{ item.product.name }}{% endif %}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    {% with item=item.product %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock head %}
+{% block header %}
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap main-page">
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li><a href="{% url "products:multiomega" 'en' %}">ENG</a></li>
+                      <li class="active"><a href="{% url "products:multiomega" 'uk' %}">УКР</a></li>
+                      <li><a href="{% url "products:multiomega_ru" %}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
+                </div>
+              </div>
+              {% include "includes/menu_prods/index_uk.html" %}
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Top Section  -->
+      <section class="top-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="main-logo"><img src="{% static "img/main-header-logo.png" %}" alt="alt">
+                <h1 class="text-indent">Vitatone MultiOmega. Мультивінамінний сироп з великим вмістом Омега 3</h1>
+              </div>
+              <div class="header-icons">
+                <div class="icons-item">
+                  <div class="icon"><img src="{% static "img/header-icon-1.png" %}" alt="alt"></div>
+                  <p>Омега 3</p>
+                </div>
+                <div class="icons-item">
+                  <div class="icon"><img src="{% static "img/header-icon-2.png" %}" alt="alt"></div>
+                  <p>Риб’ячий жир морських риб</p>
+                </div>
+                <div class="icons-item">
+                  <div class="icon"><img src="{% static "img/header-icon-3.png" %}" alt="alt"></div>
+                  <p>14 вітамінів та мінералів</p>
+                </div>
+                <div class="icons-item">
+                  <div class="icon"><img src="{% static "img/header-icon-4.png" %}" alt="alt"></div>
+                  <p>Смак тропічних фруктів</p>
+                </div>
+              </div>
+              <div class="descr-list">
+                <ul>
+                  <li>Безпечний для діабетиків</li>
+                  <li>Без присмаку риби</li>
+                  <li>Природне джерело Омега 3 кислот</li>
+                  <li>Для всієї сім'ї</li>
+                </ul>
+              </div>
+                <div class="left-section">
+                <div class="banka"><img src="{% static "img/banka.png" %}" alt="alt"></div><a href="#popup" class="button instruction call-popup">Інформація про продукт</a>
+              </div>
+              {% include "multiomega/includes/images.html" %}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    <section class="family">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Для здорової родини!</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="family-img"><img src="{% static "/img/family.jpg" %}" alt="alt"></div>
+          </div>
+          <div class="col-md-6">
+            <h3>Для правильного функціонування:</h3>
+            <div class="blue-icons">
+              <div class="blue-icon-item">
+                <div class="icon"><img src="{% static "/img/blue-icon-1.png" %}" alt="alt"></div>
+                <p>мозку</p>
+              </div>
+              <div class="blue-icon-item">
+                <div class="icon"><img src="{% static "/img/blue-icon-2.png" %}" alt="alt"></div>
+                <p>органів зору</p>
+              </div>
+              <div class="blue-icon-item">
+                <div class="icon"><img src="{% static "/img/blue-icon-3.png" %}" alt="alt"></div>
+                <p>нервової системи</p>
+              </div>
+            </div>
+            <div class="family-text">
+              <p>Щоб дитина була здоровою, добре навчалася, розвивалася розумово й фізично, їй необхідний повноцінний раціон. </p>
+              <p>Однак майже ніхто з дітей не отримує харчування, багатого на всі елементи, потрібні для нормального розвитку. </p>
+              <p>Коли в раціоні немає корисних і поживних речовин у достатній кількості, дитина не тільки схильна до частих захворювань, вона також має відставання у фізичному <a href="http://vitatone.ua/uk/porady5.html" class="read-more">Читати далі ...</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="vitaton-text"><span class="text-logo"><span class="vita">VITA</span><span class="tone">TONE </span><span class="m">M</span><span class="ulti">ulti</span><span class="o">O</span><span class="mega">mega </span></span><span class="minus">— </span><span class="red-text">здоров'я для всієї родини</span>
+              <p class="center-text">Завдяки оптимальному поєднанню цілого комплексу вітамінів та мінералів з незамінними кислотами омега 3 <span class="text-logo"><span class="vita">VITA</span><span class="tone">TONE </span><span class="m">M</span><span class="ulti">ulti</span><span class="o">O</span><span class="mega">mega </span></span>впливає на всі органи та системи організму як дітей так і дорослих</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Positive -->
+    <section class="positive">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Сприяє</h3>
+          </div>
+          <div class="col-md-6">
+            <div class="positive-item for-parents clearfix">
+              <h4>Для дорослих</h4>
+              <div class="family-img"><img src="{% static "/img/family-parents.jpg" %}" alt="alt"></div>
+              <div class="icon-item positive-1">
+                <div class="icon"><img src="{% static "/img/red-icon-1.png" %}" alt="alt"></div>
+                <p>високій працездатності</p>
+              </div>
+              <div class="icon-item positive-2">
+                <div class="icon"><img src="{% static "/img/red-icon-2.png" %}" alt="alt"></div>
+                <p>позбавленню від стресів та депресій</p>
+              </div>
+              <div class="icon-item positive-3">
+                <div class="icon"><img src="{% static "/img/red-icon-3.png" %}" alt="alt"></div>
+                <p>покращенню стану шкіри та волосся</p>
+              </div>
+              <div class="icon-item positive-4">
+                <div class="icon"><img src="{% static "/img/red-icon-4.png" %}" alt="alt"></div>
+                <p>боротьбі зі старінням</p>
+              </div>
+              <div class="icon-item positive-5">
+                <div class="icon"><img src="{% static "/img/red-icon-5.png" %}" alt="alt"></div>
+                <p>профілактиці серцево-судинних захворювань</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="positive-item for-children clearfix">
+              <h4>Для дітей</h4>
+              <div class="family-img"><img src="{% static "/img/family-children.jpg" %}" alt="alt"></div>
+              <div class="icon-item positive-1">
+                <div class="icon"><img src="{% static "/img/orange-icon-1.png" %}" alt="alt"></div>
+                <p>правильному функціонуванню вісх органів і систем організму</p>
+              </div>
+              <div class="icon-item positive-2">
+                <div class="icon"><img src="{% static "/img/orange-icon-2.png" %}" alt="alt"></div>
+                <p>зниженню збудливості і дратівливості, емоційним сплескам</p>
+              </div>
+              <div class="icon-item positive-3">
+                <div class="icon"><img src="{% static "/img/orange-icon-3.png" %}" alt="alt"></div>
+                <p>покращенню пам’яті і здатності до навчання</p>
+              </div>
+              <div class="icon-item positive-4">
+                <div class="icon"><img src="{% static "/img/orange-icon-4.png" %}" alt="alt"></div>
+                <p>Забезпеченню ресурсів для зростання і розвитку дитини</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Infographics -->
+    <section class="infographics"><img src="{% static "/img/infographics-uk.jpg" %}" alt="alt"></section>
+    <!-- White bg with bubbles -->
+    <div class="white-bubbles">
+      <div class="container">
+        <section class="vitamins-minerals">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="vitamin-decor"><img src="{% static "/img/vitamin-decor.png" %}" alt="alt"></div>
+              <div class="vitamins-title">
+                <div class="text-logo"><span class="vita">VITA</span><span class="tone">TONE </span><span class="m">M</span><span class="ulti">ulti</span><span class="o">O</span><span class="mega">mega </span></div>
+                <h3>14 вітамінів та мінералів</h3>
+              </div>
+              <div class="banka"><img src="{% static "/img/banka-2.png" %}" alt="alt"></div>
+              <div class="vitamin vitamin-1">
+                <p>Йод – <span>поліпшення синтезу гормонів щитовидної залози</span></p>
+              </div>
+              <div class="vitamin vitamin-2">
+                <p>Вітамін Д, Цинк – <span>зміцнення кісток та зубів</span></p>
+              </div>
+              <div class="vitamin vitamin-3">
+                <p>Вітамін А, Цинк, Рибофлавін – <span>сприяння поліпшенню зору</span></p>
+              </div>
+              <div class="vitamin vitamin-4">
+                <p>Цинк, Фолієва кислота, Вітамін С – <span>підтримка імунітету</span></p>
+              </div>
+              <div class="vitamin vitamin-5">
+                <p>Пантотенова кислота – <span>розвиток і стимулювання розумових здібностей</span></p>
+              </div>
+              <div class="vitamin vitamin-6">
+                <p>Біотин, Фолієва кислота, Ніацин, Вітамін В1,В6,В12,С – <span>підтримка психологічного розвитку</span></p>
+              </div>
+              <div class="vitamin vitamin-7">
+                <p>Йод, Біотин, Ніацин, Рибофлавін, Вітамін В6, В1 – <span>належне функціонування нервової системи</span></p>
+              </div>
+              <div class="vitamin vitamin-8">
+                <p>Вітамін В12, С, Фолієва кислота, Пантотенова кислота, Ніацин, Рибофлавін – <span>зменшення почуття втоми </span></p>
+              </div>
+              <div class="vitamin vitamin-9">
+                <p>Цинк, Йод – <span>покращення пам’яті та уваги</span></p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- How to use -->
+        <section class="how-use">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="use-title">
+                <h2>Як вживати <span class="text-logo"><span class="vita">VITA</span><span class="tone">TONE </span></span></h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="how-use-left">
+                <h4>Для дітей</h4>
+                <div class="image">
+                  <div class="blue-info"><img src="{% static "/img/spoon-1.png" %}" alt="alt">
+                    <p>5 мл <span>на день</span></p>
+                    <div class="age">1-3 роки</div>
+                  </div><img src="{% static "/img/how-use-1.jpg" %}" alt="alt">
+                </div>
+              </div>
+              <div class="how-use-bottle"><img src="{% static "/img/how-use-3.png" %}" alt="alt"><span>165/250 мл</span></div>
+            </div>
+            <div class="col-md-6">
+              <div class="how-use-right">
+                <h4>Для всієї родини</h4>
+                <div class="image">
+                  <div class="blue-info"><img src="{% static "/img/spoon-2.png" %}" alt="alt">
+                    <p>10 мл <span>на день</span></p>
+                    <div class="age">від 3 років</div>
+                  </div><img src="{% static "/img/how-use-2.jpg" %}" alt="alt">
+                </div>
+                <p class="descr">Рекомендований курс вживання 30 днів</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- More Advices -->
+        <section id="more-advices">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-title">
+                <h2>Важливо знати</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="advices-slider owl-carousel owl-theme">
+              <div class="item">
+                {% for post in posts %}
+                  <div class="col-md-4">
+                    <div class="advice-item">
+                      <div class="image"><img src="{{ post.post.image.url }}" alt="alt"></div>
+                      <div class="hover">
+                        <div class="title">
+                          <h4>{{ post.name }}</h4>
+                        </div>
+                        <div class="descr">
+                          <p>{{ post.text | striptags | truncatechars:230 }}</p><a href="{{ post.get_absolute_url }}" class="button">Читать дальше</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- Try More -->
+    <section id="try-more">
+      <div class="container">
+        <div class="row">
+          <div class="section-title">
+            <h2>Спробуй ще:</h2>
+          </div>
+        </div>
+        {% include "post/includes/try_more.html" %}
+      </div>
+    </section>
+{% endblock content %}
+
+{% block footer %}
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="white-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="footer-logo"><a href="#"><img src="{% static "img/footer-logo.png" %}" alt="alt"></a></div>
+              {% include "includes/footer_menu_prods/index_uk.html" %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+      {% include "includes/attention/index.html" %}
+    </footer>
+    <!-- Hidden Popup -->
+    <div class="hidden">
+      <div id="popup">
+          {{ item.popup | safe }}
+      </div>
+    </div>
+{% endblock footer %}

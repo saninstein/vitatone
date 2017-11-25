@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block lang %}en{% endblock lang %}
+{% block title %}{% if item.product.title %}{{ item.product.title }}{% else %}{{ item.product.name }}{% endif %}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    {% with item=item.product %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock head %}
+
+{% block content %}
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap multivitamin">
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li class="active"><a href="{% url "products:multivitamin" 'en' %}">ENG</a></li>
+                      <li><a href="{% url "products:multivitamin" 'uk' %}">УКР</a></li>
+                      <li><a href="{% url "products:multivitamin_ru" %}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
+                </div>
+              </div>
+              {% include "includes/menu_prods/index_en.html" %}
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Main content -->
+      <div class="container">
+        <div class="content-wrap">
+          <!-- Multivitamin Header -->
+          <section class="multivitamin-header">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="logo-multivitamin"><img src="{% static "img/logo-multivitamin-en.png" %}" alt="alt">
+                  <h1 class="text-indent">Vitatone Льодяники Мультивітамін</h1>
+                </div><a href="#popup" class="button instruction2 call-popup">Product Information</a>
+              </div>
+            </div>
+          </section>
+          <!-- Multivitamin Menu -->
+          <section class="multivitamin-menu clearfix">
+            <div class="row">
+              <div class="col-md-12">
+                <ul>
+                  <li>
+                    <div class="icon"><img src="{% static "img/multi-menu-1.png" %}" alt="alt"></div>
+                    <h3>MULTIFRUIT</h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/multi-menu-2.png" %}" alt="alt"></div>
+                    <h3>WATER MELON</h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/multi-menu-3.png" %}" alt="alt"></div>
+                    <h3>RASPBERRY</h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/multi-menu-4.png" %}" alt="alt"></div>
+                    <h3>GRAPE</h3>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <!-- Vitamins -->
+          <section class="multivitamins clearfix">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="vitamins-header">
+                 <h2>The recommended daily dose <span>in 4 drops</span></h2>
+                </div>
+                <div class="candy-img"><img src="{% static "img/candy-3.png" %}" alt="alt"></div>
+                <div class="vitamin-item vitamin-1">
+                  <div class="icon"><img src="{% static "img/vitamin-c-en.png" %}" alt="alt"></div>
+                  <p>Strong antioxidant Fortifies the immune body system</p><span>/ 80 mg</span>
+                </div>
+                <div class="vitamin-item vitamin-2">
+                  <div class="icon"><img src="{% static "img/vitamin-e-en.png" %}" alt="alt"></div>
+                 <p>Stimulates immunity, improves oxygen consumption by tissues</p><span>/ 12 mg</span>
+                </div>
+                <div class="vitamin-item vitamin-3">
+                  <div class="icon"><img src="{% static "img/vitamin-b9-en.png" %}" alt="alt"></div>
+                  <p>Folic acid Required for growth and development of blood and immune system</p><span>/ 200 mcg</span>
+                </div>
+                <div class="vitamin-item vitamin-4">
+                  <div class="icon"><img src="{% static "img/vitamin-b7-en.png" %}" alt="alt"></div>
+                  <p>Biotin. Promotes natural support of skin and hair health </p><span>/ 50 mcg</span>
+                </div>
+                <div class="vitamin-item vitamin-5">
+                  <div class="icon"><img src="{% static "img/vitamin-b12-en.png" %}" alt="alt"></div>
+                  <p>Plays an important role in haematosis. Vitamin B12 deficiency disturbs mental processes, affects memory and attention</p><span>/ 2 mcg</span>
+                </div>
+                <div class="vitamin-item vitamin-6">
+                  <div class="icon"><img src="{% static "img/vitamin-a-en.png" %}" alt="alt"></div>
+                  <p>Influences upon body growth and development, formation of skeleton, skin and ocular mucosa</p><span>/ 400 mcg</span>
+                </div>
+                <div class="vitamin-item vitamin-7">
+                  <div class="icon"><img src="{% static "img/vitamin-b6-en.png" %}" alt="alt"></div>
+                  <p>Vitamin B6 deficiency causes immune protection  lapse, anaemia, dermatitis progression</p><span>/ 1.4 mg</span>
+                </div>
+                <div class="vitamin-item vitamin-8">
+                  <div class="icon"><img src="{% static "img/vitamin-b5-en.png" %}" alt="alt"></div>
+                  <p>Nicotinic acid. Ensures functioning of nervous and immune system and epinephros</p><span>/ 1.4 mg</span>
+              </div>
+            </div>
+          </section>
+          <!-- Blue Section -->
+          <div class="blue-wrap">
+            <!-- Slider -->
+            <div class="blue-slider-section">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="try-more">
+                    <h2>Try more!</h2>
+                  </div>
+                  <div class="multi-slider owl-carousel owl-theme">
+                    <div class="item">
+                      <div class="row">
+                        <div class="col-md-6"><a href="{% url "products:ukachivanie" 'uk' %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-15-en.png" %}" alt="alt"></div></a></div>
+                        <div class="col-md-6"><a href="{% url "products:vitaminc" 'uk'%}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-16-en.png" %}" alt="alt"></div></a></div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="row">
+                        <div class="col-md-6"><a href="{% url "products:shipuchie" 'uk' %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-11-en.png" %}" alt="alt"></div></a></div>
+                        <div class="col-md-6"><a href="{% url "products:nabor" 'uk' %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-12-en.png" %}" alt="alt"></div></a></div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="row">
+                        <div class="col-md-6"><a href="{% url "products:shipuchie" 'uk' %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-9-en.png" %}" alt="alt"></div></a></div>
+                        <div class="col-md-6"><a href="{% url "products:jeleyki" 'uk' %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-10-en.png" %}" alt="alt"></div></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Footer -->
+            <footer id="footer">
+              <div class="white-block footer-transparent">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="footer-logo"><a href="#"><img src="{% static "/img/footer-logo2.png" %}" alt="alt"></a></div>
+                      {% include "includes/footer_menu_prods/index_en.html" %}
+                      <div class="masha-logo"><img src="{% static "/img/logo-masha.png" %}" alt="alt"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <!-- Animals -->
+      <div class="rabbit"><img src="{% static "img/rabbit.png" %}" alt="alt"></div>
+      <div class="panda"><img src="{% static "img/panda.png" %}" alt="alt"></div>
+      <div class="dog"><img src="{% static "img/dog.png" %}" alt="alt"></div>
+      <div class="squirrel"><img src="{% static "img/squirrel.png" %}" alt="alt"></div>
+      <!-- Grey block -->
+      <div class="grey-block">
+        <div class="information">
+          <p>DIETARY SUPPLEMENT IS NOT A DRUG PREPARATION BE AWARE OF PRODUCT BEFORE APPLICATION</p>
+        </div>
+      </div>
+{% endblock content %}
+
+{% block footer %}
+    <!-- Hidden Popup -->
+    <div class="hidden">
+      <div id="popup">
+          {{ item.popup | safe }}
+      </div>
+    </div>
+{% endblock footer %}

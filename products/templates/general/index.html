@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
 	<link rel="stylesheet" href="{% static "css/styles.css" %}">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-	<script src="http://api-maps.yandex.ru/2.1/?lang=uk_UA" type="text/javascript"></script>
+	<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 	<script src="{% static "js/custom_icon.js" %}" type="text/javascript"></script>
 {% endblock stylesheets %}
 {% block content %}
@@ -29,7 +29,7 @@
 				<div class="container">
 					<div class="row" style="position:relative;">
 						<div class="col-md-3 col-sm-4" id="main-logo">
-							<a href="index.html"></a>
+							<a href="{% url "products:general" %}"></a>
 						</div>
 						<div class="nav-toggle">
 					      <span></span>
@@ -37,9 +37,9 @@
 					      <span></span>
 					    </div>
 					    <ul class="list-unstyled" id="switch-lang">
-					    	<li><a href="/en/">eng</a></li>
-					    	<li><a href="/uk/">укр</a></li>
-					    	<li class="active"><a href="/">рус</a></li>
+					    	<li><a href="{% url "products:general_en" %}">eng</a></li>
+					    	<li><a href="{% url "products:general_uk" %}">укр</a></li>
+					    	<li class="active"><a href="{% url "products:general" %}">рус</a></li>
 					    </ul>
                         <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="fb" target="_blank">facebook</a></div>
 						<nav class="col-md-9 col-sm-8" id="nav">
@@ -47,9 +47,9 @@
 								Закрыть
 							</span>
 							<ul class="list-unstyled" id="main-nav">
-								<li class="active"><a class="mobile-hide" href="index.html">главная</a></li>
+								<li class="active"><a class="mobile-hide" href="{% url "products:general" %}">главная</a></li>
 								<li class="dropdown">
-									<a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<a id="dLabel" data-target="#" href="{% url "products:general" %}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 									<span class="caret-wrapper">
 									    продукты
 									  <span class="own-caret"></span>
@@ -215,7 +215,7 @@
 			</div>
 			<div class="col-md-2 col-sm-2 col-xs-6 footer-nav ml-30">
 				<ul class="list-unstyled">
-					<li><a href="/">Главная</a></li>
+					<li><a href="{% url "products:general" %}">Главная</a></li>
 					<li><a class="anchor" href="#our-contacts">Контакты</a></li>
 				</ul>
 			</div>
@@ -262,7 +262,7 @@
 		var sceneMobile = document.getElementById('scene-mobile');
 		var parallax = new Parallax(sceneMobile);
 	</script>
-	<script src="{% static "js/common-main.js?v=2" %}"></script>
+	<script src="{% static "js/common-main.js" %}"></script>
 {% endblock js %}
 
 </html>

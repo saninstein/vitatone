@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block lang %}en{% endblock lang %}
+{% block title %}{% if item.product.title %}{{ item.product.title }}{% else %}{{ item.product.name }}{% endif %}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    {% with item=item.product %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock head %}
+
+{% block content %}
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap vitamin-c">
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li class="active"><a href="{% url "products:vitaminc" 'en' %}">ENG</a></li>
+                      <li><a href="{% url "products:vitaminc" 'uk' %}">УКР</a></li>
+                      <li><a href="{% url "products:vitaminc_ru" %}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
+                </div>
+              </div>
+              {% include "includes/menu_prods/index_en.html" %}
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Vitamin C Header -->
+      <section class="vitamin-c-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="logo-vitamin-c"><img src="{% static "img/logo-vitamin-c.png" %}" alt="alt">
+                <h1 class="text-indent">Drops for children with Vitamin C</h1>
+              </div>
+              <div class="logo-descr">
+                <p class="white-text">In 4 drops – recommended</p>
+                <p class="orange-text">DAILY DOSE OF VITAMIN C FOR CHILDREN FROM 3 YEARS OLD</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        <!-- Vitamin C Content -->
+      <section class="vitamin-c-content">
+        <div class="container">
+          <div class="vitamin-menu clearfix">
+            <div class="row">
+              <div class="col-md-12">
+                <ul>
+                  <li>
+                    <div class="icon"><img src="{% static "img/menu-1.png" %}" alt="alt"></div>
+                    <h3>With <span>Lemon taste</span></h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/menu-2.png" %}" alt="alt"></div>
+                    <h3>With <span>Cherry taste</span></h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/menu-3.png" %}" alt="alt"></div>
+                    <h3>With <span>Orange taste</span></h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/menu-4.png" %}" alt="alt"></div>
+                    <h3>With <span>Apple taste</span></h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/menu-5.png" %}" alt="alt"></div>
+                    <h3>With <span>Exotic taste</span></h3>
+                  </li>
+                  <li>
+                    <div class="icon"><img src="{% static "img/menu-6.png" %}" alt="alt"></div>
+                    <h3>With <span>Pine apple taste</span></h3>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="vitamin-c-text">
+            <div class="row">
+              <div class="col-md-5 col-md-push-7">
+                <div class="candy-block"><img src="{% static "img/candy-box.png" %}" alt="alt"><a href="#popup" class="button instruction call-popup">Product Information</a></div>
+              </div>
+              <div class="col-md-7 col-md-pull-5">
+                <div class="text-block clearfix">
+                  <h1>Vitamin C in form of drops</h1>
+                  <p><strong>Four tasty drops</strong>and daily demand for Vitamin C is met, it will assist the child in resisting to cold-related diseases and virus infections, tolerate exercise stress If Vitamin C is insufficient, one complaints about fatigability and weakness.</p>
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Composition</th>
+                        <th>In 4 drops</th>
+                        <th>% RDD*</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Vitamin С</td>
+                        <td>80 mg</td>
+                        <td>100%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="table-descr">
+                    <h4>PHARMACEUTICAL FORM AND PRESENTATION: <span>Drops 0.8 g piece</span></h4>
+                    <h4>*% RDD <span>recommended daily dose</span></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="profit-block-wrap">
+                  <div class="profit-block">
+                    <p>Benefit of Vitamin C is notable, when body receives it in a sufficient amount. Daily rate of Vitamin С for children is approximately 80 mg, and for children – up to 100 mg. This vitamin is received with food stuff to satisfy a daily need, Green and bulb onion, tomatoes, pumpkin, parsley, cabbage, sweet pepper contain a lot of Vitamin C, but does everybody eat these products willingly? We are ready to offer Vitatone drops with Vitamin С.</p>
+                  </div>
+                  <div class="candy-box-2"><img src="{% static "img/candy-box-2-2.png" %}" alt="alt"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="candy-slider-section">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="try-more">
+                  <h2>Try more!</h2>
+                </div>
+                <div class="candy-slider owl-carousel owl-theme">
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:shipuchie" 'en' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-1-en.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:nabor" 'en' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-2-en.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:shipuchie" 'en' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-3-en.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:jeleyki" 'en' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-4-en.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:ukachivanie" 'en' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-5-en.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:multivitamin" 'en' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-6-en.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+            <!-- Footer -->
+            <footer id="footer">
+              <div class="white-block footer-transparent">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="footer-logo"><a href="#"><img src="{% static "img/footer-logo2.png" %}" alt="alt"></a></div>
+                      {% include "includes/footer_menu_prods/index_en.html" %}
+                      <div class="nickelodeon-logo"><img src="{% static "img/nickelodeon.png" %}" alt="alt"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grey block -->
+      <div class="grey-block">
+        <div class="information">
+          <p>DIETARY SUPPLEMENT IS NOT A DRUG PREPARATION BE AWARE OF PRODUCT BEFORE APPLICATION</p>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    <!-- Hidden Popup -->
+    <div class="hidden">
+      <div id="popup">
+          {{ item.popup | safe }}
+      </div>
+    </div>
+{% endblock footer %}

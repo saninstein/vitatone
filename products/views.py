@@ -1,26 +1,12 @@
-from django.views.generic import DetailView, ListView
-from django.http import Http404
-from .models import ProductBody
+from django.views.generic import DetailView, TemplateView
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse, Http404
+from blog.models import PostBody
+from .models import *
 
 
-class ProductDetailView(DetailView):
-    model = ProductBody
-    template_name = "base.html"
-
-
-class GeneralView(ListView):
-    model = ProductBody
-    template_names = (
-        ('ru', "general/index.html"),
-        ('en', "general/index_en.html"),
-        ('uk', "general/index_uk.html")
-    )
-
-    context_object_name = "products"
-
-    def get_queryset(self):
-        lang = self.kwargs.get('lang', 'ru')
-        return self.model.objects.filter(language=lang)
+class MultilangMixin():
+    template_names = []
 
     def get_template_names(self):
         lang = self.kwargs.get('lang', 'ru')
@@ -29,5 +15,116 @@ class GeneralView(ListView):
             return template
         else:
             raise Http404
+
+
+class ProductMixin(MultilangMixin):
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductMixin, self).get_context_data(**kwargs)
+        lang = self.kwargs.get('lang', 'ru')
+
+        context['item'] = get_object_or_404(self.model, language=lang)
+        context['posts'] = PostBody.objects.filter(language=lang)[:3]
+        context['products'] = ProductBody.objects.filter(language=lang)[:3]
+        return context
+
+
+class MultiOmegaDetailView(ProductMixin, TemplateView):
+    model = MultiOmega
+    template_names = (
+        ('ru', "multiomega/index.html"),
+        ('en', "multiomega/index_en.html"),
+        ('uk', "multiomega/index_uk.html")
+    )
+
+
+class MultiVitaminDetailView(ProductMixin, TemplateView):
+    model = MultiVitamin
+    template_names = (
+        ('ru', "multivitamin/index.html"),
+        ('en', "multivitamin/index_en.html"),
+        ('uk', "multivitamin/index_uk.html")
+    )
+
+
+class VitaminCDetailView(ProductMixin, TemplateView):
+    model = VitaminC
+    template_names = (
+        ('ru', "vitaminc/index.html"),
+        ('en', "vitaminc/index_en.html"),
+        ('uk', "vitaminc/index_uk.html")
+    )
+
+
+class UkachivanieDetailView(ProductMixin, TemplateView):
+    model = Ukachivanie
+    template_names = (
+        ('ru', "ukachivanie/index.html"),
+        ('en', "ukachivanie/index_en.html"),
+        ('uk', "ukachivanie/index_uk.html")
+    )
+
+
+class JeleykiDetailView(ProductMixin, TemplateView):
+    model = Jeleyki
+    template_names = (
+        ('ru', "jeleyki/index.html"),
+        ('en', "jeleyki/index_en.html"),
+        ('uk', "jeleyki/index_uk.html")
+    )
+
+
+class ShipuchieaDetailView(ProductMixin, TemplateView):
+    model = Shipuchie
+    template_names = (
+        ('ru', "shipuchie/index.html"),
+        ('en', "shipuchie/index_en.html"),
+        ('uk', "shipuchie/index_uk.html")
+    )
+
+
+class NaborDetailView(ProductMixin, TemplateView):
+    model = Nabor
+    template_names = (
+        ('ru', "nabor/index.html"),
+        ('en', "nabor/index_en.html"),
+        ('uk', "nabor/index_uk.html")
+    )
+
+
+class DitochkamDetailView(TemplateView):
+    model = Nabor
+    template_names = (
+        ('ru', "nabor/index.html"),
+        ('en', "nabor/index_en.html"),
+        ('uk', "nabor/index_uk.html")
+    )
+
+
+class GeneralView(MultilangMixin, TemplateView):
+
+    template_names = (
+        ('ru', "general/index.html"),
+        ('en', "general/index_en.html"),
+        ('uk', "general/index_uk.html")
+    )
+
+
+def list_ajax(req, lang='ru'):
+    prods = ProductBody.objects.filter(language=lang)
+    res = dict()
+    for i in (1, 2, 6, 7, 8):
+        l = []
+        for x in prods:
+            d = {
+                    "name": f"<span class='vitatone'>VITA<span>TONE</span></span> {x.name}",
+                    "src": x.product.image.url,
+                    "caption": f"<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> {x.name}</span>",
+                    "url": x.get_absolute_url()
+                }
+            l.append(d)
+        res[f'category{i}'] = l
+    return JsonResponse(res)
+
 
 

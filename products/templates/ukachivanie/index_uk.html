@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block lang %}ru{% endblock lang %}
+{% block title %}{% if item.product.title %}{{ item.product.title }}{% else %}{{ item.product.name }}{% endif %}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    {% with item=item.product %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock head %}
+
+{% block content %}
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap ukach">
+    <div class="sliding-header"></div>
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li><a href="{% url "products:ukachivanie" 'en' %}">ENG</a></li>
+                      <li class="active"><a href="{% url "products:ukachivanie" 'uk' %}">УКР</a></li>
+                      <li><a href="{% url "products:ukachivanie_ru" %}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
+                </div>
+              </div>
+              {% include "includes/menu_prods/index_uk.html" %}
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Main content -->
+      <div class="container">
+        <!-- Multivitamin Header -->
+        <section class="ukach-header">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="logo-ukach"><img src="{% static "img/logo-ukach.png" %}" alt="alt">
+                <h1 class="text-indent">Vitatone льодяники для дітей при захитуванні та нудоті</h1>
+                <p>З імбиром та м’ятою</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="content-wrap">
+          <!-- Main Content -->
+          <section class="ukach-content">
+            <div class="row">
+              <div class="col-md-7 pr-0">
+                <div class="ukach-text">
+                  <p>Усім знайоме відчуття захитування в транспорті. Особливо часто захитує дітей, але й дорослі не застраховані від цієї неприємності. Багато хто навіть намагається уникати подорожей певним видом транспорту, наприклад, не їздить автобусом чи автомобілем або не користується літаками, бо страждає від захитування. Якщо ж говорити про «морську хворобу», тобто захитування на водних видах транспорту, то воно властиве взагалі для більшості людей.</p>
+                  <p>Як надійний засіб проти захитування здавна відомий імбир, однак вживати цей корінь в чистому вигляді не надто приємно. Льодяники Vitatone від захитування та нудоти з імбиром – зручна й смачна альтернатива, яка сподобається і дітям, і дорослим. Вони допоможуть не зіпсувати враження під час подорожі в будь-якому виді транспорту, а також під час відпочинку на воді.</p>
+                </div>
+              </div>
+              <div class="col-md-5 pl-0">
+                <div class="ukach-candy"><img src="{% static "img/candy-6-2.png" %}" alt="alt"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="ukach-candy-box"><img src="{% static "img/candy-5.png" %}" alt="alt"><a href="#popup" class="button instruction call-popup">Інформація про продукт</a></div>
+              </div>
+              <div class="col-md-6">
+                <div class="table-title">
+                  <h3>Форма випуску: <span>Льодяники 0,8 г штука</span></h3>
+                </div>
+                <table class="table table-bordered ukach-table">
+                  <thead>
+                    <tr>
+                      <th>Склад</th>
+                      <th>В 4-х льодяниках</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Імбир</td>
+                      <td>40 мг</td>
+                    </tr>
+                    <tr>
+                      <td>М’ята</td>
+                      <td>20 мг</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="snail"><img src="{% static "img/snail.png" %}" alt="alt"></div>
+              </div>
+            </div>
+          </section>
+          <!-- Blue Section -->
+          <div class="blue-wrap">
+            <!-- Slider -->
+            <div class="blue-slider-section">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="try-more">
+                    <h2>Спробуй ще!</h2>
+                  </div>
+                  <div class="ukach-slider owl-carousel owl-theme">
+                    <div class="item">
+                      <div class="row">
+                        <div class="col-md-6"><a href="{% url "products:shipuchie" 'uk' %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-1-uk.png" %}" alt="alt"></div></a></div>
+                        <div class="col-md-6"><a href="{% url "products:nabor" 'uk' %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-2-uk.png" %}" alt="alt"></div></a></div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="row">
+                        <div class="col-md-6"><a href="{% url "products:shipuchie" 'uk' %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-3-uk.png" %}" alt="alt"></div></a></div>
+                        <div class="col-md-6"><a href="{% url "products:jeleyki" 'uk' %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-4-uk.png" %}" alt="alt"></div></a></div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="row">
+                        <div class="col-md-6"><a href="{% url "products:vitaminc" 'uk' %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-13-uk.png" %}" alt="alt"></div></a></div>
+                        <div class="col-md-6"><a href="{% url "products:multivitamin" 'uk' %}">
+                            <div class="candy-item"><img src="{% static "img/slider/slide-6-uk.png" %}" alt="alt"></div></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <footer id="footer">
+              <div class="white-block footer-transparent">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="footer-logo"><a href="#"><img src="{% static "img/footer-logo2.png" %}" alt="alt"></a></div>
+                      {% include "includes/footer_menu_prods/index_uk.html" %}
+                        <div class="nickelodeon-logo"><img src="{% static "img/nickelodeon.png" %}" alt="alt"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grey block -->
+      <div class="grey-block">
+        <div class="information">
+          <p>ДІЄТИЧНА ДОБАВКА НЕ Є ЛІКАРСЬКИМ ЗАСОБОМ. ПЕРЕД ВЖИВАННЯМ ОЗНАЙОМИТИСЯ З ІНФОРМАЦІЄЮ ПРО ПРОДУКТ</p>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    <!-- Hidden Popup -->
+    <div class="hidden">
+      <div id="popup">
+          {{ item.popup | safe }}
+      </div>
+    </div>
+{% endblock footer %}

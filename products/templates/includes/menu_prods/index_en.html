@@ -1,0 +1,23 @@
+{% load static %}
+<div class="logo"><a href="{% url "products:general_en" %}"><img src="{% static "img/logo.png" %}" alt="logo"></a></div>
+<nav class="main-menu">
+                <ul>
+                  <li><a href="{% url "products:general_en" %}">Main</a></li>
+                  <li class="menu-item-has-children active"><span>Products</span>
+                    <ul>
+                      <li><a href="{% url "products:multiomega" "en" %}">MultiOmega</a></li>
+                      <li><a href="{% url "products:multivitamin" "en" %}">Drops multivitamin</a></li>
+                      <li><a href="{% url "products:vitaminc" "en" %}">Drops with Vitamin C</a></li>
+                      <li><a href="{% url "products:ukachivanie" "en" %}">Drops for travel sickness and nausea</a></li>
+                      <li><a href="{% url "products:jeleyki" "en" %}">Jelly multivitamin</a></li>
+                      <li><a href="{% url "products:shipuchie" "en" %}">Effervescent multivitamin</a></li>
+                      <li><a href="{% url "products:nabor" "en" %}">Gift set</a></li>
+                    </ul>
+                  </li>
+                    <li>
+                    <a href="{% url "blog:posts" %}" class="menu-item-has-children">Important</a>
+                  </li>
+                  <li><a href="{% url "products:ditochkam" "en" %}">For Children</a></li>
+                  <li><a href="{% url "products:general_en" %}#our-contacts">Contacts</a></li>
+                </ul>
+              </nav>

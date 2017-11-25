@@ -1,5 +1,6 @@
 import shutil
 from os import path
+from django.forms import ValidationError
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 from django.db import models
@@ -105,10 +106,88 @@ class ProductBody(Page):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
-        return super(ProductBody, self).get_absolute_url(
-            "products:product_ru", "products:product"
-        )
+        for i in (MultiOmega, ):
+            try:
+                return MultiOmega.objects.get(product=self.pk).get_absolute_url()
+            except i.DoesNotExist:
+                pass
+        return "/"
 
+
+
+class SingletoneModel(models.Model):
+
+    class Meta:
+        abstract = True
+
+    languages = (
+        ("ru", "ru"),
+        ("uk", "uk"),
+        ("en", "en"),
+    )
+
+    url_ru = ""
+    url = ""
+
+    product = models.OneToOneField(ProductBody, on_delete=models.SET_NULL, null=True)
+    language = models.CharField(max_length=10, choices=languages, default=languages[0][0], verbose_name="Язык")
+    popup = models.TextField(max_length=5000, blank=True, verbose_name="Всплывающее окно")
+
+
+    def is_ru(self):
+        return self.language == 'ru'
+
+    def get_absolute_url(self):
+        if self.is_ru():
+            return reverse(f"products:{self.url_ru}")
+        else:
+            return reverse(f"products:{self.url}", args=[self.language])
+
+    def __str__(self):
+        return self.product.name
+
+    def clean(self):
+        if self._meta.model.objects.count() == 3 and not self.pk:
+            raise ValidationError("Может существовать только в одном экземпляре")
+        if self._meta.model.objects.filter(language=self.language) and not self.pk:
+            raise ValidationError("Уже есть существет с таким языком")
+        if self.language != self.product.language:
+            raise ValidationError("Язык не соответствует")
+
+
+class MultiOmega(SingletoneModel):
+    url_ru = "multiomega_ru"
+    url = "multiomega"
+
+
+class MultiVitamin(SingletoneModel):
+    url_ru = "multivitamin_ru"
+    url = "multivitamin"
+
+
+class VitaminC(SingletoneModel):
+    url_ru = "vitaminc_ru"
+    url = "vitaminc"
+
+
+class Ukachivanie(SingletoneModel):
+    url_ru = "ukachivanie_ru"
+    url = "ukachivanie"
+
+
+class Jeleyki(SingletoneModel):
+    url_ru = "jeleyki_ru"
+    url = "jeleyki"
+
+
+class Shipuchie(SingletoneModel):
+    url_ru = "shipuchie_ru"
+    url = "shipuchie"
+
+
+class Nabor(SingletoneModel):
+    url_ru = "nabor_ru"
+    url = "nabor"
 
 
 
