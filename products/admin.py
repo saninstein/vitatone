@@ -80,11 +80,15 @@ class NaborAdmin(admin.ModelAdmin):
 admin.site.register(Product, ProductAdmin)
 admin.site.register(MultiOmega, MultiOmegaAdmin)
 admin.site.register(MultiVitamin, MultiVitaminAdmin)
-admin.site.register(VitaminC, MultiVitaminAdmin)
+admin.site.register(VitaminC, VitaminCAdmin)
 admin.site.register(Ukachivanie, UkachivanieAdmin)
 admin.site.register(Jeleyki, JeleykiAdmin)
 admin.site.register(Shipuchie, ShipuchieAdmin)
 admin.site.register(Nabor, NaborAdmin)
 
 admin.site.register(Ditockam)
+
+
+admin.site.site_header = 'VITATONE'
+admin.site.site_title = 'Административный сайт'
 

@@ -28,10 +28,11 @@ class ProductBodyInlineFormSet(BaseInlineFormSet):
 
 class MultiOmegaModelForm(forms.ModelForm):
     popup = forms.CharField(widget=CKEditorWidget())
+    text = forms.CharField(widget=CKEditorWidget())
 
     class Meta:
         model = MultiOmega
-        fields = ["language", "product", "popup"]
+        fields = ["language", "product", "popup", "text", "link"]
 
 
 class MultiVitaminModelForm(forms.ModelForm):
@@ -45,25 +46,29 @@ class MultiVitaminModelForm(forms.ModelForm):
 class VitaminCModelForm(forms.ModelForm):
     popup = forms.CharField(widget=CKEditorWidget())
 
+    text1 = forms.CharField(widget=CKEditorWidget())
+    text2 = forms.CharField(widget=CKEditorWidget())
+
     class Meta:
         model = VitaminC
-        fields = ["language", "product", "popup"]
+        fields = ["language", "product", "popup", "text1", "text2"]
 
 
 class UkachivanieModelForm(forms.ModelForm):
     popup = forms.CharField(widget=CKEditorWidget())
+    text = forms.CharField(widget=CKEditorWidget())
 
     class Meta:
         model = Ukachivanie
-        fields = ["language", "product", "popup"]
+        fields = ["language", "product", "popup", "text"]
+
 
 
 class JeleykiModelForm(forms.ModelForm):
-    popup = forms.CharField(widget=CKEditorWidget())
 
     class Meta:
         model = Jeleyki
-        fields = ["language", "product", "popup"]
+        fields = ["language", "product", "text1", "text2"]
 
 
 class ShipuchieModelForm(forms.ModelForm):

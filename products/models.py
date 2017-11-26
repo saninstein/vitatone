@@ -28,7 +28,7 @@ class Page(models.Model):
     language = models.CharField(max_length=10, choices=languages, default=languages[0][0], verbose_name="Язык")
 
     title = models.CharField(max_length=200, verbose_name="Title", blank=True)
-    description = models.CharField(max_length=300, verbose_name="Description", blank=True)
+    description = models.TextField(max_length=300, verbose_name="Description", blank=True)
     keywords = models.CharField(max_length=300, verbose_name="Keywords", blank=True)
 
 
@@ -60,8 +60,8 @@ class Page(models.Model):
 class Product(models.Model):
 
     class Meta:
-        verbose_name = "Продукт"
-        verbose_name_plural = "Продукты"
+        verbose_name = "Продукт на главной"
+        verbose_name_plural = "Продукты на главной"
 
     image = models.ImageField(
         upload_to=get_image_path,
@@ -106,9 +106,9 @@ class ProductBody(Page):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
-        for i in (MultiOmega, ):
+        for i in (MultiOmega, MultiVitamin, VitaminC, Ukachivanie, Jeleyki, Shipuchie, Nabor):
             try:
-                return MultiOmega.objects.get(product=self.pk).get_absolute_url()
+                return i.objects.get(product=self.pk).get_absolute_url()
             except i.DoesNotExist:
                 pass
         return "/"
@@ -144,7 +144,7 @@ class SingletoneModel(models.Model):
             return reverse(f"products:{self.url}", args=[self.language])
 
     def __str__(self):
-        return self.product.name
+        return self.language
 
     def clean(self):
         if self._meta.model.objects.count() == 3 and not self.pk:
@@ -156,36 +156,70 @@ class SingletoneModel(models.Model):
 
 
 class MultiOmega(SingletoneModel):
+    class Meta:
+        verbose_name = "МультиОмега"
+        verbose_name_plural = "МультиОмега"
+
     url_ru = "multiomega_ru"
     url = "multiomega"
 
+    text = models.TextField(verbose_name="Текст", blank=True)
+    link = models.URLField(verbose_name="Ссылка 'Читать дальше'", blank=True)
+
 
 class MultiVitamin(SingletoneModel):
+    class Meta:
+        verbose_name = "Леденцы Мультивитамин"
+        verbose_name_plural = "Леденцы Мультивитамин"
     url_ru = "multivitamin_ru"
     url = "multivitamin"
 
 
 class VitaminC(SingletoneModel):
+    class Meta:
+        verbose_name = "Леденцы с витамином С"
+        verbose_name_plural = "Леденцы с витамином С"
     url_ru = "vitaminc_ru"
     url = "vitaminc"
 
+    text1 = models.TextField(verbose_name="Текст 1", blank=True)
+    text2 = models.TextField(verbose_name="Текст 2", blank=True)
+
 
 class Ukachivanie(SingletoneModel):
+    class Meta:
+        verbose_name = "Леденцы при укачивании и тошноте"
+        verbose_name_plural = "Леденцы при укачивании и тошноте"
     url_ru = "ukachivanie_ru"
     url = "ukachivanie"
 
+    text = models.TextField(verbose_name="Текст", blank=True)
+
 
 class Jeleyki(SingletoneModel):
+    class Meta:
+        verbose_name = "Желейные мультивитамины"
+        verbose_name_plural = "Желейные мультивитамины"
     url_ru = "jeleyki_ru"
     url = "jeleyki"
+    popup = None
+
+    text1 = models.TextField(verbose_name="Текст 1", blank=True)
+    text2 = models.TextField(verbose_name="Текст 2", blank=True)
 
 
 class Shipuchie(SingletoneModel):
+    class Meta:
+        verbose_name = "Шипучие мультивитамины"
+        verbose_name_plural = "Шипучие мультивитамины"
     url_ru = "shipuchie_ru"
     url = "shipuchie"
 
 
 class Nabor(SingletoneModel):
+    class Meta:
+        verbose_name = "Подарочный набор"
+        verbose_name_plural = "Подарочный набор"
     url_ru = "nabor_ru"
     url = "nabor"
     popup = None
@@ -194,6 +228,11 @@ class Nabor(SingletoneModel):
 
 
 class Ditockam(models.Model):
+
+    class Meta:
+        verbose_name = "Деткам"
+        verbose_name_plural = "Деткам"
+
     url_ru = "ditochkam_ru"
     url = "ditochkam"
 
@@ -205,7 +244,7 @@ class Ditockam(models.Model):
 
     language = models.CharField(max_length=10, choices=languages, default=languages[0][0], verbose_name="Язык")
     title = models.CharField(max_length=200, verbose_name="Title", blank=True)
-    description = models.CharField(max_length=300, verbose_name="Description", blank=True)
+    description = models.TextField(max_length=300, verbose_name="Description", blank=True)
     keywords = models.CharField(max_length=300, verbose_name="Keywords", blank=True)
 
     def get_absolute_url(self):

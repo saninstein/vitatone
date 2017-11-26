@@ -32,31 +32,26 @@
                   <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
                 </div>
               </div>
-                <div class="logo"><a href="/"><img src="{% static 'img/logo.png' %}" alt="logo"></a></div>
-              <nav class="main-menu">
+                <div class="logo"><a href="{% url "products:general_en" %}"><img src="{% static "img/logo.png" %}" alt="logo"></a></div>
+<nav class="main-menu">
                 <ul>
-                  <li><a href="/en/">Main</a></li>
+                  <li><a href="{% url "products:general_en" %}">Main</a></li>
                   <li class="menu-item-has-children"><span>Products</span>
                     <ul>
-                      <li><a href="multiomega.html">MultiOmega</a></li>
-                      <li><a href="multivitamine.html">Drops multivitamin</a></li>
-                      <li><a href="vitamine-c.html">Drops with Vitamin C</a></li>
-                      <li><a href="ukachivanie.html">Drops for travel sickness and nausea</a></li>
-                      <li><a href="jeleyki.html">Jelly multivitamin</a></li>
-                      <li><a href="shipuchie.html">Effervescent multivitamin</a></li>
-                      <li><a href="nabor.html">Gift set</a></li>
+                      <li><a href="{% url "products:multiomega" "en" %}">MultiOmega</a></li>
+                      <li><a href="{% url "products:multivitamin" "en" %}">Drops multivitamin</a></li>
+                      <li><a href="{% url "products:vitaminc" "en" %}">Drops with Vitamin C</a></li>
+                      <li><a href="{% url "products:ukachivanie" "en" %}">Drops for travel sickness and nausea</a></li>
+                      <li><a href="{% url "products:jeleyki" "en" %}">Jelly multivitamin</a></li>
+                      <li><a href="{% url "products:shipuchie" "en" %}">Effervescent multivitamin</a></li>
+                      <li><a href="{% url "products:nabor" "en" %}">Gift set</a></li>
                     </ul>
                   </li>
-                  <li class="menu-item-has-children active"><span>Important</span>
-                    <ul>
-                      <li class="active"><a href="porady.html">Multivitamin and Omega</a></li>
-                      <li><a href="porady2.html">The skin is not in full radiance of beauty, isn't it? Why?</a></li>
-                      <li><a href="porady3.html">Have the child's studies become worse? Why?</a></li>
-                      <li><a href="porady4.html">Are you afraid of your heart? How to support it?</a></li>
-                    </ul>
+                    <li class="active">
+                    <a href="{% url "blog:posts" %}" class="menu-item-has-children">Important</a>
                   </li>
-                  <li><a href="ditochkam.html">For Children</a></li>
-                  <li><a href="/en/#our-contacts">Contacts</a></li>
+                  <li><a href="{% url "products:ditochkam" "en" %}">For Children</a></li>
+                  <li><a href="{% url "products:general_en" %}#our-contacts">Contacts</a></li>
                 </ul>
               </nav>
               <div class="main-menu-toggle">
@@ -116,7 +111,7 @@
                           <h4>{{ post.name }}</h4>
                         </div>
                         <div class="descr">
-                          <p>{{ post.text | striptags | truncatechars:230 }}</p><a href="{{ post.get_absolute_url }}" class="button">Read more</a>
+                          <p>{{ post.text | striptags | truncatechars:150 }}</p><a href="{{ post.get_absolute_url }}" class="button">Read more</a>
                         </div>
                       </div>
                     </div>
@@ -147,28 +142,23 @@
               <div class="footer-logo"><a href="#"><img src="{% static 'img/footer-logo.png' %}" alt="alt"></a></div>
               <nav class="footer-menu">
                 <ul>
-                  <li><a href="/">Main</a></li>
-                  <li class="menu-item-has-children"><span>Products</span>
+                  <li><a href="{% url "products:general_en" %}">Main</a></li>
+                  <li><span>Products</span>
                     <ul>
-                      <li><a href="multiomega.html">MultiOmega</a></li>
-                      <li><a href="multivitamine.html">Drops multivitamin</a></li>
-                      <li><a href="vitamine-c.html">Drops with Vitamin C</a></li>
-                      <li><a href="ukachivanie.html">Drops for travel sickness and nausea</a></li>
-                      <li><a href="jeleyki.html">Jelly multivitamin</a></li>
-                      <li><a href="shipuchie.html">Effervescent multivitamin</a></li>
-                      <li><a href="nabor.html">Gift set</a></li>
+                      <li><a href="{% url "products:multiomega" "en" %}">MultiOmega</a></li>
+                      <li><a href="{% url "products:multivitamin" "en" %}">Drops multivitamin</a></li>
+                      <li><a href="{% url "products:vitaminc" "en" %}">Drops with Vitamin C</a></li>
+                      <li><a href="{% url "products:ukachivanie" "en" %}">Drops for travel sickness and nausea</a></li>
+                      <li><a href="{% url "products:jeleyki" "en" %}">Jelly multivitamin</a></li>
+                      <li><a href="{% url "products:shipuchie" "en" %}">Effervescent multivitamin</a></li>
+                      <li><a href="{% url "products:nabor" "en" %}">Gift set</a></li>
                     </ul>
                   </li>
-                  <li class="menu-item-has-children active"><span>Important</span>
-                    <ul>
-                      <li class="active"><a href="porady.html">Multivitamin and Omega</a></li>
-                      <li><a href="porady2.html">The skin is not in full radiance of beauty, isn't it? Why?</a></li>
-                      <li><a href="porady3.html">Have the child's studies become worse? Why?</a></li>
-                      <li><a href="porady4.html">Are you afraid of your heart? How to support it?</a></li>
-                    </ul>
+                    <li class="active">
+                    <a href="{% url "blog:posts" %}">Important</a>
                   </li>
-                  <li><a href="ditochkam.html">For Children</a></li>
-                  <li><a href="/#our-contacts">Contacts</a></li>
+                  <li><a href="{% url "products:ditochkam" "en" %}">For Children</a></li>
+                  <li><a href="{% url "products:general_en" %}#our-contacts">Contacts</a></li>
                 </ul>
               </nav>
               <div class="copyright">

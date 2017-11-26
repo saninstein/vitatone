@@ -31,31 +31,24 @@
                   <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
                 </div>
               </div>
-              <div class="logo"><a href="/"><img src="{% static 'img/logo.png' %}" alt="logo"></a></div>
-              <nav class="main-menu">
+              <div class="logo"><a href="{% url "products:general" %}"><img src="{% static "img/logo.png" %}" alt="logo"></a></div>
+<nav class="main-menu">
                 <ul>
-                  <li><a href="/">Главная</a></li>
+                  <li><a href="{% url "products:general" %}">Главная</a></li>
                   <li class="menu-item-has-children"><span>Продукты</span>
                     <ul>
-                      <li><a href="multiomega.html">МультиОмега</a></li>
-                      <li><a href="multivitamine.html">Леденцы Мультивитамин</a></li>
-                      <li><a href="vitamine-c.html">Леденцы с витамином С</a></li>
-                      <li><a href="ukachivanie.html">Леденцы при укачивании и тошноте</a></li>
-                      <li><a href="jeleyki.html">Желейные мультивитамины</a></li>
-                      <li><a href="shipuchie.html">Шипучие мультивитамины</a></li>
-                      <li><a href="nabor.html">Подарочный набор</a></li>
+                      <li><a href="{% url "products:multiomega_ru" %}">МультиОмега</a></li>
+                      <li><a href="{% url "products:multivitamin_ru" %}">Леденцы Мультивитамин</a></li>
+                      <li><a href="{% url "products:vitaminc_ru" %}">Леденцы с витамином С</a></li>
+                      <li><a href="{% url "products:ukachivanie_ru" %}">Леденцы при укачивании и тошноте</a></li>
+                      <li><a href="{% url "products:jeleyki_ru" %}">Желейные мультивитамины</a></li>
+                      <li><a href="{% url "products:shipuchie_ru" %}">Шипучие мультивитамины</a></li>
+                      <li><a href="{% url "products:nabor_ru" %}">Подарочный набор</a></li>
                     </ul>
                   </li>
-                  <li class="menu-item-has-children active"><a href="{% url "blog:posts" %}">Важно знать</a>
-                    <ul>
-                      <li class="active"><a href="porady.html">Мультивитамины и Омега</a></li>
-                      <li><a href="porady2.html">Кожа не сияет красотой? Почему?</a></li>
-                      <li><a href="porady3.html">Ребенок стал хуже учиться? Почему?</a></li>
-                      <li><a href="porady4.html">Боитесь за свое сердце? Как его поддержать?</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="ditochkam.html">Деткам</a></li>
-                  <li><a href="/#our-contacts">Контакты</a></li>
+                  <li class="active"><a href="{% url "blog:posts" %}">Важно знать</a></li>
+                  <li><a href="{% url "products:ditochkam_ru" %}">Деткам</a></li>
+                  <li><a href="{% url "products:general" %}#our-contacts">Контакты</a></li>
                 </ul>
               </nav>
               <div class="main-menu-toggle">
@@ -115,7 +108,7 @@
                           <h4>{{ post.name }}</h4>
                         </div>
                         <div class="descr">
-                          <p>{{ post.text | striptags | truncatechars:230 }}</p><a href="{{ post.get_absolute_url }}" class="button">Читать дальше</a>
+                          <p>{{ post.text | striptags | truncatechars:150 }}</p><a href="{{ post.get_absolute_url }}" class="button">Читать дальше</a>
                         </div>
                       </div>
                     </div>
@@ -148,28 +141,21 @@
               <div class="footer-logo"><a href="#"><img src="{% static 'img/footer-logo.png' %}" alt="alt"></a></div>
               <nav class="footer-menu">
                 <ul>
-                  <li><a href="/">Главная</a></li>
+                  <li><a href="{% url "products:general" %}">Главная</a></li>
                   <li><span>Продукты</span>
                     <ul>
-                      <li><a href="multiomega.html">МультиОмега</a></li>
-                      <li><a href="multivitamine.html">Леденцы Мультивитамин</a></li>
-                      <li><a href="vitamine-c.html">Леденцы с витамином С</a></li>
-                      <li><a href="ukachivanie.html">Леденцы при укачивании и тошноте</a></li>
-                      <li><a href="jeleyki.html">Желейные мультивитамины</a></li>
-                      <li><a href="shipuchie.html">Шипучие мультивитамины</a></li>
-                      <li><a href="nabor.html">Подарочный набор</a></li>
+                      <li><a href="{% url "products:multiomega_ru" %}">МультиОмега</a></li>
+                      <li><a href="{% url "products:multivitamin_ru" %}">Леденцы Мультивитамин</a></li>
+                      <li><a href="{% url "products:vitaminc_ru" %}">Леденцы с витамином С</a></li>
+                      <li><a href="{% url "products:ukachivanie_ru" %}">Леденцы при укачивании и тошноте</a></li>
+                      <li><a href="{% url "products:jeleyki_ru" %}">Желейные мультивитамины</a></li>
+                      <li><a href="{% url "products:shipuchie_ru" %}">Шипучие мультивитамины</a></li>
+                      <li><a href="{% url "products:nabor_ru" %}">Подарочный набор</a></li>
                     </ul>
                   </li>
-                  <li><span>Важно знать</span>
-                    <ul class="active">
-                      <li class="active"><a href="porady.html">Мультивитамины и Омега</a></li>
-                      <li><a href="porady2.html">Кожа не сияет красотой? Почему?</a></li>
-                      <li><a href="porady3.html">Ребенок стал хуже учиться? Почему?</a></li>
-                      <li><a href="porady4.html">Боитесь за свое сердце? Как его поддержать?</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="ditochkam.html">Деткам</a></li>
-                  <li><a href="/#our-contacts">Контакты</a></li>
+                  <li class="active"><a href="{% url "blog:posts" %}">Важно знать</a></li>
+                  <li><a href="{% url "products:ditochkam_ru" %}">Деткам</a></li>
+                  <li><a href="{% url "products:general" %}#our-contacts">Контакты</a></li>
                 </ul>
               </nav>
               <div class="copyright">
