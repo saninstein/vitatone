@@ -129,7 +129,7 @@ class SingletoneModel(models.Model):
     url_ru = ""
     url = ""
 
-    product = models.OneToOneField(ProductBody, on_delete=models.SET_NULL, null=True)
+    product = models.OneToOneField(ProductBody, on_delete=models.PROTECT)
     language = models.CharField(max_length=10, choices=languages, default=languages[0][0], verbose_name="Язык")
     popup = models.TextField(max_length=5000, blank=True, verbose_name="Всплывающее окно")
 
@@ -188,6 +188,44 @@ class Shipuchie(SingletoneModel):
 class Nabor(SingletoneModel):
     url_ru = "nabor_ru"
     url = "nabor"
+    popup = None
+
+    link = models.URLField(verbose_name="Сслыка на страницу покупки", blank=True)
+
+
+class Ditockam(models.Model):
+    url_ru = "ditochkam_ru"
+    url = "ditochkam"
+
+    languages = (
+        ("ru", "ru"),
+        ("uk", "uk"),
+        ("en", "en"),
+    )
+
+    language = models.CharField(max_length=10, choices=languages, default=languages[0][0], verbose_name="Язык")
+    title = models.CharField(max_length=200, verbose_name="Title", blank=True)
+    description = models.CharField(max_length=300, verbose_name="Description", blank=True)
+    keywords = models.CharField(max_length=300, verbose_name="Keywords", blank=True)
+
+    def get_absolute_url(self):
+        if self.is_ru():
+            return reverse(f"products:{self.url_ru}")
+        else:
+            return reverse(f"products:{self.url}", args=[self.language])
+
+    def __str__(self):
+        return self.language
+
+    def is_ru(self):
+        return self.language == 'ru'
+
+    def clean(self):
+        if self._meta.model.objects.count() == 3 and not self.pk:
+            raise ValidationError("Может существовать только в одном экземпляре")
+        if self._meta.model.objects.filter(language=self.language) and not self.pk:
+            raise ValidationError("Уже есть существет с таким языком")
+
 
 
 

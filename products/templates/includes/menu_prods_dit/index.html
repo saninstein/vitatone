@@ -1,0 +1,21 @@
+{% load static %}
+<div class="logo"><a href="{% url "products:general" %}"><img src="{% static "img/logo.png" %}" alt="logo"></a></div>
+<nav class="main-menu">
+                <ul>
+                  <li><a href="{% url "products:general" %}">Главная</a></li>
+                  <li class="menu-item-has-children"><span>Продукты</span>
+                    <ul>
+                      <li><a href="{% url "products:multiomega_ru" %}">МультиОмега</a></li>
+                      <li><a href="{% url "products:multivitamin_ru" %}">Леденцы Мультивитамин</a></li>
+                      <li><a href="{% url "products:vitaminc_ru" %}">Леденцы с витамином С</a></li>
+                      <li><a href="{% url "products:ukachivanie_ru" %}">Леденцы при укачивании и тошноте</a></li>
+                      <li><a href="{% url "products:jeleyki_ru" %}">Желейные мультивитамины</a></li>
+                      <li><a href="{% url "products:shipuchie_ru" %}">Шипучие мультивитамины</a></li>
+                      <li><a href="{% url "products:nabor_ru" %}">Подарочный набор</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="{% url "blog:posts" %}">Важно знать</a></li>
+                  <li class="active"><a href="{% url "products:ditochkam_ru" %}">Деткам</a></li>
+                  <li><a href="{% url "products:general" %}#our-contacts">Контакты</a></li>
+                </ul>
+              </nav>

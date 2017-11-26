@@ -21,15 +21,26 @@ class ProductMixin(MultilangMixin):
 
     def get_context_data(self, **kwargs):
         context = super(ProductMixin, self).get_context_data(**kwargs)
+
+        if self.model is not None:
+            lang = self.kwargs.get('lang', 'ru')
+            context['item'] = get_object_or_404(self.model, language=lang)
+        return context
+
+
+class ProductPostMixin(ProductMixin):
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductPostMixin, self).get_context_data(**kwargs)
         lang = self.kwargs.get('lang', 'ru')
 
-        context['item'] = get_object_or_404(self.model, language=lang)
         context['posts'] = PostBody.objects.filter(language=lang)[:3]
         context['products'] = ProductBody.objects.filter(language=lang)[:3]
         return context
 
 
-class MultiOmegaDetailView(ProductMixin, TemplateView):
+
+class MultiOmegaDetailView(ProductPostMixin, TemplateView):
     model = MultiOmega
     template_names = (
         ('ru', "multiomega/index.html"),
@@ -92,12 +103,13 @@ class NaborDetailView(ProductMixin, TemplateView):
     )
 
 
-class DitochkamDetailView(TemplateView):
-    model = Nabor
+class DitochkamView(ProductPostMixin, TemplateView):
+    model = Ditockam
+
     template_names = (
-        ('ru', "nabor/index.html"),
-        ('en', "nabor/index_en.html"),
-        ('uk', "nabor/index_uk.html")
+        ('ru', "ditochkam/index.html"),
+        ('en', "ditochkam/index_en.html"),
+        ('uk', "ditochkam/index_uk.html")
     )
 
 

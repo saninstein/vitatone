@@ -75,8 +75,7 @@ class ShipuchieModelForm(forms.ModelForm):
 
 
 class NaborModelForm(forms.ModelForm):
-    popup = forms.CharField(widget=CKEditorWidget())
 
     class Meta:
         model = Nabor
-        fields = ["language", "product", "popup"]
+        fields = ["language", "product", "link"]

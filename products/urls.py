@@ -26,8 +26,8 @@ urlpatterns = [
     path('<str:lang>/nabor', NaborDetailView.as_view(), name="nabor"),
 
     # general & ajax
-    path('ditochkam', MultiOmegaDetailView.as_view(), name="ditochkam_ru"),
-    path('<str:lang>/ditochkam', MultiOmegaDetailView.as_view(), name="ditochkam"),
+    path('ditochkam', DitochkamView.as_view(), name="ditochkam_ru"),
+    path('<str:lang>/ditochkam', DitochkamView.as_view(), name="ditochkam"),
     path('list/', list_ajax, name='ajax'),
     path('uk/', GeneralView.as_view(), kwargs={'lang': 'uk'}, name='general_uk'),
     path('en/', GeneralView.as_view(), kwargs={'lang': 'en'}, name='general_en'),

@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block lang %}ua{% endblock lang %}
+{% block title %}{% if item.product.title %}{{ item.product.title }}{% else %}{{ item.product.name }}{% endif %}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    {% with item=item.product %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock head %}
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/new-styles.css" %}">
+    <link rel="stylesheet" href="{% static "css/styles_nabor.css" %}">
+{% endblock stylesheets %}
+
+{% block content %}
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap nabor-page">
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li><a href="{% url "products:nabor" 'en' %}">ENG</a></li>
+                      <li class="active"><a href="{% url "products:nabor" 'uk' %}">УКР</a></li>
+                      <li><a href="{% url "products:nabor_ru" %}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
+                </div>
+              </div>
+              {% include "includes/menu_prods/index_uk.html" %}
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    <!-- Header -->
+      <section class="nabor-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="logo-nabor"><img src="{% static "img/new/jeleyki-logo-kids.png" %}" alt="alt">
+                <h1>ПОДАРУНКОВИЙ НАБІР<span>для дітей</span></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Content -->
+      <section class="nabor-content">
+        <div class="container">
+          <div class="nabor-top clearfix">
+            <div class="row">
+              <div class="col-md-5 col-sm-6">
+                <div class="nabor-descr-list">
+                  <p>Подарочный набор содержит:</p>
+                  <ul>
+                    <li><img src="{% static "img/new/jeleyki-logo-kids-small.png" %}" alt="alt">пастилки желейні <br>з вітамінами №80</li>
+                    <li><img src="{% static "img/new/jeleyki-logo-kids-small.png" %}" alt="alt">таблетки шипучі <br>зі смаком мандарину №50</li>
+                    <li>Плюшева іграшка: один з героїв мультфільму «Губка Боб Квадратні Штани»</li>
+                  </ul>
+                </div>
+                <div class="nabor-img"><img src="{% static "img/new/nabor-1.png" %}" alt="alt"></div>
+              </div>
+              <div class="col-md-7 col-sm-6">
+                <div class="nabor-box-img">
+                  <img src="{% static "img/new/nabor-box.png" %}" alt="alt">
+                  <a href="{{ item.link }}" id="buy-btn">
+                    <img src="{% static "uk/img/buy-btn.png" %}" alt="alt">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nabor-text">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="logo-middle-img"><img src="{% static "img/new/jeleyki-logo-kids-middle-2.png" %}" alt="alt"></div>
+                <h1>Подарунковий набір для дітей — </h1>
+                <p>Унікальний продукт, розроблений компанією Newtone Pharma для здоров’я дітей та їх задоволення. </p>
+                <h2>Подарунковий набір <img src="{% static "img/new/jeleyki-logo-kids-small.png" %}" alt="alt">від компанії Newtone Pharma Limited має ряд переваг: </h2>
+                <div class="row">
+                  <div class="col-md-6 col-sm-6">
+                    <div class="advantages-item">
+                      <p>Добова доза високоякісних європейських вітамінів та мінералів, розрахована до 2-х місяців.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6">
+                    <div class="advantages-item">
+                      <p>Натуральні інгредієнти.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6">
+                    <div class="advantages-item">
+                      <p>Різноманітні форми та смаки жувальних пастилок та шипучих таблеток.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6">
+                    <div class="advantages-item">
+                      <p>Приваблива яскрава упаковка з популярними героями мультфільмів.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bottom-text">
+                    <p>Висока європейська якість, вітамінно-мінеральні комплекси VITATONE Kids для дітей у вигляді пастилок желейних з вітамінами, № 80, та шипучих таблеток зі смаком мандарину, № 50, а також плюшева іграшка у вигляді одного з героїв популярного мультфільму «Губка Боб Квадратні Штани». З подарунковим набором VITATONE Kids дитина буде радіти улюбленим героям, а батьки — можливості попіклуватися про здоров’я малечі.</p>
+                </div>
+                <div class="center-bg"><img src="{% static "img/new/center-bg.png" %}" alt="alt"></div>
+                <h3>ЗБЕРИ ПОВНУ <span>КОЛЕКЦІЮ </span>УЛЮБЛЕНИХ <span>ІГРАШОК</span></h3>
+                <p class="font-big">У кожному наборі – різні герої</p>
+                <div class="row">
+                  <div class="toys-slider owl-carousel owl-theme">
+                    <div class="item">
+                      <div class="toys-item">
+                        <div class="toys-img"><img src="{% static "img/new/toys-1.png" %}" alt="alt"></div>
+                        <div class="toys-title">Спанч Боб</div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="toys-item">
+                        <div class="toys-img"><img src="{% static "img/new/toys-2.png" %}" alt="alt"></div>
+                        <div class="toys-title">Крабс</div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="toys-item">
+                        <div class="toys-img"><img src="{% static "img/new/toys-3.png" %}" alt="alt"></div>
+                        <div class="toys-title">Патрік</div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="toys-item">
+                        <div class="toys-img"><img src="{% static "img/new/toys-4.png" %}" alt="alt"></div>
+                        <div class="toys-title">Геррі</div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="toys-item">
+                        <div class="toys-img"><img src="{% static "img/new/toys-5.png" %}" alt="alt"></div>
+                        <div class="toys-title">Планктон</div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="toys-item">
+                        <div class="toys-img"><img src="{% static "img/new/toys-6.png" %}" alt="alt"></div>
+                        <div class="toys-title">Сквідвард</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bubbles-img hidden-xs"><img src="{% static "img/new/bubbles-3.png" %}" alt="alt"></div>
+              </div>
+            </div>
+          </div>
+          <section class="middle-text">
+            <div class="row">
+              <div class="col-md-12">
+                <p>ВІТАМІНИ <span>та </span>МІНЕРАЛИ, <span>які потрібні для </span>ПОВНОЦІННОГО РОЗВИТКУ ДИТИНИ</p>
+              </div>
+            </div>
+          </section>
+          <section class="mandarin-section">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="mandarin-box"><img src="{% static "img/new/mandarin-box.png" %}" alt="alt"></div>
+              </div>
+              <div class="col-md-9">
+                <div class="logo-middle-img"><img src="{% static "img/new/jeleyki-logo-kids-middle-2.png" %}" alt="alt"></div>
+                <h2>Вітамінно-мінеральний комплекс <span>зі смаком МАНДАРИНУ </span>у вигляді ШИПУЧИХ ТАБЛЕТОК</h2>
+                <p>Вітамінно-мінеральний комплекс містить:</p>
+                <ul>
+                  <li>Кальцій: <span>для зміцнення дитячих кісток та зубів</span></li>
+                  <li>Пантотенова кислота: <span>для росту дитячого організму, підвищення опірності інфекціям, для захисту шкіри від дерматитів</span></li>
+                  <li>Вітамін С, Цинк: <span>підтримують імунітет</span></li>
+                  <li>Вітаміни групи В: <span>нормалізують роботу нервової системи, стимулюють процес травлення та кровотворення</span></li>
+                  <li>Вітамін Е: <span>регулює обмін речовин, антиоксидант</span></li>
+                </ul>
+                <div class="patrick"><img src="{% static "img/new/patrick.png" %}" alt="alt"><a href="{% url "products:shipuchie" 'uk' %}" class="button">Читати про продукт</a></div>
+              </div>
+            </div>
+          </section>
+          <div class="mandarin-center-bg hidden-sm hidden-xs"><img src="{% static "img/new/center-bg-2.png" %}" alt="alt"></div>
+          <section class="juice-section">
+            <div class="row">
+              <div class="col-md-3 col-md-push-9">
+                <div class="juice-box"><img src="{% static "img/new/juice-box.png" %}" alt="alt"></div>
+              </div>
+              <div class="col-md-9 col-md-pull-3">
+                <div class="logo-middle-img"><img src="{% static "img/new/jeleyki-logo-kids-middle-2.png" %}" alt="alt"></div>
+                <h2>Вітамінно-мінеральний комплекс з <span>НАТУРАЛЬНИМИ СОКАМИ </span>у вигляді ЖЕЛЕЙНИХ ПАСТИЛОК</h2>
+                <p>Вітамінно-мінеральний комплекс містить:</p>
+                <ul>
+                  <li>Вітамін А: <span>для збереження зору</span></li>
+                  <li>Вітамін С, Цинк: <span>для підтримки імунітету</span></li>
+                  <li>Вітаміни групи В: <span>для нормалізації роботи нервової системи, стимуляції процесу травлення та кровотворення </span></li>
+                  <li>Вітамін Е: <span>для регуляції обміну речовин, антиоксидант</span></li>
+                </ul>
+                <div class="bob"><img src="{% static "img/new/bob.png" %}" alt="alt"><a href="{% url "products:jeleyki" 'uk' %}" class="button">Читати про продукт</a></div>
+                <div class="bubbles-img"><img src="{% static "img/new/juice-bubbles.png" %}" alt="alt"></div>
+              </div>
+            </div>
+          </section>
+          <section class="attention-section">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="section-title">
+                  <h3>УВАГА БАТЬКАМ:</h3>
+                </div>
+                <p>1 упаковка вітамінно-мінерального комплексу дозволяє батькам забезпечити дитину вітамінами та мінералами до 2-х місяців</p>
+                <div class="grass-img hidden-xs"><img src="{% static "img/new/attention-grass.png" %}" alt="alt"></div>
+                <div class="bubbles-img hidden-xs"><img src="{% static "img/new/attention-bubbles.png" %}" alt="alt"></div>
+              </div>
+            </div>
+          </section>
+          <section class="candy-slider-section">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="try-more">
+                  <h2>Спробуй ще!</h2>
+                </div>
+                <div class="candy-slider owl-carousel owl-theme">
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:ukachivanie" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-5-uk.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:multivitamin" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-6-uk.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:shipuchie" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-1-uk.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:vitaminc" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-8-uk.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:shipuchie" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-3-uk.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:jeleyki" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-4-uk.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+        <footer id="footer">
+              <div class="white-block footer-transparent">
+                  <div class="sliding-footer"></div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="footer-logo"><a href="#"><img src="{% static "img/footer-logo2.png" %}" alt="alt"></a></div>
+                      {% include "includes/footer_menu_prods/index_uk.html" %}
+                        <div class="nickelodeon-logo"><img src="{% static "img/nickelodeon.png" %}" alt="alt"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+
+
+            <!-- Footer -->
+
+
+
+
+      <!-- Grey block -->
+      <div class="grey-block">
+        <div class="information">
+          <p>ДІЄТИЧНА ДОБАВКА НЕ Є ЛІКАРСЬКИМ ЗАСОБОМ. ПЕРЕД ВЖИВАННЯМ ОЗНАЙОМИТИСЯ З ІНФОРМАЦІЄЮ ПРО ПРОДУКТ</p>
+        </div>
+      </div>
+
+{% endblock content %}
+
+{% block footer %}
+    <!-- Hidden Popup -->
+    <div class="hidden">
+      <div id="popup">
+          {{ item.popup | safe }}
+      </div>
+    </div>
+{% endblock footer %}

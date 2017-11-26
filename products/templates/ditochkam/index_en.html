@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block lang %}en{% endblock lang %}
+{% block title %}{{ item.title }}{% endblock %}
+
+{% block head %}
+    {{ block.super }}
+    {% with item=item %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock head %}
+
+
+{% block content %}
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap">
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li class="active"><a href="{% url "products:ditochkam" 'en' %}">ENG</a></li>
+                      <li><a href="{% url "products:ditochkam" 'uk' %}">УКР</a></li>
+                      <li><a href="{% url "products:ditochkam_ru" %}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
+                </div>
+              </div>
+              {% include "includes/menu_prods_dit/index_en.html" %}
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    <section id="slider">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="page-title">
+                <h1><span class="letter-1">F</span><span class="letter-2">o</span><span class="letter-3">r</span><span class="letter-4"> </span><span class="letter-4">C</span><span class="letter-5">h</span><span class="letter-6">i</span><span class="letter-7">l</span><span class="letter-8">d</span><span class="letter-7">r</span><span class="letter-3">e</span><span class="letter-4">n</span></h1>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="book-slider owl-carousel owl-theme">
+                <div class="item">
+                    <img src="{% static "img/slide-1-en.png" %}" alt="alt" class="hidden-xs">
+                    <img src="{% static "img/slide-1-mobile.png" %}" alt="alt" class="visible-xs">
+                    <a href="{% url "products:multiomega" 'en' %}" class="circle circle-1"><img src="{% static "img/round-1.png" %}" alt="alt"></a>
+                </div>
+                <div class="item">
+                    <img src="{% static "img/slide-2-en.png" %}" alt="alt" class="hidden-xs">
+                    <img src="{% static "img/slide-2-mobile.png" %}" alt="alt" class="visible-xs">
+                    <a href="{% url "products:vitaminc" 'en' %}" class="circle circle-2">
+                        <img src="{% static "img/round-2-en.png" %}" alt="alt"></a><a href="{% url "products:ukachivanie" 'en' %}" class="circle circle-3">
+                    <img src="{% static "img/round-3-en.png" %}" alt="alt">
+                </a>
+                </div>
+                <div class="item">
+                  <div class="girl">
+                      <img src="{% static "img/girl.png" %}" alt="alt">
+                  </div>
+                    <img src="{% static "img/slide-3-en.png" %}" alt="alt" class="hidden-xs">
+                    <img src="{% static "img/slide-3-mobile.png" %}" alt="alt" class="visible-xs">
+                    <a href="{% url "products:multivitamin" 'en' %}" class="circle circle-4">
+                    <img src="{% static "img/round-4-en.png" %}" alt="alt">
+                    </a>
+                </div>
+                <div class="item">
+                    <img src="{% static "img/slide-4-en.png" %}" alt="alt" class="hidden-xs">
+                    <img src="{% static "img/slide-4-mobile.png" %}" alt="alt" class="visible-xs">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Try More -->
+    <section id="try-more">
+      <div class="container">
+        <div class="row">
+          <div class="section-title">
+            <h2>Try More:</h2>
+          </div>
+        </div>
+        {% include "post/includes/try_more.html" %}
+      </div>
+    </section>
+        <footer id="footer">
+              <div class="white-block">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="footer-logo"><a href="#"><img src="{% static "img/footer-logo.png" %}" alt="alt"></a></div>
+                      {% include "includes/footer_menu_dit/index_en.html" %}
+                        <div class="masha-logo display-none"><img src="{% static "img/logo-masha.png" %}" alt="alt"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+
+      <!-- Grey block -->
+      <div class="grey-block">
+        <div class="information">
+          <p>DIETARY SUPPLEMENT IS NOT A DRUG PREPARATION BE AWARE OF PRODUCT BEFORE APPLICATION</p>
+        </div>
+      </div>
+
+{% endblock content %}

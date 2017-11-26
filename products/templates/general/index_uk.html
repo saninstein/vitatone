@@ -13,14 +13,14 @@
 	<div id="bg">
 			<div id="scene-wrapper">
 				<ul id="scene-mobile" class="clearfix">
-				 	<li class="layer mobile first" id="fruits-mobile" data-depth="0.20"><img src="img/fruits_sm.png" alt="fruits"></li>
-					<li class="layer mobile last" id="fruits-blur-mobile" data-depth="0.40"><img src="img/fruits_blur_sm.png" alt="fruits"></li>
+				 	<li class="layer mobile first" id="fruits-mobile" data-depth="0.20"><img src="{% static "img/fruits_sm.png" %}" alt="fruits"></li>
+					<li class="layer mobile last" id="fruits-blur-mobile" data-depth="0.40"><img src="{% static "img/fruits_blur_sm.png" %}" alt="fruits"></li>
 				</ul>
 				<ul id="scene" class="clearfix">
-					<li class="layer" id="fruits-left" data-depth="0.20"><img src="img/fruits_left.png" alt="fruits"></li>
-					<li class="layer" id="fruits-right" data-depth="0.20"><img src="img/fruits_right.png" alt="fruits"></li>
-					<li class="layer" id="fruits-blur-left" data-depth="0.40"><img src="img/fruits_blur_left.png" alt="fruits"></li>
-					<li class="layer" id="fruits-blur-right" data-depth="0.40"><img src="img/fruits_blur_right.png" alt="fruits"></li>
+					<li class="layer" id="fruits-left" data-depth="0.20"><img src="{% static "img/fruits_left.png" %}" alt="fruits"></li>
+					<li class="layer" id="fruits-right" data-depth="0.20"><img src="{% static "img/fruits_right.png" %}" alt="fruits"></li>
+					<li class="layer" id="fruits-blur-left" data-depth="0.40"><img src="{% static "img/fruits_blur_left.png" %}" alt="fruits"></li>
+					<li class="layer" id="fruits-blur-right" data-depth="0.40"><img src="{% static "img/fruits_blur_right.png" %}" alt="fruits"></li>
 
 				</ul>
 			</div>
@@ -57,13 +57,13 @@
 									  </a>
 
 									  <ul class="dropdown-menu" aria-labelledby="dLabel">
-									    <li><a href="/uk/multiomega.html">МультиОмега</a></li>
-									    <li><a href="/uk/multivitamine.html">Льодяники Мультивітамін</a></li>
-									    <li><a href="/uk/vitamine-c.html">Льодяники з вітаміном С</a></li>
-									    <li><a href="/uk/ukachivanie.html">Льодяники при захитуванні та нудоті</a></li>
-									    <li><a href="jeleyki.html">Желейні мультивітаміни</a></li>
-                      					<li><a href="shipuchie.html">Шипучі мультивітаміни</a></li>
-                     					<li><a href="nabor.html">Подарунковий набір</a></li>
+									    <li><a href="{% url "products:multiomega" 'uk' %}">МультиОмега</a></li>
+                                          <li><a href="{% url "products:multivitamin" 'uk' %}">Льодяники Мультивітамін</a></li>
+                                          <li><a href="{% url "products:vitaminc" 'uk' %}">Льодяники з вітаміном С</a></li>
+                                          <li><a href="{% url "products:ukachivanie" 'uk' %}">Льодяники при захитуванні та нудоті</a></li>
+                                          <li><a href="{% url "products:jeleyki" 'uk' %}">Желейні мультивітаміни</a></li>
+                                          <li><a href="{% url "products:shipuchie" 'uk' %}">Шипучі мультивітаміни</a></li>
+                                          <li><a href="{% url "products:nabor" 'uk' %}">Подарунковий набір</a></li>
 									  </ul>
 								</li>
 								<li><a class="mobile-hide anchor" href="#our-contacts">контакти</a></li>

@@ -86,3 +86,5 @@ admin.site.register(Jeleyki, JeleykiAdmin)
 admin.site.register(Shipuchie, ShipuchieAdmin)
 admin.site.register(Nabor, NaborAdmin)
 
+admin.site.register(Ditockam)
+

@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block lang %}ru{% endblock lang %}
+{% block title %}{% if item.product.title %}{{ item.product.title }}{% else %}{{ item.product.name }}{% endif %}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    {% with item=item.product %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock head %}
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/new-styles.css" %}">
+{% endblock stylesheets %}
+
+{% block content %}
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap vitamin-c">
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li><a href="{% url "products:jeleyki" 'en' %}">ENG</a></li>
+                      <li><a href="{% url "products:jeleyki" 'uk' %}">УКР</a></li>
+                      <li class="active"><a href="{% url "products:jeleyki_ru" %}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
+                </div>
+              </div>
+              {% include "includes/menu_prods/index.html" %}
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Main content -->
+     <section class="jeleyki-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="logo-jeleyki"><img src="{% static "img/new/jeleyki-logo-kids.png" %}" alt="alt">
+                <h1>Витаминно-минеральный комплекс<br><span>с добавлением </span>натуральных соков <span>в виде </span>желейных пастилок</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Vitamin C Content -->
+      <section class="jeleyki-content">
+        <div class="container">
+          <div class="jeleyki-top clearfix">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="candy-box"><img src="{% static "img/new/jeleyki-box.png" %}" alt="alt"></div>
+                <div class="taste-item item-1"><img src="{% static "img/new/jeleyki-icon-1.png" %}" alt="alt">
+                  <p>Лимон</p>
+                </div>
+                <div class="taste-item item-2"><img src="{% static "img/new/jeleyki-icon-2.png" %}" alt="alt">
+                  <p>Малина</p>
+                </div>
+                <div class="taste-item item-3"><img src="{% static "img/new/jeleyki-icon-3.png" %}" alt="alt">
+                  <p>Апельсин</p>
+                </div>
+                <div class="taste-item item-4"><img src="{% static "img/new/jeleyki-icon-4.png" %}" alt="alt">
+                  <p>Вишня</p>
+                </div>
+                <div class="vitamins-left hidden-sm hidden-xs"><img src="{% static "img/new/jeleyki-vitamins-left.png" %}" alt="alt"></div>
+                <div class="vitamins-right hidden-sm hidden-xs"><img src="{% static "img/new/jeleyki-vitamins-right.png" %}" alt="alt"></div>
+              </div>
+            </div>
+          </div>
+          <div class="jeleyki-text">
+            <div class="row">
+              <div class="col-md-12">
+                <p class="jeleyki-descr-p">Витаминно-минеральный комплекс <img src="{% static "img/new/jeleyki-logo-kids-small.png" %}" alt="alt">в виде желейных пастилок с добавлением натуральных ингредиентов (соки моркови, яблока, бузины и порошка куркумы), изготовлен в Европе специально для детей от 4-х лет. Компания Newtone Pharma предлагает высококачественный продукт для детей, разработанный с учетом потребности в этом возрасте в необходимых витаминах и минералах.</p>
+                <p class="jeleyki-descr-p p-2"><img src="{% static "img/new/jeleyki-logo-kids-small.png" %}" alt="alt">помогает ускорить восстановление после инфекционных заболеваний, способствует нормализации обмена веществ, а также работе нервной и эндокринной систем, органов пищеварения и кроветворения, укрепляет защитные силы организма, повышает аппетит и т.д. Vitatone Kids - это вкусные и полезные витамины для деток, со вкусом вишни, малины, апельсина, лимона и в виде любимых героев мультфильма "Губка Боб". </p>
+                <div class="bob-img"><img src="{% static "img/new/jeleyki-bob.png" %}" alt="alt"></div>
+              </div>
+            </div>
+          </div>
+          <div class="jeleyki-table">
+            <div class="row">
+              <div class="col-md-12">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Состав</th>
+                      <th>В одной желейной пастилке</th>
+                      <th>% РДД*</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Витамин С</td>
+                      <td>80 мг</td>
+                      <td>50%</td>
+                    </tr>
+                    <tr>
+                      <td>Витамин Е</td>
+                      <td>7 мг</td>
+                      <td>60%</td>
+                    </tr>
+                    <tr>
+                      <td>Витамин B6</td>
+                      <td>1 мг</td>
+                      <td>75%</td>
+                    </tr>
+                    <tr>
+                      <td>Витамин A</td>
+                      <td>400 мкг</td>
+                      <td>100%</td>
+                    </tr>
+                    <tr>
+                      <td>Фолиевая кислота</td>
+                      <td>200 мкг</td>
+                      <td>100%</td>
+                    </tr>
+                    <tr>
+                      <td>Биотин</td>
+                      <td>30 мкг</td>
+                      <td>60%</td>
+                    </tr>
+                    <tr>
+                      <td>Витамин D</td>
+                      <td>5 мкг</td>
+                      <td>100%</td>
+                    </tr>
+                    <tr>
+                      <td>Витамин B12</td>
+                      <td>1,5 мкг</td>
+                      <td>60%</td>
+                    </tr>
+                    <tr>
+                      <td>Цинк</td>
+                      <td>6 мг</td>
+                      <td>60%</td>
+                    </tr>
+                    <tr class="bottom-tr">
+                      <td colspan="3">*% РДД <span>- рекомендованная дневная доза</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="bubbles-left hidden-xs"><img src="{% static "img/new/jeleyki-bubbles-left.png" %}" alt="alt"></div>
+                <div class="bubbles-right hidden-xs"><img src="{% static "img/new/jeleyki-bubbles-right.png" %}" alt="alt"></div>
+                <div class="jeleyki-table-descr">
+                  <p> <img src="{% static "img/new/jeleyki-logo-kids-middle.png" %}" alt="alt">Витаминно-минеральный комплекс способствует:</p>
+                  <ul>
+                    <li>Сохранению зрения  – <span>Витамин А</span></li>
+                    <li>Регуляции обмена веществ, антиоксидант – <span>Витамин Е</span></li>
+                    <li>Поддержке иммунитета – <span>Витамин С, Цинк</span></li>
+                    <li>Нормализации работы нервной системы, стимуляции процесса пищеварения и кроветворения – <span>Витамины группы В</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="jeleyki-descr clearfix">
+            <div class="logo-img"><img src="{% static "img/new/jeleyki-logo-kids-middle.png" %}" alt="alt"></div>
+            <p>Витаминно-минеральный комплекс <span>в форме </span>желейных пастилок <span>с добавлением </span>натуральных соков <span>для крепкого здоровья, хорошего аппетита, жизнерадостности и прекрасного настроения ребенка.</span></p>
+            <div class="jeleyki-type-item item-1"><img src="{% static "img/new/jeleyki-1.png" %}" alt="alt">
+              <div class="title">Лимон</div>
+            </div>
+            <div class="jeleyki-type-item item-2"><img src="{% static "img/new/jeleyki-2.png" %}" alt="alt">
+              <div class="title">Малина</div>
+            </div>
+            <div class="jeleyki-type-item item-3"><img src="{% static "img/new/jeleyki-3.png" %}" alt="alt">
+              <div class="title">Апельсин</div>
+            </div>
+            <div class="jeleyki-type-item item-4"><img src="{% static "img/new/jeleyki-4.png" %}" alt="alt">
+              <div class="title">Вишня</div>
+            </div>
+            <div class="bubbles-img hidden-xs"><img src="{% static "img/new/bubbles-2.png" %}" alt="alt"></div>
+          </div>
+          <div class="jeleyki-norma">
+            <div class="norma-inner">
+              <div class="norma-title">Рекомендованная суточная норма: </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="norma-item clearfix">
+                    <div class="norma-img"><img src="{% static "img/new/norma-1.png" %}" alt="alt"></div>
+                    <h5>Детям с 4-х лет</h5>
+                    <p>1-2 жевательные пастилки в сутки</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="norma-item clearfix">
+                    <div class="norma-img"><img src="{% static "img/new/norma-2.png" %}" alt="alt"></div>
+                    <h5>Детям с 7-ми лет</h5>
+                    <p>2-3 жевательные пастилки в сутки</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="candy-slider-section">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="try-more">
+                  <h2>Попробуй еще!</h2>
+                </div>
+                <div class="bubbles-img hidden-xs"><img src="{% static "img/new/bubbles-1.png" %}" alt="alt"></div>
+                <div class="candy-slider owl-carousel owl-theme">
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:shipuchie_ru" %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-14-ru.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:nabor_ru" %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-2-ru.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:ukachivanie_ru" %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-5-ru.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:multivitamin_ru" %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-6-ru.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:shipuchie_ru" %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-7-ru.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:vitaminc_ru" %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-8-ru.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+            <!-- Footer -->
+            <footer id="footer">
+              <div class="white-block footer-transparent">
+                  <div class="sliding-footer"></div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="footer-logo"><a href="#"><img src="{% static "img/footer-logo2.png" %}" alt="alt"></a></div>
+                      {% include "includes/footer_menu_prods/index.html" %}
+                        <div class="nickelodeon-logo"><img src="{% static "img/nickelodeon.png" %}" alt="alt"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+
+
+
+      <!-- Grey block -->
+      <div class="grey-block">
+        <div class="information">
+          <p>ДІЄТИЧНА ДОБАВКА НЕ Є ЛІКАРСЬКИМ ЗАСОБОМ. ПЕРЕД ВЖИВАННЯМ ОЗНАЙОМИТИСЯ З ІНФОРМАЦІЄЮ ПРО ПРОДУКТ</p>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    <!-- Hidden Popup -->
+    <div class="hidden">
+      <div id="popup">
+          {{ item.popup | safe }}
+      </div>
+    </div>
+{% endblock footer %}

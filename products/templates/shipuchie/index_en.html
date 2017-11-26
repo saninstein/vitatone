@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block lang %}en{% endblock lang %}
+{% block title %}{% if item.product.title %}{{ item.product.title }}{% else %}{{ item.product.name }}{% endif %}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    {% with item=item.product %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock head %}
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/new-styles.css" %}">
+{% endblock stylesheets %}
+
+{% block content %}
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap shipuchie-page">
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li class="active"><a href="{% url "products:shipuchie" 'en' %}">ENG</a></li>
+                      <li><a href="{% url "products:shipuchie" 'uk' %}">УКР</a></li>
+                      <li><a href="{% url "products:shipuchie_ru" %}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
+                </div>
+              </div>
+              {% include "includes/menu_prods/index_en.html" %}
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Main content -->
+        <!-- Header -->
+      <section class="shipuchie-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="logo-shipuchie"><img src="{% static "img/new/jeleyki-logo-kids-2.png" %}" alt="alt"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Content -->
+      <section class="shipuchie-content">
+        <div class="vitamine-img hidden-xs hidden-sm"><img src="{% static "img/new/vitamine-1.png" %}" alt="alt"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="shipuchie-box-item">
+                  <h2>Vitamin-mineral <br>complex <span class="yellow-color">with a taste of tangerine </span><br><span class="font-small">in the form of effervescent tablets</span></h2>
+                <div class="box-img box-img-1"><img src="{% static "img/new/box-1.png" %}" alt="alt"></div><a href="{% url "products:shipuchie" 'en' %}" class="button">Product Information</a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="shipuchie-box-item">
+                <h2>Vitamin-mineral <br>complex <span class="yellow-color">with a taste of raspberry  </span><br><span class="font-small">in the form of effervescent tablets</span></h2>
+                <div class="box-img box-img-2"><img src="{% static "img/new/box-2.png" %}" alt="alt"></div><a href="{% url "products:shipuchie" 'en' %}" class="button button-2">Product Information</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="shipuchie-descr">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="shipuchie-img"><img src="{% static "img/new/vitamins-en.png" %}" alt="alt"></div>
+              <div class="bubbles-1 hidden-xs"><img src="{% static "img/new/vitamine-left.png" %}" alt="alt"></div>
+              <div class="bubbles-2 hidden-xs"><img src="{% static "img/new/vitamine-right.png" %}" alt="alt"></div>
+              <div class="cloud-descr">
+                <p>In 4 tablets – <span class="small-font">the daily norm of vitamins and minerals </span><br><span>Vitamins that sparkle in your mouth!</span></p>
+              </div>
+              <div class="recommendation">
+                <p>Recommended: <span>for children from 3 years</span></p>
+                <p>Product: <span>50 tablets of 0.65 g</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="center-section"><img src="{% static "img/new/center-section-en.png" %}" alt="alt"></section>
+      <section class="shipuchie-table">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="table-title">
+                <h3>4 tablets contain:</h3>
+              </div>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Active ingredient</th>
+                    <th>Content in four tablets:</th>
+                    <th>% GDA*</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Vitamin С</td>
+                    <td>80 mg</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>Nicotinic acid</td>
+                    <td>16 mg</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>Vitamin Е</td>
+                    <td>12 mg</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>Pantothenic acid</td>
+                    <td>6 mg</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>Vitamin B6</td>
+                    <td>1,4 mg</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>Folic acid</td>
+                    <td>200 mcg</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>Biotin</td>
+                    <td>50 mcg</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>Vitamin B12</td>
+                    <td>2,5 mcg</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>Zinc</td>
+                    <td>2,5 mg</td>
+                    <td>15%</td>
+                  </tr>
+                  <tr>
+                    <td>Calcium</td>
+                    <td>160 mcg</td>
+                    <td>20%</td>
+                  </tr>
+                  <tr class="bottom-tr">
+                    <td colspan="3">*% GDA <span>- Guideline daily amounts</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="bubbles-left-img hidden-xs"><img src="{% static "img/new/bubbles-left.png" %}" alt="alt"></div>
+              <div class="bubbles-right-img hidden-xs"><img src="{% static "img/new/bubbles-right.png" %}" alt="alt"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="candy-slider-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="try-more">
+                <h2>Try more!</h2>
+              </div>
+              <div class="candy-slider owl-carousel owl-theme">
+                <div class="item">
+                  <div class="row">
+                    <div class="col-md-6"><a href="{% url "products:ukachivanie" 'en' %}">
+                        <div class="candy-item"><img src="{% static "img/slider/slide-5-en.png" %}" alt="alt"></div></a></div>
+                    <div class="col-md-6"><a href="{% url "products:multivitamin" 'en' %}">
+                        <div class="candy-item"><img src="{% static "img/slider/slide-6-en.png" %}" alt="alt"></div></a></div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="row">
+                    <div class="col-md-6"><a href="{% url "products:vitaminc" 'en' %}">
+                        <div class="candy-item"><img src="{% static "img/slider/slide-13-en.png" %}" alt="alt"></div></a></div>
+                    <div class="col-md-6"><a href="{% url "products:nabor" 'en' %}">
+                        <div class="candy-item"><img src="{% static "img/slider/slide-2-en.png" %}" alt="alt"></div></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer id="footer">
+              <div class="white-block footer-transparent">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="footer-logo"><a href="#"><img src="{% static "img/footer-logo2.png" %}" alt="alt"></a></div>
+                      {% include "includes/footer_menu_prods/index_en.html" %}
+                        <div class="nickelodeon-logo"><img src="{% static "img/nickelodeon.png" %}" alt="alt"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </section>
+    </div>
+
+            <!-- Footer -->
+
+
+
+
+      <!-- Grey block -->
+      <div class="grey-block">
+            <div class="information">
+              <p>Dietary supplement. It is not a medicinal product. Before use, read the instructions</p>
+            </div>
+          </div>
+
+{% endblock content %}
+
+{% block footer %}
+    <!-- Hidden Popup -->
+    <div class="hidden">
+      <div id="popup">
+          {{ item.popup | safe }}
+      </div>
+    </div>
+{% endblock footer %}
