@@ -84,8 +84,17 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '5432',
+    },
+
+    'sqlite': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+if 'PREPROD' in os.environ:
+    DATABASES['default'] = DATABASES['sqlite']
 
 
 # Password validation
