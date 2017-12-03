@@ -8,7 +8,7 @@ class ProductBodyModelForm(forms.ModelForm):
 
     class Meta:
         model = ProductBody
-        fields = ["language", "name", "title", "description", "keywords"]
+        fields = ["language", "name", "general_text", "title", "description", "keywords"]
         widgets = {
             'language': forms.TextInput(
                 attrs={'readonly': 'readonly', 'style': 'border-color:white;'}
@@ -28,7 +28,7 @@ class ProductBodyInlineFormSet(BaseInlineFormSet):
 
 class MultiOmegaModelForm(forms.ModelForm):
     popup = forms.CharField(widget=CKEditorWidget())
-    text = forms.CharField(widget=CKEditorWidget())
+    text = forms.CharField(widget=CKEditorWidget(config_name='off-p'))
 
     class Meta:
         model = MultiOmega

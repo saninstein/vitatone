@@ -13,8 +13,10 @@ from products.models import Page
 class Post(models.Model):
 
     class Meta:
+        ordering = ['-id']
         verbose_name = "Статья"
         verbose_name_plural = "Статьи"
+
 
     image = models.ImageField(
         upload_to=get_image_path,
@@ -54,6 +56,7 @@ def on_delete_post(sender, instance, using, **kwargs):
 class PostBody(Page):
 
     class Meta:
+        ordering = ['-id']
         verbose_name = "Текст статьи"
         verbose_name_plural = "Тексты статей"
 

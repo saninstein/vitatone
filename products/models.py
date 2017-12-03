@@ -61,13 +61,15 @@ class Product(models.Model):
 
     class Meta:
         verbose_name = "Продукт на главной"
-        verbose_name_plural = "Продукты на главной"
+        verbose_name_plural = " Продукты на главной"
 
     image = models.ImageField(
         upload_to=get_image_path,
         verbose_name="Картинка",
         help_text="Выберете картинку"
     )
+
+
 
     def image_tag(self):
         width = self.image.width if self.image.width <= 200 else 200
@@ -104,6 +106,8 @@ class ProductBody(Page):
         verbose_name_plural = "Описание продуктов"
 
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    general_text = models.CharField(max_length=100, verbose_name="Текст для главной", default='')
+
 
     def get_absolute_url(self):
         for i in (MultiOmega, MultiVitamin, VitaminC, Ukachivanie, Jeleyki, Shipuchie, Nabor):

@@ -1,4 +1,6 @@
 django==2.0rc1
 django-uuslug==1.1.8
 django-ckeditor==5.3.1
-
+psycopg2==2.7.3.2
+Pillow==4.3.0
+django-sortedm2m==1.5.0

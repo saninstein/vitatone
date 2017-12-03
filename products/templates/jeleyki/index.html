@@ -85,8 +85,8 @@
           <div class="jeleyki-text">
             <div class="row">
               <div class="col-md-12">
-                <p class="jeleyki-descr-p">{{ item.text1 }}</p>
-                <p class="jeleyki-descr-p p-2">{{ item.text2 }}</p>
+                <p class="jeleyki-descr-p">{{ item.text1 | safe }}</p>
+                <p class="jeleyki-descr-p p-2">{{ item.text2 | safe}}</p>
                 <div class="bob-img"><img src="{% static "img/new/jeleyki-bob.png" %}" alt="alt"></div>
               </div>
             </div>

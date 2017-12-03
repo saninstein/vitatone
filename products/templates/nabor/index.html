@@ -262,7 +262,7 @@
         </div>
       </section>
     </div>
-        <footer id="footer">
+        <footer id="footer" class="nabor-footer">
               <div class="white-block footer-transparent">
                   <div class="sliding-footer"></div>
                 <div class="container">
@@ -275,6 +275,12 @@
                   </div>
                 </div>
               </div>
+            <div class="grey-block">
+        <div class="information">
+          <p>ДІЄТИЧНА ДОБАВКА НЕ Є ЛІКАРСЬКИМ ЗАСОБОМ. ПЕРЕД ВЖИВАННЯМ ОЗНАЙОМИТИСЯ З ІНФОРМАЦІЄЮ ПРО ПРОДУКТ</p>
+        </div>
+      </div>
+
             </footer>
 
 
@@ -282,21 +288,16 @@
 
 
 
-
-      <!-- Grey block -->
-      <div class="grey-block">
-        <div class="information">
-          <p>ДІЄТИЧНА ДОБАВКА НЕ Є ЛІКАРСЬКИМ ЗАСОБОМ. ПЕРЕД ВЖИВАННЯМ ОЗНАЙОМИТИСЯ З ІНФОРМАЦІЄЮ ПРО ПРОДУКТ</p>
-        </div>
-      </div>
-
-{% endblock content %}
-
-{% block footer %}
-    <!-- Hidden Popup -->
+        <!-- Hidden Popup -->
     <div class="hidden">
       <div id="popup">
           {{ item.popup | safe }}
       </div>
     </div>
+      <!-- Grey block -->
+
+{% endblock content %}
+
+{% block footer %}
+
 {% endblock footer %}

@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+    'sortedm2m',
     'blog.apps.BlogConfig',
-    'products.apps.ProductsConfig'
+    'products.apps.ProductsConfig',
+    'general.apps.GeneralConfig'
 ]
 
 MIDDLEWARE = [
@@ -147,4 +149,10 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full'
     },
+
+    'off-p': {
+        'loolbar': 'full',
+        'autoParagraph': False
+    }
+
 }

@@ -2,6 +2,7 @@ from django.views.generic import DetailView, TemplateView
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse, Http404
 from blog.models import PostBody
+from general.models import GeneralProduct
 from .models import *
 
 
@@ -123,16 +124,19 @@ class GeneralView(MultilangMixin, TemplateView):
 
 
 def list_ajax(req, lang='ru'):
+    it = GeneralProduct.objects.first()
+    items = it.child, it.adults, it.avitaminoz, it.hurt, it.beaty
     prods = ProductBody.objects.filter(language=lang)
     res = dict()
-    for i in (1, 2, 6, 7, 8):
+    for i, item in zip((1, 2, 6, 7, 8), items):
         l = []
-        for x in prods:
+        for x in item.all():
+            prod = x.productbody_set.get(language=lang)
             d = {
-                    "name": f"<span class='vitatone'>VITA<span>TONE</span></span> {x.name}",
-                    "src": x.product.image.url,
-                    "caption": f"<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> {x.name}</span>",
-                    "url": x.get_absolute_url()
+                    "name": f"<span class='vitatone'>VITA<span>TONE</span></span> {prod.name}",
+                    "src": x.image.url,
+                    "caption": f"<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> {prod.name}</span>",
+                    "url": prod.get_absolute_url()
                 }
             l.append(d)
         res[f'category{i}'] = l
