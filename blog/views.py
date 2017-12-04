@@ -34,6 +34,7 @@ class PostDetailView(DetailView):
         exclude_id = self.object.post.id
         foreign_posts = PostBody.objects.filter(post_id=exclude_id)
         context['link'] = { x.language: x.get_absolute_url()  for x in foreign_posts}
-        context['posts'] = PostBody.objects.filter(language=lang).exclude(post_id=exclude_id)[:3]
-        context['products'] = ProductBody.objects.filter(language=lang)[:3]
+        context['posts'] = [x.postbody_set.get(language=lang) for x in self.object.post.posts.all()[:3]]
+
+        context['products'] = [x.productbody_set.get(language=lang) for x in self.object.post.products.all()[:3]]
         return context

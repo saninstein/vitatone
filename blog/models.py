@@ -1,13 +1,15 @@
 import shutil
 from os import path
 from django.db import models
+from sortedm2m.fields import SortedManyToManyField
+from django.core.exceptions import ValidationError
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.html import mark_safe
 from .utils import get_image_path
 from uuslug import uuslug
-from products.models import Page
+from products.models import Page, Product
 
 
 class Post(models.Model):
@@ -24,6 +26,15 @@ class Post(models.Model):
         help_text="Выберете картинку"
     )
 
+    image_thumb = models.ImageField(
+        upload_to=get_image_path,
+        verbose_name="Миниатюра",
+        help_text="Выберете картинку",
+    )
+
+    posts = SortedManyToManyField("self", verbose_name="Посты 'ещё советы'")
+    products = SortedManyToManyField(Product)
+
     def image_tag(self):
         width = self.image.width if self.image.width <= 200 else 200
         print(self.image.path)
@@ -37,14 +48,16 @@ class Post(models.Model):
         return self
 
     def __str__(self):
-        return self.postbody_set.first().name
+        return self.postbody_set.filter(language='ru')[0].name
 
     def save(self, *args, **kwargs):
         if self.pk is None:
             img = self.image
+            img_thumb = self.image_thumb
             self.image = None
             super(Post, self).save(*args, **kwargs)
             self.image = img
+            self.image_thumb = img_thumb
         super(Post, self).save(*args, **kwargs)
 
 
@@ -61,6 +74,7 @@ class PostBody(Page):
         verbose_name_plural = "Тексты статей"
 
     text = models.TextField(max_length=5000, default="", verbose_name="Текст", help_text="Введите текст")
+    mini_text = models.TextField(max_length=240, default="", verbose_name="Текст для 'Ещё советы", blank=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
     def get_absolute_url(self):

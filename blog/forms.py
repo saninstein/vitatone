@@ -9,7 +9,7 @@ class PostBodyModelForm(forms.ModelForm):
 
     class Meta:
         model = PostBody
-        fields = ["language", "name", "text", "title", "description", "keywords"]
+        fields = ["language", "name", "text", "mini_text", "title", "description", "keywords"]
         widgets = {
             'language': forms.TextInput(
                 attrs={'readonly': 'readonly', 'style': 'border-color:white;'}

@@ -32,7 +32,7 @@ class MultiOmegaModelForm(forms.ModelForm):
 
     class Meta:
         model = MultiOmega
-        fields = ["language", "product", "popup", "text", "link"]
+        fields = ["language", "product", "products", "posts", "popup", "text", "link"]
 
 
 class MultiVitaminModelForm(forms.ModelForm):

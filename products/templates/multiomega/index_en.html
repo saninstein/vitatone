@@ -282,13 +282,13 @@
                 {% for post in posts %}
                   <div class="col-md-4">
                     <div class="advice-item">
-                      <div class="image"><img src="{{ post.post.image.url }}" alt="alt"></div>
+                      <div class="image"><img src="{{ post.post.image_thumb.url }}" alt="alt"></div>
                       <div class="hover">
                         <div class="title">
                           <h4>{{ post.name }}</h4>
                         </div>
                         <div class="descr">
-                          <p>{{ post.text | striptags | truncatechars:230 }}</p><a href="{{ post.get_absolute_url }}" class="button">Читать дальше</a>
+                          <p>{{ post.mini_text }}</p><a href="{{ post.get_absolute_url }}" class="button">Читать дальше</a>
                         </div>
                       </div>
                     </div>

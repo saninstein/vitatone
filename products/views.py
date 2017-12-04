@@ -34,9 +34,13 @@ class ProductPostMixin(ProductMixin):
     def get_context_data(self, **kwargs):
         context = super(ProductPostMixin, self).get_context_data(**kwargs)
         lang = self.kwargs.get('lang', 'ru')
-
-        context['posts'] = PostBody.objects.filter(language=lang)[:3]
-        context['products'] = ProductBody.objects.filter(language=lang)[:3]
+        obj = context.get('item')
+        if self.model == MultiOmega:
+            obj = MultiOmega.objects.get(language='ru')
+            context['posts'] = [x.postbody_set.get(language=lang) for x in obj.posts.all()[:3]]
+        if self.model == Ditockam:
+            obj = Ditockam.objects.get(language='ru')
+        context['products'] = [x.productbody_set.get(language=lang) for x in obj.products.all()[:3]]
         return context
 
 

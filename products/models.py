@@ -7,7 +7,9 @@ from django.db import models
 from django.utils.html import mark_safe
 from django.urls import reverse
 from blog.utils import get_image_path
+
 from uuslug import uuslug
+from sortedm2m.fields import SortedManyToManyField
 
 
 class Page(models.Model):
@@ -167,6 +169,9 @@ class MultiOmega(SingletoneModel):
     url_ru = "multiomega_ru"
     url = "multiomega"
 
+    products = SortedManyToManyField(Product, verbose_name="Попробуй ещё(редактировать только в ru)")
+    posts = SortedManyToManyField("blog.Post", verbose_name="Прикриплённые статьи(редактировать только в ru)")
+
     text = models.TextField(verbose_name="Текст", blank=True)
     link = models.URLField(verbose_name="Ссылка 'Читать дальше'", blank=True)
 
@@ -239,6 +244,8 @@ class Ditockam(models.Model):
 
     url_ru = "ditochkam_ru"
     url = "ditochkam"
+
+    products = SortedManyToManyField(Product, verbose_name="Попробуй ещё(редактировать только в ru)")
 
     languages = (
         ("ru", "ru"),
