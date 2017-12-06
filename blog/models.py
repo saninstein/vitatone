@@ -12,6 +12,12 @@ from uuslug import uuslug
 from products.models import Page, Product
 
 
+class PostLink(models.Model):
+    _post = models.OneToOneField("blog.Post", on_delete=models.CASCADE)
+    def __str__(self):
+        return str(self._post)
+
+
 class Post(models.Model):
 
     class Meta:
@@ -32,8 +38,9 @@ class Post(models.Model):
         help_text="Выберете картинку",
     )
 
-    posts = SortedManyToManyField("self", verbose_name="Посты 'ещё советы'")
-    products = SortedManyToManyField(Product)
+
+    products = SortedManyToManyField(Product, verbose_name="Продукты")
+    posts = SortedManyToManyField(PostLink, verbose_name="Прикреплённые статьи")
 
     def image_tag(self):
         width = self.image.width if self.image.width <= 200 else 200
@@ -58,6 +65,9 @@ class Post(models.Model):
             super(Post, self).save(*args, **kwargs)
             self.image = img
             self.image_thumb = img_thumb
+
+            link = PostLink()
+            link._post = self
         super(Post, self).save(*args, **kwargs)
 
 
