@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block title %}{{ item.title }}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    {% with item=item %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock head %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
 	<link rel="stylesheet" href="{% static "css/styles.css" %}">
@@ -209,7 +215,7 @@
 					Всі права захищені. <br class="br-mobile">
 					При використанні матеріалів сайта <br>
 					посилання на vitatone.ua обов’язково. <br class="br-mobile">
-					© VITATONE 2016
+					© VITATONE 2017
 				</p>
 			</div>
 			<div class="col-md-2 col-sm-2 col-xs-6 footer-nav">

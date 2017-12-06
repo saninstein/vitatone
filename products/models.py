@@ -108,7 +108,7 @@ class ProductBody(Page):
         verbose_name_plural = "Описание продуктов"
 
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    general_text = models.CharField(max_length=100, verbose_name="Текст для главной", default='')
+    general_text = models.CharField(max_length=200, verbose_name="Текст для главной", default='')
 
 
     def get_absolute_url(self):

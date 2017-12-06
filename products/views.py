@@ -2,7 +2,7 @@ from django.views.generic import DetailView, TemplateView
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse, Http404
 from blog.models import PostBody
-from general.models import GeneralProduct
+from general.models import GeneralProduct, General
 from .models import *
 
 
@@ -126,6 +126,10 @@ class GeneralView(MultilangMixin, TemplateView):
         ('uk', "general/index_uk.html")
     )
 
+    def get_context_data(self, **kwargs):
+        context = super(GeneralView, self).get_context_data(**kwargs)
+        context['item'] = get_object_or_404(General, language=self.kwargs.get('lang', 'ru'))
+        return context
 
 class AkciaView(MultilangMixin, TemplateView):
 
@@ -152,9 +156,9 @@ def list_ajax(req, lang='ru'):
         for x in item.all():
             prod = x.productbody_set.get(language=lang)
             d = {
-                    "name": f"<span class='vitatone'>VITA<span>TONE</span></span> {prod.name}",
+                    "name": f"<span class='vitatone'>VITA<span>TONE</span></span> {prod.general_text}",
                     "src": x.image.url,
-                    "caption": f"<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> {prod.name}</span>",
+                    "caption": f"<span style='font-size: 1.2em'><span class='vitatone'>VITA<span>TONE</span></span> {prod.general_text}</span>",
                     "url": prod.get_absolute_url()
                 }
             l.append(d)
