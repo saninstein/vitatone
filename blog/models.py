@@ -68,6 +68,7 @@ class Post(models.Model):
 
             link = PostLink()
             link._post = self
+            link.save()
         super(Post, self).save(*args, **kwargs)
 
 
