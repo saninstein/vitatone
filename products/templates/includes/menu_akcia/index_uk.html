@@ -3,7 +3,7 @@
             <nav class="main-menu">
                 <ul>
                   <li><a href="{% url "products:general_uk" %}">Головна</a></li>
-                  <li class="menu-item-has-children"><span>Продукти</span>
+                  <li class="menu-item-has-children active"><span>Продукти</span>
                     <ul>
                       <li><a href="{% url "products:multiomega" 'uk' %}">МультиОмега</a></li>
                       <li><a href="{% url "products:multivitamin" 'uk' %}">Льодяники Мультивітамін</a></li>
@@ -15,8 +15,9 @@
                     </ul>
                   </li>
                     <li><a href="{% url "blog:posts" %}" class="menu-item-has-children">Важливо знати</a></li>
-                  <li class="active"><a href="{% url "products:ditochkam" 'uk' %}">Діточкам</a></li>
+                  <li><a href="{% url "products:ditochkam" 'uk' %}">Діточкам</a></li>
                   <li><a href="{% url "products:general_uk" %}/#our-contacts">Контакти</a></li>
-                    <li><a href="{% url "products:akcia" "uk" %}#our-contacts">Акція</a></li>
+                    <li><a class="active" href="{% url "products:akcia_ru" %}">Акція</a></li>
+
                 </ul>
               </nav>

@@ -33,7 +33,7 @@ $('.choose-category').on('click', function(){
 		category = $this.data('target'),
 		currentLi = $this.parent(),
 		indexOfLi = $this.parent().index(),
-		urlToJson = window.location.href + 'list/',
+		urlToJson = window.location.href +'list/',
 		listIndicators = $(slider + ' .carousel-indicators'),
 		listSlides = $(slider + ' .carousel-inner'),
 		arrIndicators = [],

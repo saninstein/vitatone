@@ -4,12 +4,14 @@
     top: 90%;
     left: 50%;
 }
-
+#buy-btn img{
+	max-width: 100%;
+}
 @media (max-width: 800px) {
   #buy-btn {
     position: absolute;
     z-index: 800;
     top: 70%;
     left: 50%;
-`}
+}
 }

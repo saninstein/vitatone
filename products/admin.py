@@ -87,6 +87,7 @@ admin.site.register(Shipuchie, ShipuchieAdmin)
 admin.site.register(Nabor, NaborAdmin)
 
 admin.site.register(Ditockam)
+admin.site.register(Akciya)
 
 
 admin.site.site_header = 'VITATONE'

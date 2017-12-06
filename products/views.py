@@ -127,6 +127,21 @@ class GeneralView(MultilangMixin, TemplateView):
     )
 
 
+class AkciaView(MultilangMixin, TemplateView):
+
+    template_names = (
+        ('ru', "akcia/index.html"),
+        ('en', "akcia/index_en.html"),
+        ('uk', "akcia/index_uk.html")
+    )
+
+    def get_context_data(self, **kwargs):
+        context = super(AkciaView, self).get_context_data(**kwargs)
+        context['link_nabor'] = Nabor.objects.first().link
+        context['item'] = get_object_or_404(Akciya, language=self.kwargs.get('lang', 'ru'))
+        return context
+
+
 def list_ajax(req, lang='ru'):
     it = GeneralProduct.objects.first()
     items = it.child, it.adults, it.avitaminoz, it.hurt, it.beaty

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700&subset=cyrillic');
 @font-face {
   font-family: "HelveticaNeueCyr-Bold";
   font-style: normal;
@@ -256,7 +257,7 @@ strong {
       #header .main-menu ul li {
         display: inline-block;
         line-height: 1;
-        margin-right: 6px;
+        margin-right: 3px;
         position: relative; }
         #header .main-menu ul li:last-child {
           margin-right: 0; }
@@ -270,12 +271,12 @@ strong {
           position: relative;
           display: block;
           cursor: pointer;
-          padding: 0 10px;
+          padding: 0 5px;
           -webkit-border-radius: 25px;
                   border-radius: 25px;
           line-height: 42px;
           height: 44px;
-          width: 180px;
+          width: 150px;
           text-align: center;
           border-bottom: 2px solid #c03a1b;
           text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.36);
@@ -2464,6 +2465,340 @@ strong {
 .pb-100 {
   padding-bottom: 100px; }
 
+/*UPD 27.11.17*/
+
+.logo-akcia{
+	text-align: center;
+	padding: 10px 0 0;
+}
+.logo-akcia__text-1{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 60px;
+	line-height: 70px;
+	font-weight: bold;
+	 text-shadow: 0 -2px 1px #fff, 0 -2px 1px #fff, 0 2px 1px #fff, 0 2px 1px #fff, -2px 0 1px #fff, 2px 0 1px #fff, -2px 0 1px #fff, 2px 0 1px #fff, -1px -2px 1px #fff, 1px -2px 1px #fff, -1px 2px 1px #fff, 1px 2px 1px #fff, -2px -1px 1px #fff, 2px -1px 1px #fff, -2px 1px 1px #fff, 2px 1px 1px #fff, -2px -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff, -2px -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
+	color: #ff5000;
+	text-transform: uppercase;
+}
+.logo-akcia__text-2{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 46px;
+	font-weight: bold;
+	 text-shadow: 0 -2px 1px #fff, 0 -2px 1px #fff, 0 2px 1px #fff, 0 2px 1px #fff, -2px 0 1px #fff, 2px 0 1px #fff, -2px 0 1px #fff, 2px 0 1px #fff, -1px -2px 1px #fff, 1px -2px 1px #fff, -1px 2px 1px #fff, 1px 2px 1px #fff, -2px -1px 1px #fff, 2px -1px 1px #fff, -2px 1px 1px #fff, 2px 1px 1px #fff, -2px -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff, -2px -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
+	color: #2aa5a7;
+	margin-bottom: 15px;
+}
+.logo-akcia__text-big-orange{
+	font-size: 64px;
+	letter-spacing: 2px;
+	font-weight: bold;
+	color: #ff5000;
+	text-transform: uppercase;
+}
+.logo-akcia__text-orange{
+	color: #ff5000;
+}
+.logo-akcia__text-3{
+	font-family: "RotondaC-Bold";
+	font-size: 39px;
+	font-weight: bold;
+	 text-shadow: 0 -2px 1px #fff, 0 -2px 1px #fff, 0 2px 1px #fff, 0 2px 1px #fff, -2px 0 1px #fff, 2px 0 1px #fff, -2px 0 1px #fff, 2px 0 1px #fff, -1px -2px 1px #fff, 1px -2px 1px #fff, -1px 2px 1px #fff, 1px 2px 1px #fff, -2px -1px 1px #fff, 2px -1px 1px #fff, -2px 1px 1px #fff, 2px 1px 1px #fff, -2px -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff, -2px -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
+	color: #136890;
+	margin-bottom: 45px;
+}
+.logo-akcia__text-big-pink{
+	font-family: "AdLib-BT-C";
+	font-size: 60px;
+	color: #f91d5b;
+	text-transform: uppercase;
+	margin-right: 20px;
+}
+.wrap.nabor-page .nabor-content.nabor-content_akcia .nabor-top:before{
+	display: none;
+}
+
+.akcia-timer_countdown-block{
+	float: left;
+	width: 36%;
+	margin-left: 8%;
+	background: #fff;
+	border-radius: 5px;
+	text-align: center;
+}
+.akcia-timer_countdown-block-title{
+	font-family: "AdLib-BT-C";
+	font-size: 26px;
+	color: #4f4f4f;
+	border-bottom: 1px solid #d7d7d7;
+	padding: 10px 10px 9px;
+}
+.akcia-timer_countdown-block-container{
+	width: 310px !important;
+	margin: 0 auto !important;
+}
+.akcia-timer_image{
+	float: right;
+	width: 50%;
+	box-sizing: border-box;
+}
+.akcia-timer_image img{
+	position: relative;
+	left: -117px;
+	max-width: 100%;
+}
+
+.akcia-timer{
+	padding: 40px 0 91px;
+}
+.akcia-timer__headline{
+	font-family: "RotondaC-Bold";
+	font-size: 41px;
+	font-weight: bold;
+	color: #136890;
+	text-shadow: 0 -2px 1px #fff, 0 -2px 1px #fff, 0 2px 1px #fff, 0 2px 1px #fff, -2px 0 1px #fff, 2px 0 1px #fff, -2px 0 1px #fff, 2px 0 1px #fff, -1px -2px 1px #fff, 1px -2px 1px #fff, -1px 2px 1px #fff, 1px 2px 1px #fff, -2px -1px 1px #fff, 2px -1px 1px #fff, -2px 1px 1px #fff, 2px 1px 1px #fff, -2px -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff, -2px -2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, 2px 2px 1px #fff;
+	margin-bottom: 46px;
+}
+.akcia-timer .logo-akcia__text-big-pink{
+	margin: 0;
+}
+.akcia-content{
+	padding: 25px 21px 0;
+	background: #fff;
+	border-radius: 30px 30px 0 0;
+	-webkit-box-shadow: 10px 6px 5px -5px rgba(0,0,0,0.3);
+	-moz-box-shadow: 10px 6px 5px -5px rgba(0,0,0,0.3);
+	box-shadow: 10px 6px 5px -5px rgba(0,0,0,0.3);
+}
+.akcia-content__headline{
+	font-family: "AdLib-BT-C";
+	font-size: 33px;
+	color: #ff5000;
+	text-align: center;
+	margin-bottom: 12px;
+}
+.akcia-content__list{
+	font-family: Arial, sans-serif;
+	font-size: 23px;
+	line-height: 33px;
+	color: #4a5151;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.akcia-content__list li{
+	min-height: 40px;
+	position: relative;
+	padding: 4px 0 0 77px;
+	margin-bottom: 28px;
+}
+.akcia-content__list li:before{
+	content: '';
+	display: block;
+	width: 60px;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+}
+.akcia-content__list li.akcia-content__li-1:before{background-image: url(../img/akcia-list-1.png);}
+.akcia-content__list li.akcia-content__li-2:before{background-image: url(../img/akcia-list-2.png);}
+.akcia-content__list li.akcia-content__li-3:before{background-image: url(../img/akcia-list-3.png);}
+.akcia-content__list li.akcia-content__li-4:before{background-image: url(../img/akcia-list-4.png);}
+.akcia-content__list li.akcia-content__li-5:before{background-image: url(../img/akcia-list-5.png);}
+.akcia-content__list li.akcia-content__li-6:before{background-image: url(../img/akcia-list-6.png);}
+.akcia-content__list li:last-child{
+	margin-bottom: 3px;
+}
+.akcia-content__list strong{
+	font-weight: 900;
+}
+.akcia-content__text-orange{
+	color: #ff5000;
+}
+.akcia-center-bg{
+	margin-bottom: 77px;
+}
+@media only screen and (max-width: 1200px) {
+	.akcia-timer_countdown-block{
+		width: 44%;
+		margin-left: 0;
+	}
+	.akcia-timer_image img{
+		top: 20px;
+		left: -70px;
+	}
+	.akcia-center-bg img{
+		max-width: calc(100% + 5px);
+	}
+}
+@media only screen and (max-width: 992px) {
+	.logo-akcia{
+		padding: 0;
+	}
+	.logo-akcia__text-1{
+		font-size: 50px;
+		line-height: 40px;
+		margin-bottom: 10px;
+	}
+	.logo-akcia__text-2{
+		font-size: 37px;
+		line-height: 60px;
+	}
+	.logo-akcia__text-big-orange{
+		font-size: 50px;
+		letter-spacing: 2px;
+	}
+	.logo-akcia__text-3{
+		font-size: 28px;
+		margin-bottom: 45px;
+	}
+	.logo-akcia__text-big-pink{
+		font-size: 50px;
+	}
+	.akcia-timer__headline{
+		font-size: 33px;
+		text-align: center;
+	}
+	.akcia-timer .logo-akcia__text-big-pink{
+		font-size: 50px;
+	}
+	.akcia-timer_countdown-block{
+		width: 55%;
+	}
+	.akcia-timer_image{
+		width: 45%;
+	}
+	.akcia-timer_image img{
+		top: 50px;
+		left: -20px;
+	}
+	.akcia-content__list{
+		font-size: 16px;
+		line-height: 23px;
+	}
+	.akcia-content__list li{
+		padding-left: 60px;
+		margin-bottom: 7px;
+	}
+	.akcia-content__list li:before{
+		background-size: 60% auto;
+	}
+	.akcia-center-bg img{
+		max-width: calc(100% + 4px);
+	}
+	#buy-btn{
+		left: auto;
+		right: 0;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.logo-akcia__text-1{
+		font-size: 33px;
+		line-height: 40px;
+		margin-bottom: 10px;
+	}
+	.logo-akcia__text-2{
+		font-size: 25px;
+		line-height: 38px;
+	}
+	.logo-akcia__text-big-orange{
+		display: block;
+		font-size: 33px;
+		line-height: 40px;
+		letter-spacing: 2px;
+	}
+	.logo-akcia__text-3{
+		font-size: 19px;
+		margin-bottom: 45px;
+	}
+	.logo-akcia__text-big-pink{
+		display: block;
+		font-size: 40px;
+		line-height: 55px;
+	}
+	.akcia-timer__headline{
+		font-size: 23px;
+		line-height: 20px;
+		text-align: center;
+	}
+	.akcia-timer__headline{
+	}
+	.akcia-timer .logo-akcia__text-big-pink{
+		display: inline;
+		font-size: 36px;
+	}
+	.wrap.nabor-page .nabor-content .nabor-top .nabor-descr-list p {
+    	font-size: 15px;
+	}
+	.akcia-timer_countdown-block-title{
+		font-size: 20px;
+	}
+	.akcia-timer{
+		padding-bottom: 41px;
+	}
+	.akcia-content{
+		padding-top: 11px;
+		padding-bottom: 20px;
+		margin-bottom: 30px;
+		border-radius: 30px;
+	}
+	.akcia-center-bg{
+		display: none;
+	}
+	.akcia-content__headline{
+		font-size: 25px;
+		margin-bottom: 0;
+	}
+	.akcia-content__list{
+		font-size: 14px;
+		line-height: 18px;
+	}
+	.akcia-content__list li{
+		padding: 60px 0 0 0;
+		text-align: center;
+	}
+	.akcia-content__list li:before{
+		width: auto;
+		height: 60px;
+		top: 0;
+		left: 0;
+		right: 0;
+		background-size: auto;
+	}
+	.akcia-timer_image{
+		float: none;
+		width: auto;
+		max-width: 350px;
+		margin: 0 auto -20px;
+	}
+	.akcia-timer_image img{
+		position: static;
+	}
+	.akcia-timer_countdown-block{
+		float: none;
+		width: auto;
+		max-width: 350px;
+		margin: 0 auto;
+	}
+	.flip-clock-wrapper ul{
+		width: 30px !important;
+	}
+	.flip-clock-wrapper ul li{
+		line-height: 60px !important;
+	}
+	.flip-clock-divider{
+		width: 5px !important;
+	}
+	.flip-clock-dot{
+		left: 1px !important;
+	}
+	.akcia-timer_countdown-block-container{
+		max-width: 280px !important;
+	}
+}
+/* End UPD 27.11.17*/
 @media only screen and (max-width: 1200px) {
   .mt-md-0 {
     margin-top: 0 !important; }
@@ -2797,6 +3132,8 @@ strong {
   #header .lang-social {
     float: right;
     width: auto; }
+ #header .main-menu ul li {
+    margin-bottom: 10px; }
   #header {
     padding: 25px 0; }
   #header .main-menu {
@@ -2897,8 +3234,6 @@ strong {
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
-  #header .main-menu ul li {
-    margin-bottom: 10px; }
   #footer .white-block .footer-logo {
     position: relative;
     margin: 0 0 25px;

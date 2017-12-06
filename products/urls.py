@@ -25,6 +25,9 @@ urlpatterns = [
     path('nabor', NaborDetailView.as_view(), name="nabor_ru"),
     path('<str:lang>/nabor', NaborDetailView.as_view(), name="nabor"),
 
+    path('akcia', AkciaView.as_view(), name="akcia_ru"),
+    path('<str:lang>/akcia', AkciaView.as_view(), name="akcia"),
+
     # general & ajax
     path('ditochkam', DitochkamView.as_view(), name="ditochkam_ru"),
     path('<str:lang>/ditochkam', DitochkamView.as_view(), name="ditochkam"),

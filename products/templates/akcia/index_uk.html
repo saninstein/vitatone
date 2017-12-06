@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block lang %}ua{% endblock lang %}
+{% block title %}{{ item.title }}{% endblock %}
+{% block head %}
+    {{ block.super }}
+    {% with item=item %}
+        {% include "includes/meta/index.html" %}
+    {% endwith %}
+{% endblock head %}
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/new-styles.css" %}">
+    <link rel="stylesheet" href="{% static "css/styles_nabor.css" %}">
+    <link rel="stylesheet" href="{% static "css/flipclock.css" %}">
+{% endblock stylesheets %}
+
+{% block content %}
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap nabor-page">
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li><a href="{% url "products:akcia" 'en' %}">ENG</a></li>
+                      <li class="active"><a href="{% url "products:akcia" 'uk' %}">УКР</a></li>
+                      <li><a href="{% url "products:akcia_ru" %}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook" target="_blank"></a></div>
+                </div>
+              </div>
+              {% include "includes/menu_akcia/index_uk.html" %}
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    <!-- Header -->
+      <section class="akcia-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="logo-akcia">
+				  <div class="logo-akcia__text-1">Акція</div>
+				  <div class="logo-akcia__text-2"><span class="logo-akcia__text-big-orange">Неймовірно!</span> Подвійна <span class="logo-akcia__text-orange">радість</span> для <span class="logo-akcia__text-orange">Вашої дитини!</span></div>
+				  <div class="logo-akcia__text-3"><span class="logo-akcia__text-big-pink">Купуй</span> «Подарунковий набір Vitatone Kids»</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Content -->
+      <!-- Content -->
+      <section class="nabor-content nabor-content_akcia">
+        <div class="container">
+          <div class="nabor-top clearfix">
+            <div class="row">
+              <div class="col-md-5 col-sm-6">
+                <div class="nabor-descr-list">
+                  <p>До подарункового набору входить:</p>
+                  <ul>
+                    <li><img src="{% static "img/new/jeleyki-logo-kids-small.png" %}" alt="alt">пастилки желейні <br>з вітамінами №80</li>
+                    <li><img src="{% static "img/new/jeleyki-logo-kids-small.png" %}" alt="alt">таблетки шипучі <br>зі смаком мандарину №50</li>
+                    <li>Плюшева іграшка: один з героїв мультфільму «Губка Боб Квадратні Штани»</li>
+                  </ul>
+                </div>
+                <div class="nabor-img"><img src="{% static "img/new/nabor-1.png" %}" alt="alt"></div>
+              </div>
+              <div class="col-md-7 col-sm-6">
+                <div class="nabor-box-img"><img src="{% static "img/new/nabor-box.png" %}" alt="alt"></div>
+                <a href="{{ link_nabor }}" id="buy-btn">
+                    <img src="{% static "uk/img/buy-btn.png" %}" alt="alt">
+                </a>
+              </div>
+            </div>
+          </div>
+		<section class="akcia-timer">
+			<div class="row">
+              <div class="col-md-12">
+				  <div class="akcia-timer__headline">та<span class="logo-akcia__text-big-pink"> Вигравай </span>1 з 4 Ігрових консолей PlayStation 4 Pro</div>
+				  <div class="akcia-timer_image"><img src="{% static "img/ps4.png" %}" alt=""></div>
+				  <div class="akcia-timer_countdown-block">
+					 <div class="akcia-timer_countdown-block-title">До кінця акції залишилось:</div>
+					 <div class="akcia-timer_countdown-block-container"></div>
+				  </div>
+			  </div>
+			</div>
+		</section>
+          <section class="akcia-content">
+            <div class="row">
+              <div class="col-md-12">
+				  <div class="akcia-content__headline">Умови акції:</div>
+				  <ul class="akcia-content__list">
+					  <li class="akcia-content__li-1">{{ item.condition1 | safe }}</li>
+					  <li class="akcia-content__li-2">{{ item.condition2 | safe }}</li>
+					  <li class="akcia-content__li-3">{{ item.condition3 | safe }}</li>
+					  <li class="akcia-content__li-4">{{ item.condition4 | safe }}</li>
+					  <li class="akcia-content__li-5">{{ item.condition5 | safe }}</li>
+					  <li class="akcia-content__li-6">{{ item.condition6 | safe }}</li>
+				  </ul>
+			  </div>
+            </div>
+          </section>
+          <div class="akcia-center-bg"><img src="{% static "img/akcia-bg.png" %}" alt="alt"></div>
+          <section class="candy-slider-section">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="try-more">
+                  <h2>Спробуй ще!</h2>
+                </div>
+                <div class="candy-slider owl-carousel owl-theme">
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:ukachivanie" 'uk'%}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-5-uk.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:multivitamin" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-6-uk.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:shipuchie" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-1-uk.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:vitaminc" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-8-uk.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="{% url "products:shipuchie" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-3-uk.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:jeleyki" 'uk' %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-4-uk.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+      </section>
+    </div>
+        <footer id="footer" class="nabor-footer">
+
+              <div class="white-block footer-transparent">
+                  <div class="sliding-footer"></div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="footer-logo"><a href="#"><img src="{% static "img/footer-logo.png" %}" alt="alt"></a></div>
+                      {% include "includes/footer_menu_prods/index_uk.html" %}
+                        <div class="nickelodeon-logo"><img src="{% static "img/nickelodeon.png" %}" alt="alt"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="grey-block">
+        <div class="information">
+          <p>ДІЄТИЧНА ДОБАВКА НЕ Є ЛІКАРСЬКИМ ЗАСОБОМ. ПЕРЕД ВЖИВАННЯМ ОЗНАЙОМИТИСЯ З ІНФОРМАЦІЄЮ ПРО ПРОДУКТ</p>
+        </div>
+      </div>
+
+            </footer>
+
+
+            <!-- Footer -->
+
+
+
+        <!-- Hidden Popup -->
+    <div class="hidden">
+      <div id="popup">
+          {{ item.popup | safe }}
+      </div>
+    </div>
+      <!-- Grey block -->
+
+{% endblock content %}
+
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static 'js/flipclock.min.js' %}"></script>
+    <script type="text/javascript">
+    console.log("{{ item.date }}")
+		var clock;
+		$(document).ready(function() {
+			var clock;
+			clock = $('.akcia-timer_countdown-block-container').FlipClock({
+		        clockFace: 'DailyCounter',
+				language: 'ru',
+		        autoStart: false,
+		        callbacks: {
+		        	stop: function() {
+		        		$('.message').html('The clock has stopped!')
+		        	}
+		        }
+		    });
+        var end = (new Date('2017-12-28')).getTime();
+        var now = Date.now();
+        console.log(end + " " + now)
+		    clock.setTime((end - now) / 1000);
+		    clock.setCountdown(true);
+		    clock.start();
+		});
+	</script>
+{% endblock %}

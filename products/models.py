@@ -229,6 +229,7 @@ class Nabor(SingletoneModel):
     class Meta:
         verbose_name = "Подарочный набор"
         verbose_name_plural = "Подарочный набор"
+
     url_ru = "nabor_ru"
     url = "nabor"
     popup = None
@@ -257,6 +258,55 @@ class Ditockam(models.Model):
     title = models.CharField(max_length=200, verbose_name="Title", blank=True)
     description = models.TextField(max_length=300, verbose_name="Description", blank=True)
     keywords = models.CharField(max_length=300, verbose_name="Keywords", blank=True)
+
+    def get_absolute_url(self):
+        if self.is_ru():
+            return reverse(f"products:{self.url_ru}")
+        else:
+            return reverse(f"products:{self.url}", args=[self.language])
+
+    def __str__(self):
+        return self.language
+
+    def is_ru(self):
+        return self.language == 'ru'
+
+    def clean(self):
+        if self._meta.model.objects.count() == 3 and not self.pk:
+            raise ValidationError("Может существовать только в одном экземпляре")
+        if self._meta.model.objects.filter(language=self.language) and not self.pk:
+            raise ValidationError("Уже есть существет с таким языком")
+
+
+class Akciya(models.Model):
+
+    class Meta:
+        verbose_name = "  Акция"
+        verbose_name_plural = "  Акция"
+
+    url_ru = "akcia_ru"
+    url = "akcia"
+
+
+    languages = (
+        ("ru", "ru"),
+        ("uk", "uk"),
+        ("en", "en"),
+    )
+
+    language = models.CharField(max_length=10, choices=languages, default=languages[0][0], verbose_name="Язык")
+    title = models.CharField(max_length=200, verbose_name="Title", blank=True)
+    description = models.TextField(max_length=300, verbose_name="Description", blank=True)
+    keywords = models.CharField(max_length=300, verbose_name="Keywords", blank=True)
+
+    date = models.DateField(verbose_name="Дата окончания")
+
+    condition1 = models.TextField(verbose_name="Условие 1", default="Условие 1")
+    condition2 = models.TextField(verbose_name="Условие 2", default="Условие 2")
+    condition3 = models.TextField(verbose_name="Условие 3", default="Условие 3")
+    condition4 = models.TextField(verbose_name="Условие 4", default="Условие 4")
+    condition5 = models.TextField(verbose_name="Условие 5", default="Условие 5")
+    condition6 = models.TextField(verbose_name="Условие 6", default="Условие 6")
 
     def get_absolute_url(self):
         if self.is_ru():

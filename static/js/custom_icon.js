@@ -15,7 +15,7 @@ ymaps.ready(function () {
 	            // Необходимо указать данный тип макета.
 	            iconLayout: 'default#image',
 	            // Своё изображение иконки метки.
-	            iconImageHref: '/static/img/logo.png',
+	            iconImageHref: 'img/logo.png',
 	            // Размеры метки.
 	            iconImageSize: [60, 35],
 	            iconImageOffset: [-23, -23]
