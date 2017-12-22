@@ -10,6 +10,7 @@ from django.utils.html import mark_safe
 from .utils import get_image_path
 from uuslug import uuslug
 from products.models import Page, Product
+from django.utils.timezone import now
 
 
 class PostLink(models.Model):
@@ -34,11 +35,17 @@ class Post(models.Model):
 
     image_thumb = models.ImageField(
         upload_to=get_image_path,
-        verbose_name="Миниатюра",
+        verbose_name="Миниатюра для важно знать",
         help_text="Выберете картинку",
     )
 
-
+    image_thumb2 = models.ImageField(
+        upload_to=get_image_path,
+        verbose_name="Миниатюра для списка статей",
+        help_text="Выберете картинку",
+        blank=True
+    )
+    date = models.DateField(default=now())
     products = SortedManyToManyField(Product, verbose_name="Продукты")
     posts = SortedManyToManyField(PostLink, verbose_name="Прикреплённые статьи")
 
@@ -61,10 +68,12 @@ class Post(models.Model):
         if self.pk is None:
             img = self.image
             img_thumb = self.image_thumb
+            img_thumb2 = self.image_thumb2
             self.image = None
             super(Post, self).save(*args, **kwargs)
             self.image = img
             self.image_thumb = img_thumb
+            self.image_thumb2 = img_thumb2
 
             link = PostLink()
             link._post = self
@@ -85,7 +94,8 @@ class PostBody(Page):
         verbose_name_plural = "Тексты статей"
 
     text = models.TextField(max_length=5000, default="", verbose_name="Текст", help_text="Введите текст")
-    mini_text = models.TextField(max_length=240, default="", verbose_name="Текст для 'Ещё советы", blank=True)
+    mini_text = models.TextField(max_length=240, default="", verbose_name="Текст для 'Ещё советы'", blank=True)
+
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
     def get_absolute_url(self):

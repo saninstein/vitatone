@@ -1,6 +1,249 @@
-{% for post in posts %}
-    <h3>{{ post.name }}:</h3>
-    {% for post_body in post.postbody_set.all %}
-        <a href="{% url 'blog:post' post_body.language post_body.slug %}">{{ post_body.name }}</a><br>
-    {% endfor %}
-{% endfor %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <!-- SEO Meta -->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static "img/favicon/favicon.ico" %}" type="image/x-icon">
+        <link rel="apple-touch-icon" href="{% static "img/favicon/apple-touch-icon.png" %}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{% static "img/favicon/apple-touch-icon-72x72.png" %}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{% static "img/favicon/apple-touch-icon-114x114.png" %}">
+    <!-- Title -->
+    <title>Важно знать</title>
+    <!-- Modernizr -->
+    <!-- build:js js/modernizr.min.js -->
+    <script src="{% static 'js/modernizr.js' %}"></script>
+        <!-- endbuild -->
+        <!-- CSS -->
+        <!-- build:css css/all.min.css -->
+        <link rel="stylesheet" href="{% static 'posts_css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'posts_css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'posts_css/owl.theme.default.min.css' %}">
+        <link rel="stylesheet" href="{% static 'posts_css/magnific-popup.css' %}">
+        <link rel="stylesheet" href="{% static 'posts_css/animate.min.css' %}">
+        <link rel="stylesheet" href="{% static 'posts_css/social-likes_flat.css' %}">
+        <link rel="stylesheet" href="{% static 'posts_css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'posts_css/new-styles.css' %}">
+        <link rel="stylesheet" href="{% static 'posts_css/styles_nabor.css' %}">
+      <style type="text/css">
+          #footer.nabor-footer:before {
+              display: none;
+          }
+      </style>
+    <!-- endbuild -->
+    <!-- IE8 --><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1034653119974394');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1"
+           src="https://www.facebook.com/tr?id=1034653119974394&ev=PageView
+  &noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+  </head>
+  <body class="category">
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-89235732-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="cssload-whirlpool"></div>
+    </div>
+    <div class="wrap nabor-page">
+      <!-- Header -->
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="lang-social clearfix">
+                <div class="right-side">
+                  <div class="languages">
+                    <ul>
+                      <li><a href="{% url "blog:posts" %}">УКР</a></li>
+                      <li class="active"><a href="{% url "blog:posts" %}">РУС</a></li>
+                    </ul>
+                  </div>
+                  <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook"></a></div>
+                </div>
+              </div>
+              <div class="header-search">
+					  <form>
+					  	<input type="text" placeholder="Поиск">
+					  	<input type="submit">
+					  </form>
+				  </div>
+              <div class="logo"><a href="{% url "products:general" %}"><img src="{% static "img/logo.png" %}" alt="logo"></a></div>
+              <nav class="main-menu">
+                <ul>
+                  <li><a href="{% url "products:general" %}">Главная</a></li>
+                  <li class="menu-item-has-children"><span>Продукты</span>
+                    <ul>
+                      <li><a href="{% url "products:multiomega_ru" %}">МультиОмега</a></li>
+                      <li><a href="{% url "products:multivitamin_ru" %}">Леденцы Мультивитамин</a></li>
+                      <li><a href="{% url "products:vitaminc_ru" %}">Леденцы с витамином С</a></li>
+                      <li><a href="{% url "products:ukachivanie_ru" %}">Леденцы при укачивании и тошноте</a></li>
+                      <li><a href="{% url "products:jeleyki_ru" %}">Желейные мультивитамины</a></li>
+                      <li><a href="{% url "products:shipuchie_ru" %}">Шипучие мультивитамины</a></li>
+                      <li><a href="{% url "products:nabor_ru" %}">Подарочный набор</a></li>
+                    </ul>
+                  </li>
+                    <li class="active"><a href="{% url "blog:posts" %}">Важно знать</a></li>
+                  <li><a href="{% url "products:ditochkam_ru" %}">Деткам</a></li>
+                  <li><a href="{% url "products:general" %}#our-contacts">Контакты</a></li>
+                    <li><a href="{% url "products:akcia_ru" %}#our-contacts">Акция</a></li>
+                </ul>
+              </nav>
+              <div class="main-menu-toggle">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+     <!-- Header -->
+      <!-- Content -->
+      <section class="content-category">
+		<div class="content-category__headline"><span>Важливо знати</span></div>
+        <div class="container">
+			<section class="category-list">
+				<div class="category-list__container">
+					<div class="category-list__item">
+						<div class="category-list__col category-list__col_image">
+							<div class="category-list__image"><a href="#"><img src="{% static "img/blogcat-1.jpg" %}" alt=""></a></div>
+						</div>
+						<div class="category-list__col category-list__col_content">
+							<div class="category-list__name"><a href="#">До чого призводить дефіцит Омега-3 і<br> вітамінів</a></div>
+							<div class="category-list__date">08.12.17</div>
+							<div class="category-list__text">Розслабившись після літнього відпочинку, восени організм протестує проти розумових та фізичних навантажень. Мозок відмовляється працювати, а енергії не вистачає навіть на половину робочого дня. Дітям теж непросто: новий режим дня, уроки, домашнє завдання, гуртки.</div>
+							<div class="category-list__btn"><a href="#">Читати повністю</a></div>
+						</div>
+					</div>
+					<div class="category-list__item">
+						<div class="category-list__col category-list__col_image">
+							<div class="category-list__image"><a href="#"><img src="{% static "img/blogcat-1.jpg" %}" alt=""></a></div>
+						</div>
+						<div class="category-list__col category-list__col_content">
+							<div class="category-list__name"><a href="#">До чого призводить дефіцит Омега-3 і<br> вітамінів</a></div>
+							<div class="category-list__date">08.12.17</div>
+							<div class="category-list__text">Розслабившись після літнього відпочинку, восени організм протестує проти розумових та фізичних навантажень. Мозок відмовляється працювати, а енергії не вистачає навіть на половину робочого дня. Дітям теж непросто: новий режим дня, уроки, домашнє завдання, гуртки.</div>
+							<div class="category-list__btn"><a href="#">Читати повністю</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="category-list__pagination">
+					<div class="pagination" role="navigation">
+						<a class="prev page-numbers" href="#">&lt;</a>
+						<span aria-current="page" class="page-numbers current">1</span>
+						<a class="page-numbers" href="#">2</a>
+						<a class="page-numbers" href="#">3</a>
+						<a class="next page-numbers" href="#">&gt;</a>
+					</div>
+				</div>
+			</section>     
+          <section class="candy-slider-section">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="try-more">
+                  <h2>Попробуй еще!</h2>
+                </div>
+                <div class="candy-slider owl-carousel owl-theme">
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="ukachivanie.html">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-5-ru.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="multivitamine.html">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-6-ru.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="shipuchie.html">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-1-ru.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="vitamine-c.html">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-8-ru.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-md-6"><a href="shipuchie.html">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-3-ru.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="jeleyki.html">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-4-ru.png" %}" alt="alt"></div></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+    <!-- Footer -->
+    <footer id="footer" class="nabor-footer">
+
+              <div class="white-block">
+{#                  <div class="sliding-footer"></div>#}
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="footer-logo"><a href="#"><img src="{% static "img/footer-logo.png" %}" alt="alt"></a></div>
+                      {% include "includes/footer_menu_prods/index.html" %}
+                        <div class="nickelodeon-logo"><img src="{% static "img/nickelodeon.png" %}" alt="alt"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="grey-block">
+        <div class="information">
+          <p>ДИЕТИЧЕСКАЯ ДОБАВКА. НЕ ЯВЛЯЕТСЯ ЛЕКАРСТВЕННЫМ СРЕДСТВОМ. ПЕРЕД УПОТРЕБЛЕНИЕМ ОЗНАКОМЬТЕСЬ С ИНСТРУКЦИЕЙ</p>
+        </div>
+      </div>
+
+            </footer>
+    <!-- Hidden Popup -->
+
+    <!-- JS -->
+    <!-- build:js js/all.min.js -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.matchHeight-min.js' %}"></script>
+    <script src="{% static 'js/SmoothScroll.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+    <script src="{% static 'js/jquery.malihu.PageScroll2id.js' %}"></script>
+    <script src="{% static 'js/superfish.min.js' %}"></script>
+
+    <script src="{% static 'js/common.js' %}"></script>
+
+    <!-- endbuild -->
+  </body>
+</html>

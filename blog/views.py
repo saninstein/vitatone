@@ -1,16 +1,27 @@
 from django.http import Http404
 from django.views.generic import ListView, DetailView
 from .models import Post, PostBody
-from products.models import ProductBody
+from products.views import MultilangMixin
 
 
-class PostListView(ListView):
-    model = Post
-    template_name = "posts/index.html"
+class PostListView(MultilangMixin, ListView):
+    model = PostBody
+
+    template_names = (
+        ('ru', "posts/index.html"),
+        ('en', "posts/index_en.html"),
+        ('uk', "posts/index_uk.html")
+    )
+
     context_object_name = "posts"
 
+    def get_queryset(self):
+        lang = self.kwargs.get('lang', 'ru')
+        return self.model.objects.filter(language=lang)
 
-class PostDetailView(DetailView):
+
+
+class PostDetailView(MultilangMixin, DetailView):
     model = PostBody
     template_names = (
         ('ru', "post/index.html"),
@@ -19,14 +30,6 @@ class PostDetailView(DetailView):
     )
     context_object_name = "post_body"
     query_pk_and_slug = True
-
-    def get_template_names(self):
-        lang = self.kwargs.get('lang', 'ru')
-        template = [name[1] for name in self.template_names if name[0] == lang]
-        if len(template):
-            return template
-        else:
-            raise Http404
 
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
