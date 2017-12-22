@@ -10,7 +10,7 @@ from django.utils.html import mark_safe
 from .utils import get_image_path
 from uuslug import uuslug
 from products.models import Page, Product
-from django.utils.timezone import now
+from django.utils import timezone
 
 
 class PostLink(models.Model):
@@ -45,7 +45,7 @@ class Post(models.Model):
         help_text="Выберете картинку",
         blank=True
     )
-    date = models.DateField(default=now())
+    date = models.DateField(default=timezone.now)
     products = SortedManyToManyField(Product, verbose_name="Продукты")
     posts = SortedManyToManyField(PostLink, verbose_name="Прикреплённые статьи")
 

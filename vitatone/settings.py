@@ -151,8 +151,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+if 'HEROKU_PROD' in os.environ:
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
