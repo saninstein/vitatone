@@ -86,16 +86,10 @@ if 'PREPROD' in os.environ:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-if 'HEROKU_PROD' in os.environ:
+if 'DATABASE_URL' in os.environ:
+    import dj_database_url
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'mhweuium',
-            'USER': 'mhweuium',
-            'PASSWORD': 'GLsDVLLGSizDw48_QneBDVCtVZir3OTs',
-            'HOST': 'packy.db.elephantsql.com',
-            'PORT': '5432',
-        }
+        'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
     }
 else:
     DATABASES = {
