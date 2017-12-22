@@ -15,7 +15,7 @@
         <link rel="apple-touch-icon" sizes="72x72" href="{% static "img/favicon/apple-touch-icon-72x72.png" %}">
         <link rel="apple-touch-icon" sizes="114x114" href="{% static "img/favicon/apple-touch-icon-114x114.png" %}">
     <!-- Title -->
-    <title>{% if search %}Результат пошуку: {{ search }}{% else %}Важливо знати{% endif %}</title>
+    <title>{% if search %}Search result: {{ search }}{% else %}Important{% endif %}</title>
     <!-- Modernizr -->
     <!-- build:js js/modernizr.min.js -->
     <script src="{% static 'js/modernizr.js' %}"></script>
@@ -85,8 +85,8 @@
                 <div class="right-side">
                   <div class="languages">
                     <ul>
-                      <li><a href="{% url "blog:posts" "en" %}">ENG</a></li>
-                      <li class="active"><a href="{% url "blog:posts" "uk" %}">УКР</a></li>
+                      <li class="active"><a href="{% url "blog:posts" "en" %}">ENG</a></li>
+                      <li><a href="{% url "blog:posts" "uk" %}">УКР</a></li>
                       <li><a href="{% url "blog:posts_ru" %}">РУС</a></li>
                     </ul>
                   </div>
@@ -94,31 +94,31 @@
                 </div>
               </div>
               <div class="header-search">
-					  <form action="{% url "blog:posts" "uk" %}" method="GET">
-					  	<input type="text" name="search" placeholder="Пошук">
+					  <form action="{% url "blog:posts" "en" %}" method="GET">
+					  	<input type="text" name="search" placeholder="Search">
 					  	<input type="submit">
 					  </form>
 				  </div>
-              <div class="logo"><a href="{% url "products:general_uk" %}"><img src="{% static "img/logo.png" %}" alt="logo"></a></div>
-            <nav class="main-menu">
+              <div class="logo"><a href="{% url "products:general_en" %}"><img src="{% static "img/logo.png" %}" alt="logo"></a></div>
+<nav class="main-menu">
                 <ul>
-                  <li><a href="{% url "products:general_uk" %}">Головна</a></li>
-                  <li class="menu-item-has-children"><span>Продукти</span>
+                  <li><a href="{% url "products:general_en" %}">Main</a></li>
+                  <li class="menu-item-has-children"><span>Products</span>
                     <ul>
-                      <li><a href="{% url "products:multiomega" 'uk' %}">МультиОмега</a></li>
-                      <li><a href="{% url "products:multivitamin" 'uk' %}">Льодяники Мультивітамін</a></li>
-                      <li><a href="{% url "products:vitaminc" 'uk' %}">Льодяники з вітаміном С</a></li>
-                      <li><a href="{% url "products:ukachivanie" 'uk' %}">Льодяники при захитуванні та нудоті</a></li>
-                      <li><a href="{% url "products:jeleyki" 'uk' %}">Желейні мультивітаміни</a></li>
-                      <li><a href="{% url "products:shipuchie" 'uk' %}">Шипучі мультивітаміни</a></li>
-                      <li><a href="{% url "products:nabor" 'uk' %}">Подарунковий набір</a></li>
+                      <li><a href="{% url "products:multiomega" "en" %}">MultiOmega</a></li>
+                      <li><a href="{% url "products:multivitamin" "en" %}">Drops multivitamin</a></li>
+                      <li><a href="{% url "products:vitaminc" "en" %}">Drops with Vitamin C</a></li>
+                      <li><a href="{% url "products:ukachivanie" "en" %}">Drops for travel sickness and nausea</a></li>
+                      <li><a href="{% url "products:jeleyki" "en" %}">Jelly multivitamin</a></li>
+                      <li><a href="{% url "products:shipuchie" "en" %}">Effervescent multivitamin</a></li>
+                      <li><a href="{% url "products:nabor" "en" %}">Gift set</a></li>
                     </ul>
                   </li>
-                    <li class="active"><a href="{% url "blog:posts" "uk" %}" class="menu-item-has-children">Важливо знати</a></li>
-                  <li><a href="{% url "products:ditochkam" 'uk' %}">Діточкам</a></li>
-                  <li><a href="{% url "products:general_uk" %}/#our-contacts">Контакти</a></li>
-                    <li><a href="{% url "products:akcia" "uk" %}#our-contacts">Акція</a></li>
-
+                    <li class="active">
+                    <a href="{% url "blog:posts" "en" %}" class="menu-item-has-children">Important</a>
+                  </li>
+                  <li><a href="{% url "products:ditochkam" "en" %}">For Children</a></li>
+                  <li><a href="{% url "products:general_en" %}#our-contacts">Contacts</a></li>
                 </ul>
               </nav>
               <div class="main-menu-toggle">
@@ -133,7 +133,7 @@
      <!-- Header -->
       <!-- Content -->
       <section class="content-category">
-		<div class="content-category__headline"><span>Важливо знати</span></div>
+		<div class="content-category__headline"><span>Important</span></div>
         <div class="container">
 
 
@@ -148,7 +148,7 @@
 							<div class="category-list__name"><a href="{{ post.get_absolute_url }}">{{ post.name }}</a></div>
 							<div class="category-list__date">{{ post.post.date|date:"d.m.Y" }}</div>
 							<div class="category-list__text">{{ post.mini_text }}</div>
-							<div class="category-list__btn"><a href="{{ post.get_absolute_url }}">Читати повністю</a></div>
+							<div class="category-list__btn"><a href="{{ post.get_absolute_url }}">Read more</a></div>
 						</div>
 					</div>
                     {% endfor %}
@@ -195,31 +195,31 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="try-more">
-                  <h2>Cпробуй ще!</h2>
+                  <h2>Try more!</h2>
                 </div>
                 <div class="candy-slider owl-carousel owl-theme">
                   <div class="item">
                     <div class="row">
-                      <div class="col-md-6"><a href="{% url "products:ukachivanie" "uk" %}">
-                          <div class="candy-item"><img src="{% static "img/slider/slide-5-uk.png" %}" alt="alt"></div></a></div>
-                      <div class="col-md-6"><a href="{% url "products:multivitamin" "uk" %}">
-                          <div class="candy-item"><img src="{% static "img/slider/slide-6-uk.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:ukachivanie" "en" %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-5-en.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:multivitamin" "en" %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-6-en.png" %}" alt="alt"></div></a></div>
                     </div>
                   </div>
                   <div class="item">
                     <div class="row">
-                      <div class="col-md-6"><a href="{% url "products:shipuchie" "uk" %}">
-                          <div class="candy-item"><img src="{% static "img/slider/slide-1-uk.png" %}" alt="alt"></div></a></div>
-                      <div class="col-md-6"><a href="{% url "products:vitaminc" "uk" %}">
-                          <div class="candy-item"><img src="{% static "img/slider/slide-8-uk.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:shipuchie" "en" %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-1-en.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:vitaminc" "en" %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-8-en.png" %}" alt="alt"></div></a></div>
                     </div>
                   </div>
                   <div class="item">
                     <div class="row">
-                      <div class="col-md-6"><a href="{% url "products:shipuchie" "uk" %}">
-                          <div class="candy-item"><img src="{% static "img/slider/slide-3-uk.png" %}" alt="alt"></div></a></div>
-                      <div class="col-md-6"><a href="{% url "products:jeleyki" "uk" %}">
-                          <div class="candy-item"><img src="{% static "img/slider/slide-4-uk.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:shipuchie" "en" %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-3-en.png" %}" alt="alt"></div></a></div>
+                      <div class="col-md-6"><a href="{% url "products:jeleyki" "en" %}">
+                          <div class="candy-item"><img src="{% static "img/slider/slide-4-en.png" %}" alt="alt"></div></a></div>
                     </div>
                   </div>
                 </div>
@@ -238,18 +238,14 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="footer-logo"><a href="#"><img src="{% static "img/footer-logo.png" %}" alt="alt"></a></div>
-                      {% include "includes/footer_menu_prods/index_uk.html" %}
+                      {% include "includes/footer_menu_prods/index_en.html" %}
                         <div class="nickelodeon-logo"><img src="{% static "img/nickelodeon.png" %}" alt="alt"></div>
                     </div>
                   </div>
                 </div>
               </div>
 
-            <div class="grey-block">
-        <div class="information">
-          <p>ДІЄТИЧНА ДОБАВКА НЕ Є ЛІКАРСЬКИМ ЗАСОБОМ. ПЕРЕД ВЖИВАННЯМ ОЗНАЙОМИТИСЯ З ІНФОРМАЦІЄЮ ПРО ПРОДУКТ</p>
-        </div>
-      </div>
+            {% include "includes/attention/index_eng.html" %}
 
             </footer>
     <!-- Hidden Popup -->

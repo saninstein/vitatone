@@ -18,6 +18,7 @@ class PostListView(MultilangMixin, ListView):
 
     def get_queryset(self):
         lang = self.kwargs.get('lang', 'ru')
+        print(lang)
         self.search = self.request.GET.get('search', '')
         if self.search:
             self.paginate_by = None
