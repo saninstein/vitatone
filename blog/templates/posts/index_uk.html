@@ -85,16 +85,16 @@
                 <div class="right-side">
                   <div class="languages">
                     <ul>
-                      <li><a href="{% url "blog:posts_ru" %}">ENG</a></li>
-                      <li><a href="{% url "blog:posts_ru" %}">УКР</a></li>
-                      <li class="active"><a href="{% url "blog:posts_ru" %}">РУС</a></li>
+                      <li><a href="{% url "blog:posts" %}">ENG</a></li>
+                      <li><a href="{% url "blog:posts" %}">УКР</a></li>
+                      <li class="active"><a href="{% url "blog:posts" %}">РУС</a></li>
                     </ul>
                   </div>
                   <div class="social"><a href="https://www.facebook.com/VitaTone/?fref=ts" class="facebook"></a></div>
                 </div>
               </div>
               <div class="header-search">
-					  <form action="{% url "blog:posts_ru" %}" method="GET">
+					  <form action="{% url "blog:posts" %}" method="GET">
 					  	<input type="text" name="search" placeholder="Поиск">
 					  	<input type="submit">
 					  </form>
@@ -114,7 +114,7 @@
                       <li><a href="{% url "products:nabor_ru" %}">Подарочный набор</a></li>
                     </ul>
                   </li>
-                    <li class="active"><a href="{% url "blog:posts_ru" %}">Важно знать</a></li>
+                    <li class="active"><a href="{% url "blog:posts" %}">Важно знать</a></li>
                   <li><a href="{% url "products:ditochkam_ru" %}">Деткам</a></li>
                   <li><a href="{% url "products:general" %}#our-contacts">Контакты</a></li>
                     <li><a href="{% url "products:akcia_ru" %}#our-contacts">Акция</a></li>
@@ -168,7 +168,7 @@
 				<div class="category-list__pagination">
 					<div class="pagination" role="navigation">
                         {% if page_obj.has_previous %}
-						    <a class="prev page-numbers" href="{% url 'blog:posts_ru' %}?page={{ page_obj.previous_page_number }}">&lt;</a>
+						    <a class="prev page-numbers" href="{% url 'blog:posts' %}?page={{ page_obj.previous_page_number }}">&lt;</a>
                         {% else %}
                             <a class="prev page-numbers" href="#">&lt;</a>
                         {% endif %}
@@ -177,11 +177,11 @@
                                 {% if forloop.counter == page_obj.number %}
                                     <span aria-current="page" class="page-numbers current">{{ page_obj.number }}</span>
                                 {% else %}
-                                    <a class="page-numbers" href="{% url 'blog:posts_ru' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+                                    <a class="page-numbers" href="{% url 'blog:posts' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>
                                 {% endif %}
                             {% endfor %}
                         {% if page_obj.has_next %}
-						    <a class="next page-numbers" href="{% url 'blog:posts_ru' %}?page={{ page_obj.next_page_number }}">&gt;</a>
+						    <a class="next page-numbers" href="{% url 'blog:posts' %}?page={{ page_obj.next_page_number }}">&gt;</a>
                         {% else %}
                             <a class="next page-numbers" href="#">&gt;</a>
                         {% endif %}
@@ -189,7 +189,7 @@
 					</div>
 				</div>
                 {% endif %}
-			</section>     
+			</section>
           <section class="candy-slider-section">
             <div class="row">
               <div class="col-md-12">
@@ -199,25 +199,25 @@
                 <div class="candy-slider owl-carousel owl-theme">
                   <div class="item">
                     <div class="row">
-                      <div class="col-md-6"><a href="{% url "products:ukachivanie_ru" %}">
+                      <div class="col-md-6"><a href="{% url "products:ukachivanie" %}">
                           <div class="candy-item"><img src="{% static "img/slider/slide-5-ru.png" %}" alt="alt"></div></a></div>
-                      <div class="col-md-6"><a href="{% url "products:multivitamin_ru" %}">
+                      <div class="col-md-6"><a href="{% url "products:multivitamine" %}">
                           <div class="candy-item"><img src="{% static "img/slider/slide-6-ru.png" %}" alt="alt"></div></a></div>
                     </div>
                   </div>
                   <div class="item">
                     <div class="row">
-                      <div class="col-md-6"><a href="{% url "products:shipuchie_ru" %}">
+                      <div class="col-md-6"><a href="{% url "products:shipuchie" %}">
                           <div class="candy-item"><img src="{% static "img/slider/slide-1-ru.png" %}" alt="alt"></div></a></div>
-                      <div class="col-md-6"><a href="{% url "products:vitaminc_ru" %}">
+                      <div class="col-md-6"><a href="{% url "products:vitaminc" %}">
                           <div class="candy-item"><img src="{% static "img/slider/slide-8-ru.png" %}" alt="alt"></div></a></div>
                     </div>
                   </div>
                   <div class="item">
                     <div class="row">
-                      <div class="col-md-6"><a href="{% url "products:shipuchie_ru" %}">
+                      <div class="col-md-6"><a href="{% url "products:shipuchie" %}">
                           <div class="candy-item"><img src="{% static "img/slider/slide-3-ru.png" %}" alt="alt"></div></a></div>
-                      <div class="col-md-6"><a href="{% url "products:jeleyki_ru" %}">
+                      <div class="col-md-6"><a href="{% url "products:jeleyki" %}">
                           <div class="candy-item"><img src="{% static "img/slider/slide-4-ru.png" %}" alt="alt"></div></a></div>
                     </div>
                   </div>

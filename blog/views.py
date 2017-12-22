@@ -14,11 +14,19 @@ class PostListView(MultilangMixin, ListView):
     )
 
     context_object_name = "posts"
+    paginate_by = 2
 
     def get_queryset(self):
         lang = self.kwargs.get('lang', 'ru')
-        return self.model.objects.filter(language=lang)
+        self.search = self.request.GET.get('search', '')
+        if self.search:
+            self.paginate_by = None
+        return self.model.objects.filter(language=lang, name__icontains=self.search)
 
+    def get_context_data(self, **kwargs):
+        context = super(PostListView, self).get_context_data(**kwargs)
+        context["search"] = self.search
+        return context
 
 
 class PostDetailView(MultilangMixin, DetailView):
