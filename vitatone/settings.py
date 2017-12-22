@@ -154,7 +154,7 @@ MEDIA_URL = '/media/'
 
 
 if 'HEROKU_PROD' in os.environ:
-    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    STATIC_ROOT = os.path.join(BASE_DIR, "assets")
     STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
