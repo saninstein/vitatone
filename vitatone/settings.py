@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'sortedm2m',
+    'sorl.thumbnail',
     'blog.apps.BlogConfig',
     'products.apps.ProductsConfig',
     'general.apps.GeneralConfig'

@@ -10,10 +10,15 @@
     {% endwith %}
 {% endblock head %}
 {% block stylesheets %}
-    {{ block.super }}
-    <link rel="stylesheet" href="{% static "css/new-styles.css" %}">
-    <link rel="stylesheet" href="{% static "css/styles_nabor.css" %}">
-    <link rel="stylesheet" href="{% static "css/flipclock.css" %}">
+    <link rel="stylesheet" href="{% static '_css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '_css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static '_css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static '_css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static '_css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static '_css/main.css' %}">
+    <link rel="stylesheet" href="{% static '_css/new-styles.css' %}">
+    <link rel="stylesheet" href="{% static '_css/styles_nabor.css' %}">
+    <link rel="stylesheet" href="{% static '_css/flipclock.css' %}">
 {% endblock stylesheets %}
 
 {% block content %}
@@ -63,7 +68,6 @@
         </div>
       </section>
       <!-- Content -->
-      <!-- Content -->
       <section class="nabor-content nabor-content_akcia">
         <div class="container">
           <div class="nabor-top clearfix">
@@ -81,7 +85,20 @@
               </div>
               <div class="col-md-7 col-sm-6">
                 <div class="nabor-box-img"><img src="{% static "img/new/nabor-box.png" %}" alt="alt"></div>
-                <a href="{{ link_nabor }}" id="buy-btn">
+
+
+                  <script>
+                  var trackOutboundLink = function(lang, url) {
+                     ga('send', 'event', 'Исходящие', 'Акция', lang, {
+                       'transport': 'beacon',
+                       'hitCallback': function(){document.location = url;}
+                     });
+                  }
+                  </script>
+
+
+                <a href="{{ link_nabor }}" id="buy-btn"
+                onclick="trackOutboundLink('ua', '{{ link_nabor }}'); return false;">
                     <img src="{% static "uk/img/buy-btn.png" %}" alt="alt">
                 </a>
               </div>
@@ -90,7 +107,7 @@
 		<section class="akcia-timer">
 			<div class="row">
               <div class="col-md-12">
-				  <div class="akcia-timer__headline">та<span class="logo-akcia__text-big-pink"> Вигравай </span>1 з 4 Ігрових консолей PlayStation 4 Pro</div>
+				  <div class="akcia-timer__headline">та<span class="logo-akcia__text-big-pink"> Вигравай </span><br>1 з 4 Ігрову консоль PlayStation 4 Pro</div>
 				  <div class="akcia-timer_image"><img src="{% static "img/ps4.png" %}" alt=""></div>
 				  <div class="akcia-timer_countdown-block">
 					 <div class="akcia-timer_countdown-block-title">До кінця акції залишилось:</div>
@@ -99,18 +116,71 @@
 			  </div>
 			</div>
 		</section>
+        <section class="akcia-mobile clearfix">
+			<div class="akcia-mobile__headline">Акція</div>
+			<div class="akcia-mobile__sell">
+				<div class="akcia-mobile__col-headline">Купуй</div>
+				<div class="nabor-box-img"><img src="{% static "img/new/nabor-box.png" %}" alt="alt"></div>
+				<a href="{{ link_nabor }}" class="buy-btn"><img src="{% static "img/buy-btn-mob.png" %}" alt="alt"></a>
+				<div class="akcia-mobile__col-bottom-text">До подарункового набору входить:</div>
+			</div>
+			<div class="akcia-mobile__timer">
+				<div class="akcia-mobile__col-headline">Вигравай</div>
+				<div class="akcia-mobile__col-subheadline">PlayStation 4 Pro</div>
+				<div class="akcia-mobile__timer-image"><img src="{% static "img/ps4-mob.png" %}" alt=""></div>
+				<div class="akcia-timer_countdown-block">
+					<div class="akcia-timer_countdown-block-title">До кінця акції залишилось:</div>
+					<div class="akcia-timer_countdown-block-container-m"></div>
+				</div>
+			</div>
+			<div class="akcia-mobile__list">
+				<div class="akcia-mobile__list-item akcia-mobile__list-item_1 clearfix">
+					<div class="akcia-mobile__list-image"><img src="{% static "img/nabor-1-mob.png" %}" alt=""></div>
+					<div class="akcia-mobile__list-item-content clearfix">
+						<div class="akcia-mobile__list-item-left">
+							<img src="{% static "img/logo-mob.png" %}" alt="">
+							<p>пастилки желейні з вітамінами №80</p>
+						</div>
+						<div class="akcia-mobile__list-item-right">
+							<p><span class="akcia-mobile__list-orange">ВІТАМІННо-МІНЕРАЛЬНИЙ КОМПЛЕКС </span>з додаванням <br><span class="akcia-mobile__list-orange">НАТУРАЛЬНИХ СОКІВ</span></p>
+						</div>
+					</div>
+				</div>
+				<div class="akcia-mobile__list-item akcia-mobile__list-item_2 clearfix">
+					<div class="akcia-mobile__list-image"><img src="{% static "img/nabor-2-mob.png" %}" alt=""></div>
+					<div class="akcia-mobile__list-item-content clearfix">
+						<div class="akcia-mobile__list-item-left">
+							<img src="{% static "img/logo-mob.png" %}" alt="">
+							<p>таблетки шипучі зі смаком мандарину №50</p>
+						</div>
+						<div class="akcia-mobile__list-item-right">
+							<p><span class="akcia-mobile__list-orange">ВІТАМІННо-МІНЕРАЛЬНИЙ КОМПЛЕКС </span>для дiтей <br>для дiтей</p>
+						</div>
+					</div>
+				</div>
+				<div class="akcia-mobile__list-item akcia-mobile__list-item_3 clearfix">
+					<div class="akcia-mobile__list-image"><img src="{% static "img/nabor-3-mob.png" %}" alt=""></div>
+					<div class="akcia-mobile__list-item-content clearfix">
+						<div class="akcia-mobile__list-item-left">
+							<img src="{% static "img/logo-mob.png" %}" alt="">
+							<p>Плюшева іграшка: один з героїв мультфільму «Губка Боб Квадратні Штани»</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
           <section class="akcia-content">
             <div class="row">
               <div class="col-md-12">
 				  <div class="akcia-content__headline">Умови акції:</div>
 				  <ul class="akcia-content__list">
-					  <li class="akcia-content__li-1">{{ item.condition1 | safe }}</li>
-					  <li class="akcia-content__li-2">{{ item.condition2 | safe }}</li>
-					  <li class="akcia-content__li-3">{{ item.condition3 | safe }}</li>
-					  <li class="akcia-content__li-4">{{ item.condition4 | safe }}</li>
-					  <li class="akcia-content__li-5">{{ item.condition5 | safe }}</li>
-					  <li class="akcia-content__li-6">{{ item.condition6 | safe }}</li>
-				  </ul>
+            <li class="akcia-content__li-1">{{ item.condition1 | safe }}</li>
+            <li class="akcia-content__li-2">{{ item.condition2 | safe }}</li>
+            <li class="akcia-content__li-3">{{ item.condition3 | safe }}</li>
+            <li class="akcia-content__li-4">{{ item.condition4 | safe }}</li>
+            <li class="akcia-content__li-5">{{ item.condition5 | safe }}</li>
+            <li class="akcia-content__li-6">{{ item.condition6 | safe }}</li>
+          </ul>
 			  </div>
             </div>
           </section>
@@ -150,9 +220,7 @@
               </div>
             </div>
           </section>
-
         </div>
-
       </section>
     </div>
         <footer id="footer" class="nabor-footer">
@@ -198,26 +266,45 @@
     {{ block.super }}
     <script src="{% static 'js/flipclock.min.js' %}"></script>
     <script type="text/javascript">
-    console.log("{{ item.date }}")
-		var clock;
-		$(document).ready(function() {
-			var clock;
-			clock = $('.akcia-timer_countdown-block-container').FlipClock({
-		        clockFace: 'DailyCounter',
-				language: 'ru',
-		        autoStart: false,
-		        callbacks: {
-		        	stop: function() {
-		        		$('.message').html('The clock has stopped!')
-		        	}
-		        }
-		    });
-        var end = (new Date('2017-12-28')).getTime();
+    var clock;
+    $(document).ready(function() {
+        var end = Date.parse("{{ item.date|date:"Y-m-d" }}");
+
         var now = Date.now();
-        console.log(end + " " + now)
-		    clock.setTime((end - now) / 1000);
-		    clock.setCountdown(true);
-		    clock.start();
-		});
+        var time = (end - now) / 1000;
+      var clock;
+      clock = $('.akcia-timer_countdown-block-container').FlipClock({
+            clockFace: 'DailyCounter',
+        language: 'ru',
+            autoStart: false,
+            callbacks: {
+              stop: function() {
+                $('.message').html('The clock has stopped!')
+              }
+            }
+        });
+        clock.setTime(time);
+        clock.setCountdown(true);
+        clock.start();
+      var clockm;
+      clockm = $('.akcia-timer_countdown-block-container-m').FlipClock({
+            clockFace: 'DailyCounter',
+        language: 'ru',
+            autoStart: false,
+            callbacks: {
+              stop: function() {
+                $('.message').html('The clock has stopped!')
+              }
+            }
+        });
+        clockm.setTime(time);
+        clockm.setCountdown(true);
+        clockm.start();
+
+        $('.flip-clock-divider.days .flip-clock-label').html('Днiв');
+      $('.flip-clock-divider.hours .flip-clock-label').html('Годин');
+      $('.flip-clock-divider.minutes .flip-clock-label').html('Хвилин');
+      $('.flip-clock-divider.seconds .flip-clock-label').html('Секунд');
+    });
 	</script>
 {% endblock %}

@@ -39,12 +39,7 @@ class Post(models.Model):
         help_text="Выберете картинку",
     )
 
-    image_thumb2 = models.ImageField(
-        upload_to=get_image_path,
-        verbose_name="Миниатюра для списка статей",
-        help_text="Выберете картинку",
-        blank=True
-    )
+
     date = models.DateField(default=timezone.now)
     products = SortedManyToManyField(Product, verbose_name="Продукты")
     posts = SortedManyToManyField(PostLink, verbose_name="Прикреплённые статьи")

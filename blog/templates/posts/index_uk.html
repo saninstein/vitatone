@@ -1,4 +1,5 @@
 {% load static %}
+{% load thumbnail %}
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -142,7 +143,13 @@
                     {% for post in posts %}
 					<div class="category-list__item">
 						<div class="category-list__col category-list__col_image">
-							<div class="category-list__image"><a href="{{ post.get_absolute_url }}"><img src="{% static "img/blogcat-1.jpg" %}" alt=""></a></div>
+							<div class="category-list__image">
+                                <a href="{{ post.get_absolute_url }}">
+                                    {% thumbnail post.post.image "552x379" crop="center" as im %}
+                                    <img src="{{ im.url }}" alt="alt">
+                                    {% endthumbnail %}
+                                </a>
+                            </div>
 						</div>
 						<div class="category-list__col category-list__col_content">
 							<div class="category-list__name"><a href="{{ post.get_absolute_url }}">{{ post.name }}</a></div>
