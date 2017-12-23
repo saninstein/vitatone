@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'vitatone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-if 'PREPROD' in os.environ:
+if 'PREPROD' or 'SUDO_USER' in os.environ:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
