@@ -28,7 +28,7 @@ class GeneralProduct(models.Model):
 class General(models.Model):
     class Meta:
         verbose_name = "  Мета главная"
-        verbose_name_plural = "  Мета глававная"
+        verbose_name_plural = "  Мета главная"
 
     url_ru = "akcia_ru"
     url = "akcia"
