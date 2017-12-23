@@ -40,7 +40,7 @@ class MultiVitaminModelForm(forms.ModelForm):
 
     class Meta:
         model = MultiVitamin
-        fields = ["language", "product", "popup"]
+        fields = ["language", "product", "popup", "link"]
 
 
 class VitaminCModelForm(forms.ModelForm):
@@ -51,7 +51,7 @@ class VitaminCModelForm(forms.ModelForm):
 
     class Meta:
         model = VitaminC
-        fields = ["language", "product", "popup", "text1", "text2"]
+        fields = ["language", "product", "popup", "text1", "text2", "link"]
 
 
 class UkachivanieModelForm(forms.ModelForm):
@@ -60,7 +60,7 @@ class UkachivanieModelForm(forms.ModelForm):
 
     class Meta:
         model = Ukachivanie
-        fields = ["language", "product", "popup", "text"]
+        fields = ["language", "product", "popup", "text", "link"]
 
 
 

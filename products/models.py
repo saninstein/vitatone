@@ -183,6 +183,8 @@ class MultiVitamin(SingletoneModel):
     url_ru = "multivitamin_ru"
     url = "multivitamin"
 
+    link = models.URLField(verbose_name="Ссылка кнопки Купить", blank=True)
+
 
 class VitaminC(SingletoneModel):
     class Meta:
@@ -193,6 +195,7 @@ class VitaminC(SingletoneModel):
 
     text1 = models.TextField(verbose_name="Текст 1", blank=True)
     text2 = models.TextField(verbose_name="Текст 2", blank=True)
+    link = models.URLField(verbose_name="Ссылка кнопки Купить", blank=True)
 
 
 class Ukachivanie(SingletoneModel):
@@ -203,6 +206,7 @@ class Ukachivanie(SingletoneModel):
     url = "ukachivanie"
 
     text = models.TextField(verbose_name="Текст", blank=True)
+    link = models.URLField(verbose_name="Ссылка кнопки Купить", blank=True)
 
 
 class Jeleyki(SingletoneModel):
