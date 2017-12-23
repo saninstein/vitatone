@@ -63,12 +63,10 @@ class Post(models.Model):
         if self.pk is None:
             img = self.image
             img_thumb = self.image_thumb
-            img_thumb2 = self.image_thumb2
             self.image = None
             super(Post, self).save(*args, **kwargs)
             self.image = img
             self.image_thumb = img_thumb
-            self.image_thumb2 = img_thumb2
 
             link = PostLink()
             link._post = self
