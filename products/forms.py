@@ -4,6 +4,17 @@ from ckeditor.widgets import CKEditorWidget
 from .models import *
 
 
+class LanguageReadOnlyMetaMixin():
+    widgets = {
+        'language': forms.TextInput(
+            attrs={'readonly': 'readonly', 'style': 'border-color:white;'}
+        ),
+        'product': forms.TextInput(
+            attrs={'readonly': 'readonly', 'style': 'border-color:white;display:none;'}
+        )
+    }
+
+
 class ProductBodyModelForm(forms.ModelForm):
 
     class Meta:
@@ -30,7 +41,7 @@ class MultiOmegaModelForm(forms.ModelForm):
     popup = forms.CharField(widget=CKEditorWidget())
     text = forms.CharField(widget=CKEditorWidget(config_name='off-p'))
 
-    class Meta:
+    class Meta(LanguageReadOnlyMetaMixin):
         model = MultiOmega
         fields = ["language", "product", "products", "posts", "popup", "text", "link"]
 
@@ -38,7 +49,7 @@ class MultiOmegaModelForm(forms.ModelForm):
 class MultiVitaminModelForm(forms.ModelForm):
     popup = forms.CharField(widget=CKEditorWidget())
 
-    class Meta:
+    class Meta(LanguageReadOnlyMetaMixin):
         model = MultiVitamin
         fields = ["language", "product", "popup", "link"]
 
@@ -49,7 +60,7 @@ class VitaminCModelForm(forms.ModelForm):
     text1 = forms.CharField(widget=CKEditorWidget())
     text2 = forms.CharField(widget=CKEditorWidget())
 
-    class Meta:
+    class Meta(LanguageReadOnlyMetaMixin):
         model = VitaminC
         fields = ["language", "product", "popup", "text1", "text2", "link"]
 
@@ -58,7 +69,7 @@ class UkachivanieModelForm(forms.ModelForm):
     popup = forms.CharField(widget=CKEditorWidget())
     text = forms.CharField(widget=CKEditorWidget())
 
-    class Meta:
+    class Meta(LanguageReadOnlyMetaMixin):
         model = Ukachivanie
         fields = ["language", "product", "popup", "text", "link"]
 
@@ -66,7 +77,7 @@ class UkachivanieModelForm(forms.ModelForm):
 
 class JeleykiModelForm(forms.ModelForm):
 
-    class Meta:
+    class Meta(LanguageReadOnlyMetaMixin):
         model = Jeleyki
         fields = ["language", "product", "text1", "text2"]
 
@@ -74,13 +85,13 @@ class JeleykiModelForm(forms.ModelForm):
 class ShipuchieModelForm(forms.ModelForm):
     popup = forms.CharField(widget=CKEditorWidget())
 
-    class Meta:
+    class Meta(LanguageReadOnlyMetaMixin):
         model = Shipuchie
         fields = ["language", "product", "popup"]
 
 
 class NaborModelForm(forms.ModelForm):
 
-    class Meta:
+    class Meta(LanguageReadOnlyMetaMixin):
         model = Nabor
         fields = ["language", "product", "link"]
