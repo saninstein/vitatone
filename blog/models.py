@@ -64,6 +64,7 @@ class Post(models.Model):
             img = self.image
             img_thumb = self.image_thumb
             self.image = None
+            self.image_thumb = None
             super(Post, self).save(*args, **kwargs)
             self.image = img
             self.image_thumb = img_thumb

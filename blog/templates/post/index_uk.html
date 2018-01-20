@@ -50,7 +50,7 @@
                     <li class="active"><a href="{% url "blog:posts" "uk" %}" class="menu-item-has-children">Важливо знати</a></li>
                   <li><a href="{% url "products:ditochkam" 'uk' %}">Діточкам</a></li>
                   <li><a href="{% url "products:general_uk" %}/#our-contacts">Контакти</a></li>
-                    <li><a href="{% url "products:akcia" "uk" %}#our-contacts">Акція</a></li>
+                    {% if stock %}<li><a href="{% url "products:akcia" "uk" %}">Акція</a></li>{% endif %}
                 </ul>
               </nav>
               <div class="main-menu-toggle">

@@ -864,7 +864,7 @@ strong {
 
 .vitamin-c-content {
   position: relative;
-  z-index: 100;
+  z-index: 2;
   margin-bottom: 25px; }
   .vitamin-c-content .vitamin-menu {
     background: url(../img/vitamine-c-content-bg.png) no-repeat bottom center;

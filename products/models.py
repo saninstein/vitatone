@@ -169,11 +169,11 @@ class MultiOmega(SingletoneModel):
     url_ru = "multiomega_ru"
     url = "multiomega"
 
-    products = SortedManyToManyField(Product, verbose_name="Попробуй ещё(редактировать только в ru)")
-    posts = SortedManyToManyField("blog.Post", verbose_name="Прикриплённые статьи(редактировать только в ru)")
+    products = SortedManyToManyField(Product, verbose_name="Попробуй ещё(редактировать только в ru)", blank=True)
+    posts = SortedManyToManyField("blog.Post", verbose_name="Прикриплённые статьи(редактировать только в ru)", blank=True)
 
     text = models.TextField(verbose_name="Текст", blank=True)
-    link = models.URLField(verbose_name="Ссылка 'Читать дальше'", blank=True)
+    link = models.CharField(verbose_name="Ссылка 'Читать дальше'", max_length=200, blank=True)
 
 
 class MultiVitamin(SingletoneModel):
@@ -298,6 +298,7 @@ class Akciya(models.Model):
         ("en", "en"),
     )
 
+    is_active = models.BooleanField(verbose_name="Активно", default=False)
     language = models.CharField(max_length=10, choices=languages, default=languages[0][0], verbose_name="Язык")
     title = models.CharField(max_length=200, verbose_name="Title", blank=True)
     description = models.TextField(max_length=300, verbose_name="Description", blank=True)

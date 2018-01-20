@@ -1,4 +1,4 @@
-from django.http import Http404
+from django.db.models import Q
 from django.views.generic import ListView, DetailView
 from .models import Post, PostBody
 from products.views import MultilangMixin
@@ -18,11 +18,13 @@ class PostListView(MultilangMixin, ListView):
 
     def get_queryset(self):
         lang = self.kwargs.get('lang', 'ru')
-        print(lang)
         self.search = self.request.GET.get('search', '')
         if self.search:
             self.paginate_by = None
-        return self.model.objects.filter(language=lang, name__icontains=self.search)
+        return self.model.objects.filter(
+            Q(language=lang),
+            Q(name__icontains=self.search) | Q(text__icontains=self.search)
+        )
 
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
