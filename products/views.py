@@ -1,6 +1,7 @@
-from django.views.generic import DetailView, TemplateView
+from django.views.generic import DetailView, TemplateView, RedirectView
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse, Http404
+from django.urls import reverse_lazy
 from blog.models import PostBody
 from general.models import GeneralProduct, General
 from .models import *
@@ -164,6 +165,13 @@ def list_ajax(req, lang='ru'):
             l.append(d)
         res[f'category{i}'] = l
     return JsonResponse(res)
+
+
+class LangRedirect(RedirectView):
+    def get_redirect_url(self, lang, *args, **kwargs):
+        return reverse_lazy(self.pattern_name, kwargs={'lang': lang})
+
+
 
 
 
